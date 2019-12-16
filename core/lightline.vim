@@ -102,8 +102,8 @@ endfunction
 
 function! s:lightline_modified() abort
     return s:lightline_is_lean() || s:lightline_is_plain() ?  ''  :
-    \ &modified ?  '+' :
-    \ &modifiable ?  ''  : '-'
+        \ &modified ?  '+' :
+        \ &modifiable ?  ''  : '-'
 endfunction
 
 function! LightLineReadonly()

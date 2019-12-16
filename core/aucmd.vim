@@ -4,8 +4,8 @@ augroup  MyAutoCmd
 	autocmd!
 
 	" Reload vim config automatically
-	" autocmd BufWritePost $VIM_PATH/{*.vim,*.yaml} nested
-	"         \ source $MYVIMRC | redraw
+	autocmd BufWritePost $VIM_PATH/{*.vim,*.yaml} nested
+		\ source $MYVIMRC | redraw
 
 	" Highlight current line only on focused window
 	autocmd WinEnter,InsertLeave * if &ft !~# 'denite' | set cursorline | endif
@@ -31,24 +31,24 @@ augroup  MyAutoCmd
 
 	" Update filetype on save if empty
 	autocmd BufWritePost * nested
-			\ if &l:filetype ==# '' || exists('b:ftdetect')
-			\ |   unlet! b:ftdetect
-			\ |   filetype detect
-			\ | endif
+		\ if &l:filetype ==# '' || exists('b:ftdetect')
+		\ |   unlet! b:ftdetect
+		\ |   filetype detect
+		\ | endif
 
 	" Reload Vim script automatically if setlocal autoread
 	autocmd BufWritePost,FileWritePost *.vim nested
-			\ if &l:autoread > 0 | source <afile> |
-			\   echo 'source '.bufname('%') |
-			\ endif
+		\ if &l:autoread > 0 | source <afile> |
+		\   echo 'source '.bufname('%') |
+		\ endif
 
 	" When editing a file, always jump to the last known cursor position.
 	" Don't do it when the position is invalid or when inside an event handler
 	autocmd BufReadPost *
-			\ if &ft !~# 'commit' && ! &diff &&
-			\      line("'\"") >= 1 && line("'\"") <= line("$")
-			\|   execute 'normal! g`"zvzz'
-			\| endif
+		\ if &ft !~# 'commit' && ! &diff &&
+		\      line("'\"") >= 1 && line("'\"") <= line("$")
+		\|   execute 'normal! g`"zvzz'
+		\| endif
 
 	" Filetype
 	autocmd FileType crontab setlocal nobackup nowritebackup
@@ -61,21 +61,21 @@ augroup  MyAutoCmd
 	autocmd FileType css,javascript,jsx,javascript.jsx setlocal backupcopy=yes
 
 	autocmd FileType php
-			\ setlocal matchpairs-=<:> iskeyword+=\\ path+=/usr/local/share/pear
+		\ setlocal matchpairs-=<:> iskeyword+=\\ path+=/usr/local/share/pear
 	"		\ | setlocal formatoptions=qroct " Correct indent after opening a phpdocblock
 
 	autocmd FileType python
-			\ setlocal foldmethod=indent expandtab smarttab nosmartindent
-			\ | setlocal tabstop=4 softtabstop=4 shiftwidth=4 textwidth=79
-			\ | setlocal matchpairs-=<:>
+		\ setlocal foldmethod=indent expandtab smarttab nosmartindent
+		\ | setlocal tabstop=4 softtabstop=4 shiftwidth=4 textwidth=79
+		\ | setlocal matchpairs-=<:>
 
 	autocmd FileType zsh setlocal shiftwidth=4 foldenable foldmethod=marker
 
 	autocmd FileType html setlocal path+=./;/ shiftwidth=2 foldenable foldmethod=indent
 
 	autocmd FileType markdown
-			\ setlocal expandtab nospell conceallevel=0
-			\ | setlocal autoindent formatoptions=tcroqn2 comments=n:>
+		\ setlocal expandtab nospell conceallevel=0
+		\ | setlocal autoindent formatoptions=tcroqn2 comments=n:>
 
 	autocmd FileType apache setlocal path+=./;/
 	autocmd FileType cam setlocal nonumber synmaxcol=10000

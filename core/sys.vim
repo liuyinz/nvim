@@ -69,7 +69,7 @@ set diffopt=internal,filler,vertical,context:0
 set packpath=
 set linebreak
 set breakindent
-set showbreak=---->
+set showbreak=--->
 set nostartofline
 set whichwrap+=h,l,<,>,[,],~
 set splitbelow splitright
@@ -99,9 +99,9 @@ set fileformats=unix,dos
 " Tabs and Indents
 "-----------------------------
 set expandtab
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
 set smarttab
 set autoindent
 set smartindent
