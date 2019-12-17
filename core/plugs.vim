@@ -16,9 +16,9 @@ let g:coc_global_extensions =[
 let g:ultisnips_python_style = "google"
 let g:ultisnips_python_triple_quoting_style = "single"
 augroup CocAuto
-  autocmd!
-  " Update signature help on jump placeholder
-  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+    autocmd!
+    " Update signature help on jump placeholder
+    autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 augroup end
 
 " coc-list
@@ -173,33 +173,33 @@ nnoremap <silent> <Leader>t :<C-U>Goyo<CR>
 " s:goyo_enter()
 " Disable visual candy in Goyo mode
 function! s:goyo_enter()
-  if has('gui_running')
-    " Gui fullscreen
-    set fullscreen
-    set background=light
-    set linespace=7
-  elseif exists('$TMUX')
-    " Hide tmux status
-    silent !tmux set status off
-  endif
-  " Activate Limelight
-  Limelight
+    if has('gui_running')
+        " Gui fullscreen
+        set fullscreen
+        set background=light
+        set linespace=7
+    elseif exists('$TMUX')
+        " Hide tmux status
+        silent !tmux set status off
+    endif
+    " Activate Limelight
+    Limelight
 endfunction
 
 " s:goyo_leave()
 " Enable visuals when leaving Goyo mode
 function! s:goyo_leave()
-  if has('gui_running')
-    " Gui exit fullscreen
-    set nofullscreen
-    set background=dark
-    set linespace=0
-  elseif exists('$TMUX')
-    " Show tmux status
-    silent !tmux set status on
-  endif
-  " De-activate Limelight
-  Limelight!
+    if has('gui_running')
+        " Gui exit fullscreen
+        set nofullscreen
+        set background=dark
+        set linespace=0
+    elseif exists('$TMUX')
+        " Show tmux status
+        silent !tmux set status on
+    endif
+    " De-activate Limelight
+    Limelight!
 endfunction
 
 
@@ -606,5 +606,5 @@ let g:echodoc#type = 'echo'
 
 " Polyglot
 " -----------------------------
-let g:polyglot_disabled = ['markdown']
+let g:polyglot_disabled = ['markdown','html']
 let g:python_highlight_all = 1
