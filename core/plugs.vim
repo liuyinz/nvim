@@ -8,23 +8,20 @@ let g:coc_snippet_prev = '<S-TAB>'
 let g:coc_status_error_sign = '•'
 let g:coc_status_warning_sign = '•'
 let g:coc_global_extensions =[
-  \ 'coc-lists', 'coc-marketplace', 'coc-explorer','coc-translator',
+  \ 'coc-lists', 'coc-marketplace', 'coc-translator',
   \ 'coc-json','coc-yaml','coc-python', 'coc-snippets', 'coc-vimlsp',
   \ 'coc-html', 'coc-css','coc-tsserver', 'coc-vetur', 'coc-emmet',
   \ 'coc-angular', 'coc-svg', 'coc-gitignore','coc-git','coc-yank',
   \]
-let g:ultisnips_python_style = "google"
-let g:ultisnips_python_triple_quoting_style = "single"
 augroup CocAuto
-    autocmd!
-    " Update signature help on jump placeholder
-    autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+  autocmd!
+  " Update signature help on jump placeholder
+  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 augroup end
 
 " coc-list
 inoremap <expr>   <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 nnoremap <silent> <localleader>d  :<C-u>CocList diagnostics<cr>
-nnoremap <silent> <leader>e  :<C-u>CocCommand explorer<cr>
 nnoremap <silent> <localleader>v  :<C-u>CocList vimcommands<cr>
 nnoremap <silent> <localleader>q  :<C-u>CocList quickfix<cr>
 " nnoremap <silent> <localleader>j  :<C-u>CocNext<CR>
@@ -173,33 +170,33 @@ nnoremap <silent> <Leader>t :<C-U>Goyo<CR>
 " s:goyo_enter()
 " Disable visual candy in Goyo mode
 function! s:goyo_enter()
-    if has('gui_running')
-        " Gui fullscreen
-        set fullscreen
-        set background=light
-        set linespace=7
-    elseif exists('$TMUX')
-        " Hide tmux status
-        silent !tmux set status off
-    endif
-    " Activate Limelight
-    Limelight
+  if has('gui_running')
+    " Gui fullscreen
+    set fullscreen
+    set background=light
+    set linespace=7
+  elseif exists('$TMUX')
+    " Hide tmux status
+    silent !tmux set status off
+  endif
+  " Activate Limelight
+  Limelight
 endfunction
 
 " s:goyo_leave()
 " Enable visuals when leaving Goyo mode
 function! s:goyo_leave()
-    if has('gui_running')
-        " Gui exit fullscreen
-        set nofullscreen
-        set background=dark
-        set linespace=0
-    elseif exists('$TMUX')
-        " Show tmux status
-        silent !tmux set status on
-    endif
-    " De-activate Limelight
-    Limelight!
+  if has('gui_running')
+    " Gui exit fullscreen
+    set nofullscreen
+    set background=dark
+    set linespace=0
+  elseif exists('$TMUX')
+    " Show tmux status
+    silent !tmux set status on
+  endif
+  " De-activate Limelight
+  Limelight!
 endfunction
 
 
@@ -603,6 +600,18 @@ let g:rooter_use_lcd = 1
 "
 let g:echodoc#enable_at_startup = 1
 let g:echodoc#type = 'echo'
+
+
+" vim-snippets
+" -----------------------------
+let g:ultisnips_python_style = "google"
+let g:ultisnips_python_triple_quoting_style = "single"
+let g:ultisnips_javascript = {
+  \ 'keyword-spacing': 'always',
+  \ 'semi': 'never',
+  \ 'space-before-function-paren': 'always',
+  \ }
+
 
 " Polyglot
 " -----------------------------

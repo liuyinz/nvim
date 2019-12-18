@@ -9,7 +9,7 @@
   "suggest.numberSelect": false,
   "suggest.disableKind": false,
   "suggest.disableMenu": false,
-  "suggest.snippetIndicator": "🌟",
+  "suggest.snippetIndicator": "Ⓢ ",
   "suggest.maxCompleteItemCount": 50,
   "suggest.preferCompleteThanJumpPlaceholder": false,
   "suggest.fixInsertedWord": true,
@@ -112,13 +112,10 @@
   "coc.preferences.formatOnType": true,
   "coc.preferences.snippets.enable": true,
   // snippets
-  "snippets.loadFromExtensions": true,
-  "snippets.ultisnips.enable": false,
+  "snippets.loadFromExtensions": false,
+  "snippets.ultisnips.enable": true,
   "snippets.snipmate.enable": false,
-  "snippets.ultisnips.directories": [
-    "UltiSnips",
-    "~/.config/nvim/snippets"
-  ],
+  "snippets.ultisnips.directories": ["~/.config/nvim/snippets"],
   "snippets.extends": {
     "cpp": ["c"],
     "javascriptreact": ["javascript"],
@@ -170,16 +167,12 @@
   "python.terminal.executeInFileDir": true,
   // Viml
   "vimlsp.debug": true,
-  "vimlsp.trace.server": "verbose",   // "enum": ["off", "messages", "verbose"],
+  "vimlsp.trace.server": "verbose", // "enum": ["off", "messages", "verbose"],
   "vimlsp.diagnostic.enable": true,
   "vimlsp.indexes.runtimepath": true,
   "vimlsp.indexes.count": 5,
   "vimlsp.indexes.gap": 50,
-  "vimlsp.indexes.projectRootPatterns": [
-    ".git",
-    "autoload",
-    "plugin"
-  ],
+  "vimlsp.indexes.projectRootPatterns": [".git", "autoload", "plugin"],
   "vimlsp.suggest.fromVimruntime": true,
   "vimlsp.suggest.fromRuntimepath": true,
   //language server
@@ -193,12 +186,18 @@
     "ccls": {
       "command": "ccls",
       "filetypes": ["c", "cpp", "objc", "objcpp"],
-      "rootPatterns": [".ccls", "compile_commands.json", ".vim/", ".git/", ".hg/"],
+      "rootPatterns": [
+        ".ccls",
+        "compile_commands.json",
+        ".vim/",
+        ".git/",
+        ".hg/"
+      ],
       "initializationOptions": {
-         "cache": {
-           "directory": "/tmp/ccls"
-         }
-       }
+        "cache": {
+          "directory": "/tmp/ccls"
+        }
+      }
     }
   },
   "git.enableGutters": true

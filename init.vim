@@ -23,43 +23,43 @@ let $VIM_PATH = fnamemodify(resolve(expand('<sfile>:p')), ':h')
 let $DATA_PATH = expand('~/.cache'.'/nvim')
 
 if has('vim_starting')
-    if &runtimepath !~# $VIM_PATH
-        set runtimepath^=$VIM_PATH
+  if &runtimepath !~# $VIM_PATH
+    set runtimepath^=$VIM_PATH
+  endif
+
+  " Ensure data directories
+  for s:path in [
+    \ $DATA_PATH,
+    \ $DATA_PATH . '/undo',
+    \ $DATA_PATH . '/sessions',
+    \ $DATA_PATH . '/plugged',
+    \ ]
+    if ! isdirectory(s:path)
+      call mkdir(s:path, 'p')
     endif
+  endfor
 
-    " Ensure data directories
-    for s:path in [
-      \ $DATA_PATH,
-      \ $DATA_PATH . '/undo',
-      \ $DATA_PATH . '/sessions',
-      \ $DATA_PATH . '/plugged',
-      \ ]
-        if ! isdirectory(s:path)
-            call mkdir(s:path, 'p')
-        endif
-    endfor
+  " install vim-plug
+  if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
+    silent !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs
+      \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+  endif
 
-    " install vim-plug
-    if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
-        silent !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs
-          \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-        autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-    endif
+  " set host
+  let g:python3_host_prog = '/usr/local/bin/python3'
+  let g:ruby_host_prog = '/usr/local/opt/ruby/bin/ruby'
 
-    " set host
-    let g:python3_host_prog = '/usr/local/bin/python3'
-    let g:ruby_host_prog = '/usr/local/opt/ruby/bin/ruby'
-
-    " Release keymappings prefixes, evict entirely for use of plug-ins.
-    nnoremap <Space>  <Nop>
-    xnoremap <Space>  <Nop>
-    nnoremap ,        <Nop>
-    xnoremap ,        <Nop>
-    nnoremap ;        <Nop>
-    xnoremap ;        <Nop>
-    " Initialize base requirements
-    let g:mapleader="\<Space>"
-    let g:maplocalleader=';'
+  " Release keymappings prefixes, evict entirely for use of plug-ins.
+  nnoremap <Space>  <Nop>
+  xnoremap <Space>  <Nop>
+  nnoremap ,        <Nop>
+  xnoremap ,        <Nop>
+  nnoremap ;        <Nop>
+  xnoremap ;        <Nop>
+  " Initialize base requirements
+  let g:mapleader="\<Space>"
+  let g:maplocalleader=';'
 
 endif
 
@@ -120,15 +120,11 @@ Plug 'ybian/smartim'
 Plug 'JGShaw/dash.vim'
 Plug 'tyru/open-browser.vim'
 " Lang
-Plug 'honza/vim-snippets'
 Plug 'sbdchd/vim-shebang', { 'on' : 'ShebangInsert'}
 ""JS,TS
-" Plug 'pangloss/vim-javascript'
-" Plug 'leafgarland/typescript-vim', { 'for' : 'tsx'}
 Plug 'peitalin/vim-jsx-typescript', { 'for' : 'tsx'}
 ""Python
 Plug 'heavenshell/vim-pydocstring', { 'for' : 'python' }
-" Plug 'vim-python/python-syntax', { 'for' : 'python'}
 ""Markdown
 " Plug 'godlygeek/tabular', { 'for' : 'markdown'}
 " Plug 'plasticboy/vim-markdown', { 'for' : 'markdown'}
@@ -137,12 +133,8 @@ Plug 'iamcco/markdown-preview.nvim', {
   \'for' : [ 'markdown', 'pandoc.markdown', 'rmd'],
   \'on' : 'MarkdownPreview'}
 ""Html,Xml
-" Plug 'amadeus/vim-xml', { 'for' : 'xml' }
-" Plug 'othree/html5.vim', { 'for' : 'html'}
 Plug 'Valloric/MatchTagAlways', { 'for' : ['html', 'xml', 'xhtml', 'jinja' ]}
 ""other
-" Plug 'MTDL9/vim-log-highlighting', { 'for' : 'log' }
-" Plug 'cespare/vim-toml', { 'for' : 'toml'}
 Plug 'neoclide/jsonc.vim', { 'for' : 'jsonc' }
 Plug 'sheerun/vim-polyglot'
 
@@ -150,5 +142,5 @@ call plug#end()
 
 " source core/*.vim
 for s:path in split(glob($VIM_PATH . '/core/*.vim'), "\n")
-    exe 'source ' . s:path
+  exe 'source ' . s:path
 endfor
