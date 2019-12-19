@@ -1,22 +1,22 @@
 " Disable pre-bundled plugins
-let g:loaded_getscript = 1
-let g:loaded_getscriptPlugin = 1
-let g:loaded_gzip = 1
-let g:loaded_logiPat = 1
-let g:loaded_matchit = 1
-let g:loaded_rrhelper = 1
-let g:loaded_shada_plugin = 1
-let g:loaded_tar = 1
-let g:loaded_tarPlugin = 1
+let g:loaded_getscript         = 1
+let g:loaded_getscriptPlugin   = 1
+let g:loaded_gzip              = 1
+let g:loaded_logiPat           = 1
+let g:loaded_matchit           = 1
+let g:loaded_rrhelper          = 1
+let g:loaded_shada_plugin      = 1
+let g:loaded_tar               = 1
+let g:loaded_tarPlugin         = 1
 let g:loaded_tutor_mode_plugin = 1
-let g:loaded_2html_plugin = 1
-let g:loaded_vimball = 1
-let g:loaded_vimballPlugin = 1
-let g:loaded_zip = 1
-let g:loaded_zipPlugin = 1
-let g:loaded_netrw       = 1
-let g:loaded_netrwPlugin = 1
-let g:netrw_nogx = 1
+let g:loaded_2html_plugin      = 1
+let g:loaded_vimball           = 1
+let g:loaded_vimballPlugin     = 1
+let g:loaded_zip               = 1
+let g:loaded_zipPlugin         = 1
+" let g:loaded_netrw             = 1
+" let g:loaded_netrwPlugin       = 1
+let g:netrw_nogx               = 1
 
 " Set main configuration directory, and where cache is stored.
 let $VIM_PATH = fnamemodify(resolve(expand('<sfile>:p')), ':h')
@@ -96,7 +96,6 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'kana/vim-niceblock'
 Plug 'romainl/vim-cool'
 Plug 'Shougo/echodoc.vim'
-Plug 'editorconfig/editorconfig-vim'
 " Plug 'mg979/vim-visual-multi'
 " Plug 'brooth/far.vim'
 " motion
@@ -114,29 +113,23 @@ Plug 'ntpeters/vim-better-whitespace'
 Plug 'junegunn/vim-easy-align'
 " Run
 Plug 'skywind3000/asyncrun.vim', { 'on' : [ 'AsyncRun!', 'AsyncRun' ]}
-Plug 'carlosrocha/vim-chrome-devtools', { 'do': 'npm install && npm run build' }
+" Plug 'carlosrocha/vim-chrome-devtools', { 'do': 'npm install && npm run build' }
 " integration
 Plug 'ybian/smartim'
 Plug 'JGShaw/dash.vim'
 Plug 'tyru/open-browser.vim'
-" Lang
-Plug 'sbdchd/vim-shebang', { 'on' : 'ShebangInsert'}
-""JS,TS
+" JS,TS
 Plug 'peitalin/vim-jsx-typescript', { 'for' : 'tsx'}
-""Python
-Plug 'heavenshell/vim-pydocstring', { 'for' : 'python' }
-""Markdown
-" Plug 'godlygeek/tabular', { 'for' : 'markdown'}
-" Plug 'plasticboy/vim-markdown', { 'for' : 'markdown'}
+" Markdown
 Plug 'iamcco/markdown-preview.nvim', {
   \'do' : { -> mkdp#util#install() },
   \'for' : [ 'markdown', 'pandoc.markdown', 'rmd'],
   \'on' : 'MarkdownPreview'}
-""Html,Xml
+" Html,Xml
 Plug 'Valloric/MatchTagAlways', { 'for' : ['html', 'xml', 'xhtml', 'jinja' ]}
-""other
-Plug 'neoclide/jsonc.vim', { 'for' : 'jsonc' }
+" other
 Plug 'sheerun/vim-polyglot'
+Plug 'neoclide/jsonc.vim', { 'for' : 'jsonc' }
 
 call plug#end()
 

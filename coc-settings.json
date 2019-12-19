@@ -1,29 +1,20 @@
 {
+  // preference
+  "coc.preferences.snippetStatusText": "Ⓢ ",
+  "coc.preferences.hoverTarget": "float",
+  "coc.preferences.formatOnType": true,
+  "coc.preferences.currentFunctionSymbolAutoUpdate": true,
+
   // suggest
-  "suggest.maxPreviewWidth": 50,
-  "suggest.enablePreview": false,
-  "suggest.detailMaxLength": 30,
-  "suggest.detailField": "preview", // ["abbr","menu","preview"]
-  "suggest.autoTrigger": "always", //["always","trigger","none"]
-  "suggest.languageSourcePriority": 99,
-  "suggest.numberSelect": false,
-  "suggest.disableKind": false,
-  "suggest.disableMenu": false,
+  // "suggest.languageSourcePriority": 99,
+  // "suggest.lowPrioritySourceLimit": 90,
+  // "suggest.highPrioritySourceLimit": 90,
+  "suggest.enablePreview": true,
+  "suggest.triggerAfterInsertEnter": true,
+  "suggest.maxCompleteItemCount": 100,
   "suggest.snippetIndicator": "Ⓢ ",
-  "suggest.maxCompleteItemCount": 50,
-  "suggest.preferCompleteThanJumpPlaceholder": false,
-  "suggest.fixInsertedWord": true,
-  "suggest.localityBonus": true,
-  "suggest.triggerAfterInsertEnter": false,
-  "suggest.timeout": 2000,
-  "suggest.minTriggerInputLength": 1,
-  "suggest.triggerCompletionWait": 50,
   "suggest.echodocSupport": true,
-  "suggest.acceptSuggestionOnCommitCharacter": false,
-  "suggest.noselect": false,
-  "suggest.keepCompleteopt": false,
-  "suggest.lowPrioritySourceLimit": 90,
-  "suggest.highPrioritySourceLimit": 90,
+  "suggest.acceptSuggestionOnCommitCharacter": true,
   "suggest.completionItemKindLabels": {
     "function": "\u0192",
     "method": "\uf09a",
@@ -51,88 +42,43 @@
     "typeParameter": "\uf728",
     "default": "\uf29c"
   },
-  // diagnostic
-  "diagnostic.enable": true,
-  "diagnostic.level": "hint", //["hint","information","warning","error"]
-  "diagnostic.checkCurrentLine": true,
-  "diagnostic.messageTarget": "float", //["echo","float"]
-  "diagnostic.joinMessageLines": true,
-  "diagnostic.refreshOnInsertMode": true,
-  "diagnostic.refreshAfterSave": true,
-  "diagnostic.displayByAle": false,
-  "diagnostic.virtualText": false,
-  "diagnostic.virtualTextPrefix": " ",
-  "diagnostic.virtualTextLines": 3,
-  "diagnostic.virtualTextLineSeparator": " \\ ",
-  "diagnostic.enableSign": true,
-  "diagnostic.errorSign": "●",
-  "diagnostic.warningSign": "●",
-  "diagnostic.enableMessage": "always", //["always","jump","never"]
-  "diagnostic.locationlist": true,
-  "diagnostic.highlightOffset": 10000,
-  "diagnostic.signOffset": 99999999,
-  "diagnostic.infoSign": ">>",
-  "diagnostic.hintSign": ">>",
-  "diagnostic.maxWindowHeight": 15,
+
   // Signature
   "signature.enable": true,
-  "signature.target": "float", // ["float","echo"]
-  "signature.preferShownAbove": true,
-  "signature.hideOnTextChange": false,
-  "signature.maxWindowHeight": 8,
-  "codeLens.enable": false,
-  "workspace.ignoredFiletypes": ["markdown", "log", "txt", "help"],
-  "list.indicator": ">",
+  "signature.target": "float",
+  "signature.preferShownAbove": false,
+  "signature.maxWindowHeight": 1,
+
+  // diagnostic
+  "diagnostic.checkCurrentLine": true,
+  "diagnostic.refreshAfterSave": true,
+  "diagnostic.errorSign": "●",
+  "diagnostic.warningSign": "●",
+  "diagnostic.maxWindowHeight": 10,
+
+  // other
+  "codeLens.enable": true,
   "list.maxHeight": 15,
-  "list.signOffset": 900,
-  "list.selectedSignText": "*",
-  "list.autoResize": true,
-  "list.limitLines": 30000,
-  "list.maxPreviewHeight": 12,
-  "list.previewHighlightGroup": "Search",
-  "list.nextKeymap": "<C-j>",
-  "list.previousKeymap": "<C-k>",
-  "list.normalMappings": {},
-  "list.insertMappings": {},
-  "list.source.outline.ctagsFilestypes": [],
-  // preference
-  "coc.preferences.useQuickfixForLocations": false,
-  "coc.preferences.extensionUpdateCheck": "daily", // ["daily","weekly","never"]
-  "coc.preferences.snippetStatusText": "Ⓢ ",
-  "coc.preferences.hoverTarget": "float", // ["preview","echo","float"]
-  "coc.preferences.colorSupport": true,
-  "coc.preferences.previewAutoClose": true,
-  "coc.preferences.currentFunctionSymbolAutoUpdate": true,
-  "coc.preferences.formatOnSaveFiletypes": [],
-  "coc.preferences.enableFloatHighlight": true,
-  "coc.preferences.rootPatterns": [".vim", ".git", ".hg"],
-  "coc.preferences.jumpCommand": "edit", // ["edit","split","vsplit","tabe","drop","tab drop"]
-  "coc.preferences.messageLevel": "more", // ["more","warning","error"]
-  "coc.preferences.bracketEnterImprove": true,
-  "coc.preferences.formatOnType": true,
-  "coc.preferences.snippets.enable": true,
+  "session.directory": "~/.cache/nvim/sessions",
+
   // snippets
+  "snippets.priority": 90,
+  "snippets.userSnippetsDirectory": "~/.config/nvim/snippets",
   "snippets.loadFromExtensions": false,
-  "snippets.ultisnips.enable": true,
   "snippets.snipmate.enable": false,
-  "snippets.ultisnips.directories": ["~/.config/nvim/snippets"],
-  "snippets.extends": {
-    "cpp": ["c"],
-    "javascriptreact": ["javascript"],
-    "typescript": ["javascript"]
-  },
+
   // yank
   "yank.highlight.enable": false,
   "yank.list.maxsize": 1000,
-  "yank.enableCompletion": false,
-  "yank.priority": 90,
-  "yank.limit": 3,
-  //css
+  "yank.enableCompletion": true,
+  "yank.priority": 30,
+  "yank.limit": 5,
+
   // Coc-list
-  "session.directory": "~/.cache/nvim/sessions",
   "list.source.mru.ignoreGitIgnore": false,
   "list.source.grep.useLiteral": true,
   "list.source.grep.command": "rg",
+
   // coc-git
   "git.addedSign.hlGroup": "GutterAdd",
   "git.changedSign.hlGroup": "GutterChange",
@@ -140,17 +86,21 @@
   "git.topRemovedSign.hlGroup": "GutterDelete",
   "git.changeRemovedSign.hlGroup": "GutterChangeDelete",
   "coc.source.issues.filetypes": ["gitcommit"],
+
   // coc-gitignore
   "gitignore.enable": true,
   "gitignore.templates.patch": {},
   "gitignore.templates.replace": {},
+
   //coc-translator
   "translator.toLang": "zh",
-  "translator.engines": ["bing", "ciba"],
+  "translator.engines": ["ciba"],
   "translator.maxsize": 5000,
-  "translator.window.maxWidth": 0,
-  "translator.window.maxHeight": 0,
+
   // ts,js
+
+  // emmet
+
   // python
   "python.autoComplete.addBrackets": true,
   "python.jediEnabled": true,
@@ -165,9 +115,10 @@
   "python.pythonPath": "/usr/local/bin/python3",
   "python.sortImports.path": "/usr/local/bin/isort",
   "python.terminal.executeInFileDir": true,
+
   // Viml
-  "vimlsp.debug": true,
-  "vimlsp.trace.server": "verbose", // "enum": ["off", "messages", "verbose"],
+  "vimlsp.debug": false,
+  "vimlsp.trace.server": "verbose",
   "vimlsp.diagnostic.enable": true,
   "vimlsp.indexes.runtimepath": true,
   "vimlsp.indexes.count": 5,
@@ -175,6 +126,7 @@
   "vimlsp.indexes.projectRootPatterns": [".git", "autoload", "plugin"],
   "vimlsp.suggest.fromVimruntime": true,
   "vimlsp.suggest.fromRuntimepath": true,
+
   //language server
   "languageserver": {
     "bash": {

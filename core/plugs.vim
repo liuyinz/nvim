@@ -13,6 +13,7 @@ let g:coc_global_extensions =[
   \ 'coc-html', 'coc-css','coc-tsserver', 'coc-vetur', 'coc-emmet',
   \ 'coc-angular', 'coc-svg', 'coc-gitignore','coc-git','coc-yank',
   \]
+
 augroup CocAuto
   autocmd!
   " Update signature help on jump placeholder
@@ -23,28 +24,18 @@ augroup end
 inoremap <expr>   <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 nnoremap <silent> <localleader>d  :<C-u>CocList diagnostics<cr>
 nnoremap <silent> <localleader>v  :<C-u>CocList vimcommands<cr>
-nnoremap <silent> <localleader>q  :<C-u>CocList quickfix<cr>
-" nnoremap <silent> <localleader>j  :<C-u>CocNext<CR>
-" nnoremap <silent> <localleader>k  :<C-u>CocPrev<CR>
 
-" coc-translator
-" nmap <localleader>t  <Plug>(coc-translator-p)
+nmap <silent> tt  <Plug>(coc-translator-p)
 nmap <silent> [d <Plug>(coc-diagnostic-prev)
 nmap <silent> ]d <Plug>(coc-diagnostic-next)
 nmap <silent> [g <Plug>(coc-git-prevchunk)
 nmap <silent> ]g <Plug>(coc-git-nextchunk)
-nmap gc <Plug>(coc-git-commit)
 
-" Remap keys for gotos
 nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
 nmap <silent> gD <Plug>(coc-declaration)
-nmap <silent> gl <Plug>(coc-openlink)
-nmap <silent> gn <Plug>(coc-rename)
-nmap <silent> gm <Plug>(coc-codeaction)
-
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gr <Plug>(coc-references)
 
 " fugitive
 " -----------------------------
@@ -56,7 +47,6 @@ nnoremap <silent> <localleader>gc  :Gcommit<CR>
 nnoremap <silent> <localleader>gd  :Gvdiffsplit<CR>
 nnoremap <silent> <localleader>gmt :Gvdiffsplit!<CR>
 vnoremap <silent> <localleader>gb  :Gbrowse<CR>
-nnoremap <silent> <localleader>gb  :Gbrowse<CR>
 nnoremap <localleader>grb :Grebase<Space>
 nnoremap <localleader>grn :Grename<Space>
 nnoremap <localleader>gm  :Gmerge<Space>
@@ -283,7 +273,7 @@ let g:better_whitespace_filetypes_blacklist=['diff', 'gitcommit', 'qf', 'help','
 
 " vim-mundo
 " -----------------------------
-let g:mundo_width = 30
+let g:mundo_width = 40
 let g:mundo_preview_height = 20
 let g:mundo_right = 0
 let g:mundo_verbose_graph =0
@@ -580,10 +570,8 @@ nmap ga <Plug>(EasyAlign)
 xmap I  <Plug>(niceblock-I)
 xmap A  <Plug>(niceblock-A)
 
-
 " Language
 " ---------------
-nmap  <localleader>zb :Shebang
 nmap <silent> <localleader>ds <Plug>(pydocstring)
 
 
@@ -597,10 +585,11 @@ let g:rooter_resolve_links = 1
 let g:rooter_silent_chdir = 1
 let g:rooter_patterns = ['.root', 'package.json', '.git','.git/','.vscode/']
 let g:rooter_use_lcd = 1
-"
-let g:echodoc#enable_at_startup = 1
-let g:echodoc#type = 'echo'
 
+" echodoc
+" -----------------------------
+let g:echodoc#enable_at_startup = 1
+let g:echodoc#type = 'float'
 
 " vim-snippets
 " -----------------------------

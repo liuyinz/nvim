@@ -24,17 +24,17 @@ endif
 
 if has('mac')
     let g:clipboard = {
-        \ 'name': 'macOS-clipboard',
-        \ 'copy': {
-        \    '+': 'pbcopy',
-        \    '*': 'pbcopy',
-        \  },
-        \ 'paste': {
-        \    '+': 'pbpaste',
-        \    '*': 'pbpaste',
-        \ },
-        \ 'cache_enabled': 0,
-        \ }
+      \ 'name': 'macOS-clipboard',
+      \ 'copy': {
+      \    '+': 'pbcopy',
+      \    '*': 'pbcopy',
+      \  },
+      \ 'paste': {
+      \    '+': 'pbpaste',
+      \    '*': 'pbpaste',
+      \ },
+      \ 'cache_enabled': 0,
+      \ }
 endif
 
 if has('clipboard')
@@ -74,7 +74,7 @@ set nostartofline
 set whichwrap+=h,l,<,>,[,],~
 set splitbelow splitright
 set switchbuf=vsplit,useopen,usetab
-set completeopt=menu,preview
+set completeopt=menu,preview,noinsert
 set nospell
 set encoding=utf-8
 set fileencodings=ucs-bom,utf-8,gb18030,cp936,latin1
@@ -294,7 +294,7 @@ vnoremap <expr> <leader>cN "y/\\V\<C-r>=escape(@\", '/')\<CR>\<CR>" . "``cgN"
 nnoremap <silent> <Leader>ll :call <SID>append_modeline()<CR>
 function! s:append_modeline()
     let l:modeline = printf(' vim: set ts=%d sw=%d tw=%d %set :',
-        \ &tabstop, &shiftwidth, &textwidth, &expandtab ? '' : 'no')
+      \ &tabstop, &shiftwidth, &textwidth, &expandtab ? '' : 'no')
     let l:modeline = substitute(&commentstring, '%s', l:modeline, '')
     call append(line('$'), l:modeline)
 endfunction
