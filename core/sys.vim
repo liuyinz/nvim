@@ -24,17 +24,17 @@ endif
 
 if has('mac')
     let g:clipboard = {
-        \ 'name': 'macOS-clipboard',
-        \ 'copy': {
-        \    '+': 'pbcopy',
-        \    '*': 'pbcopy',
-        \  },
-        \ 'paste': {
-        \    '+': 'pbpaste',
-        \    '*': 'pbpaste',
-        \ },
-        \ 'cache_enabled': 0,
-        \ }
+      \ 'name': 'macOS-clipboard',
+      \ 'copy': {
+      \    '+': 'pbcopy',
+      \    '*': 'pbcopy',
+      \  },
+      \ 'paste': {
+      \    '+': 'pbpaste',
+      \    '*': 'pbpaste',
+      \ },
+      \ 'cache_enabled': 0,
+      \ }
 endif
 
 if has('clipboard')
@@ -69,12 +69,12 @@ set diffopt=internal,filler,vertical,context:0
 set packpath=
 set linebreak
 set breakindent
-set showbreak=---->
+set showbreak=--->
 set nostartofline
 set whichwrap+=h,l,<,>,[,],~
 set splitbelow splitright
 set switchbuf=vsplit,useopen,usetab
-set completeopt=menu,preview
+set completeopt=menu,preview,noinsert
 set nospell
 set encoding=utf-8
 set fileencodings=ucs-bom,utf-8,gb18030,cp936,latin1
@@ -99,9 +99,9 @@ set fileformats=unix,dos
 " Tabs and Indents
 "-----------------------------
 set expandtab
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
 set smarttab
 set autoindent
 set smartindent
@@ -294,7 +294,7 @@ vnoremap <expr> <leader>cN "y/\\V\<C-r>=escape(@\", '/')\<CR>\<CR>" . "``cgN"
 nnoremap <silent> <Leader>ll :call <SID>append_modeline()<CR>
 function! s:append_modeline()
     let l:modeline = printf(' vim: set ts=%d sw=%d tw=%d %set :',
-        \ &tabstop, &shiftwidth, &textwidth, &expandtab ? '' : 'no')
+      \ &tabstop, &shiftwidth, &textwidth, &expandtab ? '' : 'no')
     let l:modeline = substitute(&commentstring, '%s', l:modeline, '')
     call append(line('$'), l:modeline)
 endfunction

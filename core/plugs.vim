@@ -8,44 +8,34 @@ let g:coc_snippet_prev = '<S-TAB>'
 let g:coc_status_error_sign = '•'
 let g:coc_status_warning_sign = '•'
 let g:coc_global_extensions =[
-    \ 'coc-lists', 'coc-marketplace', 'coc-explorer','coc-translator',
-    \ 'coc-json','coc-yaml','coc-python', 'coc-snippets', 'coc-vimlsp',
-    \ 'coc-html', 'coc-css','coc-tsserver', 'coc-vetur', 'coc-emmet',
-    \ 'coc-angular', 'coc-svg', 'coc-gitignore','coc-git','coc-yank',
-    \]
+  \ 'coc-lists', 'coc-marketplace', 'coc-translator',
+  \ 'coc-json','coc-yaml','coc-python', 'coc-snippets', 'coc-vimlsp',
+  \ 'coc-html', 'coc-css','coc-tsserver', 'coc-vetur', 'coc-emmet',
+  \ 'coc-angular', 'coc-svg', 'coc-gitignore','coc-git','coc-yank',
+  \]
 
 augroup CocAuto
-    autocmd!
-    " Update signature help on jump placeholder
-    autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+  autocmd!
+  " Update signature help on jump placeholder
+  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 augroup end
 
 " coc-list
 inoremap <expr>   <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 nnoremap <silent> <localleader>d  :<C-u>CocList diagnostics<cr>
 nnoremap <silent> <localleader>v  :<C-u>CocList vimcommands<cr>
-nnoremap <silent> <localleader>q  :<C-u>CocList quickfix<cr>
-" nnoremap <silent> <localleader>j  :<C-u>CocNext<CR>
-" nnoremap <silent> <localleader>k  :<C-u>CocPrev<CR>
 
-" coc-translator
-" nmap <localleader>t  <Plug>(coc-translator-p)
+nmap <silent> tt  <Plug>(coc-translator-p)
 nmap <silent> [d <Plug>(coc-diagnostic-prev)
 nmap <silent> ]d <Plug>(coc-diagnostic-next)
 nmap <silent> [g <Plug>(coc-git-prevchunk)
 nmap <silent> ]g <Plug>(coc-git-nextchunk)
-nmap gc <Plug>(coc-git-commit)
 
-" Remap keys for gotos
 nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
 nmap <silent> gD <Plug>(coc-declaration)
-nmap <silent> gl <Plug>(coc-openlink)
-nmap <silent> gn <Plug>(coc-rename)
-nmap <silent> gm <Plug>(coc-codeaction)
-
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gr <Plug>(coc-references)
 
 " fugitive
 " -----------------------------
@@ -57,7 +47,6 @@ nnoremap <silent> <localleader>gc  :Gcommit<CR>
 nnoremap <silent> <localleader>gd  :Gvdiffsplit<CR>
 nnoremap <silent> <localleader>gmt :Gvdiffsplit!<CR>
 vnoremap <silent> <localleader>gb  :Gbrowse<CR>
-nnoremap <silent> <localleader>gb  :Gbrowse<CR>
 nnoremap <localleader>grb :Grebase<Space>
 nnoremap <localleader>grn :Grename<Space>
 nnoremap <localleader>gm  :Gmerge<Space>
@@ -103,38 +92,38 @@ let g:Lf_ShowHidden = 1
 let g:Lf_EmptyQuery = 0
 let g:Lf_DiscardEmptyBuffer = 0
 let g:Lf_CommandMap = {
-    \ '<Up>'  : ['<C-P>'],
-    \ '<Down>': ['<C-N>'],
-    \ '<C-L>' : ['<C-Q>'],
-    \ '<C-]>' : ['<C-L>'],
-    \}
+  \ '<Up>'  : ['<C-P>'],
+  \ '<Down>': ['<C-N>'],
+  \ '<C-L>' : ['<C-Q>'],
+  \ '<C-]>' : ['<C-L>'],
+  \}
 let g:Lf_WildIgnore = {
-    \ 'dir': ['.svn','.git','.hg','*.cache'],
-    \ 'file': ['*.sw?','~$*','*.bak','*.exe','*.o','*.so','*.py[co]']
-    \}
+  \ 'dir': ['.svn','.git','.hg','*.cache'],
+  \ 'file': ['*.sw?','~$*','*.bak','*.exe','*.o','*.so','*.py[co]']
+  \}
 let g:Lf_MruFileExclude=[]
 let g:Lf_MruWildIgnore = {
-    \ 'dir': ['.cache','runtime','.git','private/var','var/folders'],
-    \ 'file': []
-    \}
+  \ 'dir': ['.cache','runtime','.git','private/var','var/folders'],
+  \ 'file': []
+  \}
 let g:Lf_PreviewCode = 0
 let g:Lf_PreviewInPopup = 0
 let g:Lf_RgConfig = [
-    \ "--hidden",
-    \ "--follow",
-    \ "--trim",
-    \ "--smart-case",
-    \ "--auto-hybrid-regex",
-    \ "--sortr=modified",
-    \ "--ignore-file=/Users/ray/.rgignore",
-    \ "--colors=path:fg:green",
-    \ "--colors=match:fg:red",
-    \ "--colors=match:style:bold",
-    \ "--colors=line:fg:blue",
-    \ "--colors=line:style:bold",
-    \ "--colors=column:fg:blue",
-    \ "--colors=column:style:bold"
-    \ ]
+  \ "--hidden",
+  \ "--follow",
+  \ "--trim",
+  \ "--smart-case",
+  \ "--auto-hybrid-regex",
+  \ "--sortr=modified",
+  \ "--ignore-file=/Users/ray/.rgignore",
+  \ "--colors=path:fg:green",
+  \ "--colors=match:fg:red",
+  \ "--colors=match:style:bold",
+  \ "--colors=line:fg:blue",
+  \ "--colors=line:style:bold",
+  \ "--colors=column:fg:blue",
+  \ "--colors=column:style:bold"
+  \ ]
 " gtags
 " let g:Lf_CtagsFuncOpts = {
 "     \ 'c': '--c-kinds=fp',
@@ -156,7 +145,7 @@ nnoremap <silent> <localleader>s :<C-u>Leaderf searchHistory<cr>
 nnoremap <silent> <localleader>h :<C-u>Leaderf help --cword<cr>
 nnoremap <silent> <localleader>r :<C-u>Leaderf rg<cr>
 vmap     <silent> <localleader>r :<C-U><C-R>=printf("Leaderf rg
-    \ -F -e %s ", leaderf#Rg#visual())<cr><cr>
+  \ -F -e %s ", leaderf#Rg#visual())<cr><cr>
 
 
 " Goyo
@@ -171,33 +160,33 @@ nnoremap <silent> <Leader>t :<C-U>Goyo<CR>
 " s:goyo_enter()
 " Disable visual candy in Goyo mode
 function! s:goyo_enter()
-    if has('gui_running')
-        " Gui fullscreen
-        set fullscreen
-        set background=light
-        set linespace=7
-    elseif exists('$TMUX')
-        " Hide tmux status
-        silent !tmux set status off
-    endif
-    " Activate Limelight
-    Limelight
+  if has('gui_running')
+    " Gui fullscreen
+    set fullscreen
+    set background=light
+    set linespace=7
+  elseif exists('$TMUX')
+    " Hide tmux status
+    silent !tmux set status off
+  endif
+  " Activate Limelight
+  Limelight
 endfunction
 
 " s:goyo_leave()
 " Enable visuals when leaving Goyo mode
 function! s:goyo_leave()
-    if has('gui_running')
-        " Gui exit fullscreen
-        set nofullscreen
-        set background=dark
-        set linespace=0
-    elseif exists('$TMUX')
-        " Show tmux status
-        silent !tmux set status on
-    endif
-    " De-activate Limelight
-    Limelight!
+  if has('gui_running')
+    " Gui exit fullscreen
+    set nofullscreen
+    set background=dark
+    set linespace=0
+  elseif exists('$TMUX')
+    " Show tmux status
+    silent !tmux set status on
+  endif
+  " De-activate Limelight
+  Limelight!
 endfunction
 
 
@@ -219,33 +208,33 @@ let g:indentLine_faster = 1
 " -----------------------------
 let g:rainbow_active = 1
 let g:rainbow_conf = {
-    \'guifgs': ['skyblue', 'hotpink', 'seagreen', 'orange'],
-    \'operators': '_,_',
-    \'parentheses': ['start=/(/ end=/)/ fold', 'start=/\[/ end=/\]/ fold', 'start=/{/ end=/}/ fold'],
-    \'separately': {
-    \    '*': {},
-    \    'tex': {
-    \        'parentheses': ['start=/(/ end=/)/', 'start=/\[/ end=/\]/'],
-    \    },
-    \    'lisp': {
-    \        'guifgs': ['skyblue', 'hotpink', 'seagreen', 'orange', 'darkorchid3'],
-    \    },
-    \    'vim': {
-    \        'parentheses': [
-    \           'start=/(/ end=/)/',
-    \           'start=/\[/ end=/\]/',
-    \           'start=/{/ end=/}/ fold',
-    \           'start=/(/ end=/)/ containedin=vimFuncBody',
-    \           'start=/\[/ end=/\]/ containedin=vimFuncBody',
-    \           'start=/{/ end=/}/ fold containedin=vimFuncBody'
-    \       ],
-    \    },
-    \    'html': {
-    \        'parentheses': ['start=/\v\<((area|base|br|col|embed|hr|img|input|keygen|link|menuitem|meta|param|source|track|wbr)[ >])@!\z([-_:a-zA-Z0-9]+)(\s+[-_:a-zA-Z0-9]+(\=("[^"]*"|'."'".'[^'."'".']*'."'".'|[^ '."'".'"><=`]*))?)*\>/ end=#</\z1># fold'],
-    \    },
-    \    'css': 0,
-    \}
-    \}
+  \'guifgs': ['skyblue', 'hotpink', 'seagreen', 'orange'],
+  \'operators': '_,_',
+  \'parentheses': ['start=/(/ end=/)/ fold', 'start=/\[/ end=/\]/ fold', 'start=/{/ end=/}/ fold'],
+  \'separately': {
+  \    '*': {},
+  \    'tex': {
+  \        'parentheses': ['start=/(/ end=/)/', 'start=/\[/ end=/\]/'],
+  \    },
+  \    'lisp': {
+  \        'guifgs': ['skyblue', 'hotpink', 'seagreen', 'orange', 'darkorchid3'],
+  \    },
+  \    'vim': {
+  \        'parentheses': [
+  \           'start=/(/ end=/)/',
+  \           'start=/\[/ end=/\]/',
+  \           'start=/{/ end=/}/ fold',
+  \           'start=/(/ end=/)/ containedin=vimFuncBody',
+  \           'start=/\[/ end=/\]/ containedin=vimFuncBody',
+  \           'start=/{/ end=/}/ fold containedin=vimFuncBody'
+  \       ],
+  \    },
+  \    'html': {
+  \        'parentheses': ['start=/\v\<((area|base|br|col|embed|hr|img|input|keygen|link|menuitem|meta|param|source|track|wbr)[ >])@!\z([-_:a-zA-Z0-9]+)(\s+[-_:a-zA-Z0-9]+(\=("[^"]*"|'."'".'[^'."'".']*'."'".'|[^ '."'".'"><=`]*))?)*\>/ end=#</\z1># fold'],
+  \    },
+  \    'css': 0,
+  \}
+  \}
 
 
 " betterwhitespace
@@ -284,7 +273,7 @@ let g:better_whitespace_filetypes_blacklist=['diff', 'gitcommit', 'qf', 'help','
 
 " vim-mundo
 " -----------------------------
-let g:mundo_width = 30
+let g:mundo_width = 40
 let g:mundo_preview_height = 20
 let g:mundo_right = 0
 let g:mundo_verbose_graph =0
@@ -318,9 +307,9 @@ let g:NERDCommentWholeLinesInVMode = 0
 " let g:NERDDisableTabsInBlockComm = 0
 " let g:NERDAltDelims_java = 1
 let g:NERDCustomDelimiters = {
-    \ 'json': { 'left': '//' },
-    \ 'yaml': { 'left': '#' },
-    \}
+  \ 'json': { 'left': '//' },
+  \ 'yaml': { 'left': '#' },
+  \}
 
 nmap <leader>cc  <plug>NERDCommenterToggle
 xmap <leader>cc  <plug>NERDCommenterToggle
@@ -351,37 +340,37 @@ let g:choosewin_blink_on_land = 1
 " let g:choosewin_return_on_single_win = 0
 
 let g:choosewin_color_label = {
-    \'gui': ['#5d4d7a', 'white', 'bold'],
-    \'cterm': ['#5d4d7a', 'white', 'bold'] }
+  \'gui': ['#5d4d7a', 'white', 'bold'],
+  \'cterm': ['#5d4d7a', 'white', 'bold'] }
 
 let g:choosewin_color_label_current = {
-    \'gui':['#C792EA', 'black', 'bold'],
-    \'cterm': ['#C792EA', 'black', 'bold'] }
+  \'gui':['#C792EA', 'black', 'bold'],
+  \'cterm': ['#C792EA', 'black', 'bold'] }
 
 let g:choosewin_color_overlay = {
-    \'gui': ['#5d4d7a','#5d4d7a'],
-    \'cterm': ['#5d4d7a','#5d4d7a'] }
+  \'gui': ['#5d4d7a','#5d4d7a'],
+  \'cterm': ['#5d4d7a','#5d4d7a'] }
 
 let g:choosewin_color_overlay_current = {
-    \'gui': ['#C792EA','#C792EA'],
-    \'cterm': ['#C792EA','#C792EA'] }
+  \'gui': ['#C792EA','#C792EA'],
+  \'cterm': ['#C792EA','#C792EA'] }
 
 let g:choosewin_color_shade = {
-    \'gui':[ '', '#292B2E'],
-    \'cterm': ['', '#292B2E'] }
+  \'gui':[ '', '#292B2E'],
+  \'cterm': ['', '#292B2E'] }
 
 let g:choosewin_keymap = {
-    \ '0':     '<NOP>',
-    \ '[':     '<NOP>',
-    \ ']':     '<NOP>',
-    \ '$':     '<NOP>',
-    \ 'k':     'tab_close',
-    \ ';':     '<NOP>',
-    \ ',':     'previous',
-    \ 'g':     'swap',
-    \ 'G':     'swap_stay',
-    \ "\<CR>": 'win_land',
-    \ }
+  \ '0':     '<NOP>',
+  \ '[':     '<NOP>',
+  \ ']':     '<NOP>',
+  \ '$':     '<NOP>',
+  \ 'k':     'tab_close',
+  \ ';':     '<NOP>',
+  \ ',':     'previous',
+  \ 'g':     'swap',
+  \ 'G':     'swap_stay',
+  \ "\<CR>": 'win_land',
+  \ }
 
 nmap <silent><nowait> , <Plug>(choosewin)
 
@@ -416,8 +405,8 @@ map   m/    <Plug>(easymotion-bd-fn)
 " -----------------------------
 let g:dash_activate = 1
 let g:dash_map = {
-    \ 'vim' : ['neovim','vim']
-    \ }
+  \ 'vim' : ['neovim','vim']
+  \ }
 nmap <silent> gz <Plug>DashSearch
 vmap <silent> gz <Plug>DashVisual
 nmap <silent> gzz <Plug>DashGlobalSearch
@@ -480,10 +469,10 @@ let g:AutoPairsFlyMode = 0
 
 au FileType html let b:AutoPairs = AutoPairsDefine({'<':'>','<!--' : '-->'})
 au FileType python let b:AutoPairs = AutoPairsDefine({
-    \ '```':'```',
-    \ '"""':'"""',
-    \ "'''":"'''"
-    \ })
+  \ '```':'```',
+  \ '"""':'"""',
+  \ "'''":"'''"
+  \ })
 
 
 " Asyncrun
@@ -495,47 +484,47 @@ let g:lightline#asyncrun#indicator_run = 'Running...'
 
 " Vim-Markdown
 " -----------------------------
-let g:vim_markdown_no_default_key_mappings = 0
-let g:vim_markdown_edit_url_in = 'vsplit'
-let g:vim_markdown_folding_disabled = 0
-let g:vim_markdown_folding_style_pythonic = 1
-let g:vim_markdown_folding_level = 6
-let g:vim_markdown_override_foldtext = 0
-let g:vim_markdown_toc_autofit = 1
-let g:vim_markdown_emphasis_multiline = 0
-let g:vim_markdown_conceal = 0
-let g:tex_conceal = ""
-let g:vim_markdown_conceal_code_blocks = 0
+" let g:vim_markdown_no_default_key_mappings = 0
+" let g:vim_markdown_edit_url_in = 'vsplit'
+" let g:vim_markdown_folding_disabled = 0
+" let g:vim_markdown_folding_style_pythonic = 1
+" let g:vim_markdown_folding_level = 6
+" let g:vim_markdown_override_foldtext = 0
+" let g:vim_markdown_toc_autofit = 1
+" let g:vim_markdown_emphasis_multiline = 0
+" let g:vim_markdown_conceal = 0
+" let g:tex_conceal = ""
+" let g:vim_markdown_conceal_code_blocks = 0
 " let g:vim_markdown_follow_anchor = 0
 " let g:vim_markdown_anchorexpr = ""
-let g:vim_markdown_math = 1
-let g:vim_markdown_frontmatter = 1
-let g:vim_markdown_json_frontmatter = 1
-let g:vim_markdown_strikethrough = 1
-let g:vim_markdown_no_extensions_in_markdown = 0
-let g:vim_markdown_autowrite = 1
-let g:vim_markdown_auto_insert_bullets = 0
-let g:vim_markdown_new_list_item_indent = 0
-let g:vim_markdown_fenced_languages = [
-    \ 'c++=cpp',
-    \ 'csharp=cs',
-    \ 'viml=vim',
-    \ 'bash=sh',
-    \ 'ini=dosini',
-    \ 'js=javascript',
-    \ 'json=javascript',
-    \ 'docker=Dockerfile',
-    \ 'makefile=make',
-    \ 'py=python'
-    \ ]
-
-nmap <localleader>mb  <Plug>Markdown_OpenUrlUnderCursor
-nmap <localleader>me  <Plug>Markdown_EditUrlUnderCursor
-nmap <localleader>md  :<C-u>HeaderDecrease<CR>
-nmap <localleader>mi  :<C-u>HeaderIncrease<CR>
-nmap <localleader>mf  :<C-u>TableFormat<CR>
-nmap <localleader>mt  :<C-u>Toc<CR>
-nmap <localleader>ms  :<C-u>SetexToAtx<CR>
+" let g:vim_markdown_math = 1
+" let g:vim_markdown_frontmatter = 1
+" let g:vim_markdown_json_frontmatter = 1
+" let g:vim_markdown_strikethrough = 1
+" let g:vim_markdown_no_extensions_in_markdown = 0
+" let g:vim_markdown_autowrite = 1
+" let g:vim_markdown_auto_insert_bullets = 0
+" let g:vim_markdown_new_list_item_indent = 0
+" let g:vim_markdown_fenced_languages = [
+"   \ 'c++=cpp',
+"   \ 'csharp=cs',
+"   \ 'viml=vim',
+"   \ 'bash=sh',
+"   \ 'ini=dosini',
+"   \ 'js=javascript',
+"   \ 'json=javascript',
+"   \ 'docker=Dockerfile',
+"   \ 'makefile=make',
+"   \ 'py=python'
+"   \ ]
+"
+" nmap <localleader>mb  <Plug>Markdown_OpenUrlUnderCursor
+" nmap <localleader>me  <Plug>Markdown_EditUrlUnderCursor
+" nmap <localleader>md  :<C-u>HeaderDecrease<CR>
+" nmap <localleader>mi  :<C-u>HeaderIncrease<CR>
+" nmap <localleader>mf  :<C-u>TableFormat<CR>
+" nmap <localleader>mt  :<C-u>Toc<CR>
+" nmap <localleader>ms  :<C-u>SetexToAtx<CR>
 
 " markdown-preview.nvim
 " -----------------------------
@@ -544,14 +533,14 @@ let g:mkdp_page_title = '「${name}」'
 let g:mkdp_markdown_css = '/home/ray/.npm-global/lib/node_modules/markdown.css/dest/github/markdown.css'
 let g:mkdp_highlight_css = '/home/ray/.npm-global/lib/node_modules/highlight.js/styles/dark.css'
 let g:mkdp_preview_options = {
-    \ 'mkit': {},
-    \ 'katex': {},
-    \ 'uml': {},
-    \ 'maid': {},
-    \ 'disable_sync_scroll': 0,
-    \ 'sync_scroll_type': 'middle',
-    \ 'hide_yaml_meta': 1
-    \ }
+  \ 'mkit': {},
+  \ 'katex': {},
+  \ 'uml': {},
+  \ 'maid': {},
+  \ 'disable_sync_scroll': 0,
+  \ 'sync_scroll_type': 'middle',
+  \ 'hide_yaml_meta': 1
+  \ }
 " let g:mkdp_auto_start = 0
 " let g:mkdp_auto_close = 1
 " let g:mkdp_refresh_slow = 0
@@ -581,11 +570,13 @@ nmap ga <Plug>(EasyAlign)
 xmap I  <Plug>(niceblock-I)
 xmap A  <Plug>(niceblock-A)
 
-
 " Language
 " ---------------
-nmap  <localleader>zb :Shebang
 nmap <silent> <localleader>ds <Plug>(pydocstring)
+
+
+let g:mta_use_matchparen_group = 0
+let g:mta_set_default_matchtag_color = 0
 
 let g:smartim_default = 'com.apple.keylayout.ABC'
 
@@ -595,12 +586,23 @@ let g:rooter_silent_chdir = 1
 let g:rooter_patterns = ['.root', 'package.json', '.git','.git/','.vscode/']
 let g:rooter_use_lcd = 1
 
+" echodoc
+" -----------------------------
 let g:echodoc#enable_at_startup = 1
-let g:echodoc#type = 'echo'
+let g:echodoc#type = 'float'
 
+" vim-snippets
+" -----------------------------
 let g:ultisnips_python_style = "google"
 let g:ultisnips_python_triple_quoting_style = "single"
+let g:ultisnips_javascript = {
+  \ 'keyword-spacing': 'always',
+  \ 'semi': 'never',
+  \ 'space-before-function-paren': 'always',
+  \ }
 
+
+" Polyglot
+" -----------------------------
+let g:polyglot_disabled = ['markdown','html']
 let g:python_highlight_all = 1
-let g:mta_use_matchparen_group = 0
-let g:mta_set_default_matchtag_color = 0

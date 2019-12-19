@@ -2,14 +2,14 @@
 
 ### Motion
 
--   Leader
+- Leader
 
 | Keys    | Description    |
 | ------- | -------------- |
 | `Space` | LeaderKey      |
 | `;`     | LocalLeaderKey |
 
--   Line
+- Line
 
 | Keys         | Mode | Description             |
 | ------------ | ---- | ----------------------- |
@@ -22,7 +22,7 @@
 | `Ctrl` + `w` | I,C  | delete the whole word   |
 | `Ctrl` + `u` | I,C  | delete to the beginning |
 
--   Buffer
+- Buffer
 
 | Keys  | Mode  | Description                  |
 | ----- | ----- | ---------------------------- |
@@ -38,7 +38,7 @@
 | `mr`  | N,X,O | easymotion-move-repeat       |
 | `mn`  | N,X,O | easymotion-move-match-select |
 
--   Window
+- Window
 
 | Keys       | Mode | Description      |
 | ---------- | ---- | ---------------- |
@@ -382,7 +382,7 @@
 
 ### language
 
--   Markdown
+- Markdown
 
 | Keys                   | Mode | Description          |
 | ---------------------- | ---- | -------------------- |
@@ -395,7 +395,7 @@
 | `<localleader>` + `mp` | N    | Preview markdown     |
 | `<localleader>` + `ms` | N    | Setex to atx         |
 
--   Python
+- Python
 
 | Keys                   | Mode | Description   |
 | ---------------------- | ---- | ------------- |
