@@ -1,5 +1,5 @@
 set nocompatible
-set runtimepath^=/path/to/plugin
+" set runtimepath^=/path/to/plugin
 filetype plugin indent on
 syntax on
 set hidden

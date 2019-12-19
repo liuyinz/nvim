@@ -100,6 +100,17 @@
   // ts,js
 
   // emmet
+  "emmet.showExpandedAbbreviation": "always",
+  "emmet.priority": 99,
+  "emmet.optimizeStylesheetParsing":false,
+  /* "emmet.extensionsPath": "~/.config/nvim", */
+  "emmet.includeLanguages": {
+    "vue-html": "html",
+    "javascript": "javascriptreact",
+    "typescript": "typescriptreact",
+    "javascript.jsx": "javascriptreact",
+    "typescript.tsx": "typescriptreact"
+  },
 
   // python
   "python.autoComplete.addBrackets": true,
