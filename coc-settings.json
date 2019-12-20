@@ -111,7 +111,10 @@
     "javascript.jsx": "javascriptreact",
     "typescript.tsx": "typescriptreact"
   },
-
+  // rust
+  "rust-client.logToFile": true,
+  "rust-client.revealOutputChannelOn": "info",
+  "rust-client.updateOnStartup": true,
   // python
   "python.autoComplete.addBrackets": true,
   "python.jediEnabled": true,
@@ -146,22 +149,5 @@
       "filetypes": ["sh"],
       "ignoredRootPaths": ["~"]
     },
-    "ccls": {
-      "command": "ccls",
-      "filetypes": ["c", "cpp", "objc", "objcpp"],
-      "rootPatterns": [
-        ".ccls",
-        "compile_commands.json",
-        ".vim/",
-        ".git/",
-        ".hg/"
-      ],
-      "initializationOptions": {
-        "cache": {
-          "directory": "/tmp/ccls"
-        }
-      }
-    }
   },
-  "git.enableGutters": true
 }

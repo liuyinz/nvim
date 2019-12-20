@@ -8,7 +8,7 @@ let g:coc_snippet_prev = '<S-TAB>'
 let g:coc_status_error_sign = '•'
 let g:coc_status_warning_sign = '•'
 let g:coc_global_extensions =[
-  \ 'coc-lists', 'coc-marketplace', 'coc-translator',
+  \ 'coc-lists', 'coc-marketplace', 'coc-translator','coc-rls',
   \ 'coc-json','coc-yaml','coc-python', 'coc-snippets', 'coc-vimlsp',
   \ 'coc-html', 'coc-css','coc-tsserver', 'coc-vetur', 'coc-emmet',
   \ 'coc-angular', 'coc-svg', 'coc-gitignore','coc-git','coc-yank',
