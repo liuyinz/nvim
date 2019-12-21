@@ -12,7 +12,7 @@ let g:coc_global_extensions =[
   \ 'coc-json','coc-yaml','coc-python', 'coc-snippets', 'coc-vimlsp',
   \ 'coc-html', 'coc-css','coc-tsserver', 'coc-vetur', 'coc-emmet',
   \ 'coc-angular', 'coc-svg', 'coc-gitignore','coc-git','coc-yank',
-  \]
+  \ 'coc-imselect']
 
 augroup CocAuto
     autocmd!
@@ -577,7 +577,7 @@ xmap A  <Plug>(niceblock-A)
 let g:mta_use_matchparen_group = 0
 let g:mta_set_default_matchtag_color = 0
 
-let g:smartim_default = 'com.apple.keylayout.ABC'
+" let g:smartim_default = 'com.apple.keylayout.ABC'
 
 let g:rooter_change_directory_for_non_project_files = 'current'
 let g:rooter_resolve_links = 1

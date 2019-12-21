@@ -115,7 +115,7 @@ Plug 'junegunn/vim-easy-align'
 Plug 'skywind3000/asyncrun.vim', { 'on' : [ 'AsyncRun!', 'AsyncRun' ]}
 " Plug 'carlosrocha/vim-chrome-devtools', { 'do': 'npm install && npm run build' }
 " integration
-Plug 'ybian/smartim'
+" Plug 'ybian/smartim'
 Plug 'JGShaw/dash.vim'
 Plug 'tyru/open-browser.vim'
 " JS,TS
