@@ -15,13 +15,17 @@ let g:coc_global_extensions =[
   \ 'coc-imselect']
 
 augroup CocAuto
-    autocmd!
-    " Update signature help on jump placeholder
-    autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+  autocmd!
+  " Update signature help on jump placeholder
+  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 augroup end
 
 " coc-list
-inoremap <expr>   <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+inoremap <silent><expr> <C-l>
+  \ pumvisible() ? coc#_select_confirm() :
+  \ coc#expandable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand',''])\<CR>" :
+  \ coc#refresh()
+
 nnoremap <silent> <localleader>d  :<C-u>CocList diagnostics<cr>
 nnoremap <silent> <localleader>v  :<C-u>CocList vimcommands<cr>
 
@@ -160,33 +164,33 @@ nnoremap <silent> <Leader>t :<C-U>Goyo<CR>
 " s:goyo_enter()
 " Disable visual candy in Goyo mode
 function! s:goyo_enter()
-    if has('gui_running')
-        " Gui fullscreen
-        set fullscreen
-        set background=light
-        set linespace=7
-    elseif exists('$TMUX')
-        " Hide tmux status
-        silent !tmux set status off
-    endif
-    " Activate Limelight
-    Limelight
+  if has('gui_running')
+    " Gui fullscreen
+    set fullscreen
+    set background=light
+    set linespace=7
+  elseif exists('$TMUX')
+    " Hide tmux status
+    silent !tmux set status off
+  endif
+  " Activate Limelight
+  Limelight
 endfunction
 
 " s:goyo_leave()
 " Enable visuals when leaving Goyo mode
 function! s:goyo_leave()
-    if has('gui_running')
-        " Gui exit fullscreen
-        set nofullscreen
-        set background=dark
-        set linespace=0
-    elseif exists('$TMUX')
-        " Show tmux status
-        silent !tmux set status on
-    endif
-    " De-activate Limelight
-    Limelight!
+  if has('gui_running')
+    " Gui exit fullscreen
+    set nofullscreen
+    set background=dark
+    set linespace=0
+  elseif exists('$TMUX')
+    " Show tmux status
+    silent !tmux set status on
+  endif
+  " De-activate Limelight
+  Limelight!
 endfunction
 
 
@@ -393,7 +397,7 @@ map  <silent> mw    <Plug>(easymotion-bd-w)
 map  <silent> mmw   <Plug>(easymotion-bd-W)
 map  <silent> me    <Plug>(easymotion-bd-e)
 map  <silent> mme   <Plug>(easymotion-bd-E)
-imap <silent> <C-l> <Esc>mw
+" imap <silent> <C-l> <Esc>mw
 " move to {char}
 map   mf    <Plug>(easymotion-bd-f)
 map   mt    <Plug>(easymotion-bd-t)
@@ -577,8 +581,6 @@ xmap A  <Plug>(niceblock-A)
 let g:mta_use_matchparen_group = 0
 let g:mta_set_default_matchtag_color = 0
 
-" let g:smartim_default = 'com.apple.keylayout.ABC'
-
 let g:rooter_change_directory_for_non_project_files = 'current'
 let g:rooter_resolve_links = 1
 let g:rooter_silent_chdir = 1
@@ -601,8 +603,7 @@ let g:ultisnips_javascript = {
   \ 'space-before-function-paren': 'always',
   \ }
 
-
 " Polyglot
 " -----------------------------
-let g:polyglot_disabled = ['markdown','html']
+let g:polyglot_disabled = []
 let g:python_highlight_all = 1
