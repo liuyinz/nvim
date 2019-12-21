@@ -21,9 +21,9 @@ augroup CocAuto
 augroup end
 
 " coc-list
+vmap <C-l> <Plug>(coc-snippets-select)
 inoremap <silent><expr> <C-l>
   \ pumvisible() ? coc#_select_confirm() :
-  \ coc#expandable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand',''])\<CR>" :
   \ coc#refresh()
 
 nnoremap <silent> <localleader>d  :<C-u>CocList diagnostics<cr>
@@ -70,31 +70,31 @@ nnoremap <silent> <localleader>glb :GV!<CR>
 " -----------------------------
 "  ui
 let g:Lf_WindowPosition = 'popup'
-let g:Lf_CursorBlink=1
+" let g:Lf_CursorBlink = 0
 let g:Lf_PreviewPopupWidth = 0
 let g:Lf_StlSeparator = { 'left': '', 'right': '' }
 let g:Lf_PopupWidth = &columns * 7/10
 let g:Lf_PopupHeight = float2nr(&lines * 0.55)
 " let g:Lf_PopupPreviewPosition = 'cursor'
 " set
-let g:Lf_PythonVersion = 3
+" let g:Lf_PythonVersion = 3
 let g:Lf_DefaultMode = 'NameOnly'
-let g:Lf_ShowRelativePath = 1
-let g:Lf_NoChdir = 0
+" let g:Lf_ShowRelativePath = 1
+" let g:Lf_NoChdir = 0
 let g:Lf_CacheDirectory= expand('$DATA_PATH')
-let g:Lf_IgnoreCurrentBufferName = 1
 let g:Lf_UseVersionControlTool = 0
 let g:Lf_RecurseSubmodules = 1
 let g:Lf_FollowLinks = 1
 let g:Lf_ReverseOrder = 0
 let g:Lf_HistoryNumber = 100000
-let g:Lf_DelimiterChar = ';'
-let g:Lf_RootMarkers=['.git', '.hg', '.svn']
-let g:Lf_WorkingDirectoryMode = 'Ac'
+" let g:Lf_DelimiterChar = ';'
+" let g:Lf_RootMarkers=['.git', '.hg', '.svn']
+let g:Lf_WorkingDirectoryMode = 'Af'
 let g:Lf_HideHelp = 1
 let g:Lf_ShowHidden = 1
 let g:Lf_EmptyQuery = 0
-let g:Lf_DiscardEmptyBuffer = 0
+let g:Lf_IgnoreCurrentBufferName = 1
+" let g:Lf_DiscardEmptyBuffer = 0
 let g:Lf_CommandMap = {
   \ '<Up>'  : ['<C-P>'],
   \ '<Down>': ['<C-N>'],
@@ -302,15 +302,6 @@ let g:NERDToggleCheckAllLines = 1
 let g:NERDDefaultNesting = 0
 let g:NERDDefaultAlign = 'left'
 let g:NERDCommentEmptyLines = 1
-let g:NERDCommentWholeLinesInVMode = 0
-" let g:loaded_nerd_comments = 0
-" let g:NERDAllowAnyVisualDelims =1
-" let g:NERDRemoveAltComs = 1
-" let g:NERDRemoveExtraSpaces = 1
-" let g:NERDLPlace = ""
-" let g:NERDRPlace = ""
-" let g:NERDDisableTabsInBlockComm = 0
-" let g:NERDAltDelims_java = 1
 let g:NERDCustomDelimiters = {
   \ 'json': { 'left': '//' },
   \ 'yaml': { 'left': '#' },
@@ -320,10 +311,8 @@ nmap <leader>cc  <plug>NERDCommenterToggle
 xmap <leader>cc  <plug>NERDCommenterToggle
 nmap <leader>cy  <plug>NERDCommenterYank
 xmap <leader>cy  <plug>NERDCommenterYank
-nmap <leader>ci  <plug>NERDCommenterToEOL
+nmap <leader>ce  <plug>NERDCommenterToEOL
 nmap <leader>ca  <plug>NERDCommenterAppend
-nmap <Leader>cs  <plug>NERDCommenterAltDelims
-imap <C-t>       <C-o><plug>NERDCommenterToggle
 
 
 " vim-choosewin
@@ -412,6 +401,7 @@ let g:dash_activate = 1
 let g:dash_map = {
   \ 'vim' : ['neovim','vim']
   \ }
+
 nmap <silent> gz <Plug>DashSearch
 vmap <silent> gz <Plug>DashVisual
 nmap <silent> gzz <Plug>DashGlobalSearch
@@ -420,7 +410,7 @@ nmap <silent> gzz <Plug>DashGlobalSearch
 " vim-bookmarks
 " -----------------------------
 let g:bookmark_no_default_key_mappings = 1
-let g:bookmark_auto_save_file = $DATA_PATH.'/bookmarks'
+let g:bookmark_auto_save_file = expand($DATA_PATH . '/bookmarks')
 let g:bookmark_highlight_lines = 1
 let g:bookmark_show_warning = 0
 let g:bookmark_show_toggle_warning = 0
@@ -429,13 +419,13 @@ let g:bookmark_auto_close = 1
 let g:bookmark_location_list = 0
 let g:bookmark_disable_ctrlp = 1
 let g:bookmark_manage_per_buffer = 1
+
+nmap  mm   <Plug>BookmarkToggle
 nmap  ma   <Plug>BookmarkShowAll
-nmap  mz   <Plug>BookmarkToggle
 nmap  mi   <Plug>BookmarkAnnotate
-nmap  mj   <Plug>BookmarkNext
-nmap  mk   <Plug>BookmarkPrev
-nmap  mc   <Plug>BookmarkClear
-nmap  mcc  <Plug>BookmarkClearAll
+nmap  mc   <Plug>BookmarkClearAll
+nmap  ]m   <Plug>BookmarkNext
+nmap  [m   <Plug>BookmarkPrev
 
 
 " Autoformat
@@ -455,7 +445,7 @@ let g:formatters_yaml       = ['prettier']
 let g:formatters_toml       = ['prettier']
 let g:formatters_css        = ['prettier']
 let g:formatters_scss       = ['prettier']
-let g:formatters_less       = ['pretier']
+let g:formatters_less       = ['prettier']
 let g:formatters_javascript = ['prettier']
 let g:formatters_typescript = ['prettier']
 let g:formatters_markdown   = ['prettier']

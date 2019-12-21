@@ -31,6 +31,7 @@ if has('vim_starting')
   for s:path in [
     \ $DATA_PATH,
     \ $DATA_PATH . '/undo',
+    \ $DATA_PATH . '/bookmarks',
     \ $DATA_PATH . '/sessions',
     \ $DATA_PATH . '/plugged',
     \ ]
@@ -115,7 +116,6 @@ Plug 'junegunn/vim-easy-align'
 Plug 'skywind3000/asyncrun.vim', { 'on' : [ 'AsyncRun!', 'AsyncRun' ]}
 " Plug 'carlosrocha/vim-chrome-devtools', { 'do': 'npm install && npm run build' }
 " integration
-" Plug 'ybian/smartim'
 Plug 'JGShaw/dash.vim'
 Plug 'tyru/open-browser.vim'
 " JS,TS
