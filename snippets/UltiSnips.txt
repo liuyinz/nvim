@@ -28,8 +28,8 @@ UltiSnips                                      *snippet* *snippets* *UltiSnips*
       4.7.1 Replacement String                  |UltiSnips-replacement-string|
       4.7.2 Demos                               |UltiSnips-demos|
    4.8 Clearing snippets                        |UltiSnips-clearing-snippets|
-5. Helping out                                  |UltiSnips-helping|      
-6. Contact                                      |UltiSnips-contact|      
+5. Helping out                                  |UltiSnips-helping|
+6. Contact                                      |UltiSnips-contact|
 7. Contributors                                 |UltiSnips-contributors|
    7.1 Patches & Coding                         |UltiSnips-contricoding|
    7.2 Snippets                                 |UltiSnips-contrisnippets|
@@ -80,7 +80,7 @@ theoretically, UltiSnips should work with all versions >= python 2.6.
 UltiSnips tries to autodetect which Vim Python command to use (there are two:
 :py and :py3). Unfortunately, some Vim versions choke when you test for both
 versions. In this case you have to tell UltiSnips which version to use via >
-   
+
    let g:UltiSnipsUsePythonVersion = 2   " or 3
 
 Using Pathogen:                                     *UltiSnips-using-pathogen*
@@ -378,7 +378,7 @@ in the place of the ${VISUAL}. The place holder can also contain default text
 when there is no visual text to be selected: ${VISUAL:default text}. And it
 can also contain transformations on the contents of the visual (See
 |UltiSnips-transformations| ). This will take the form
-${VISUAL:default/search/replace/option}. 
+${VISUAL:default/search/replace/option}.
 
 As a small example, let's take this snippet. It will take the visual text,
 replace all "should" via "is" and put it in.
@@ -548,7 +548,7 @@ be center<tab> ->
 \end{center}
 
 The second form is just a variation of the first one but, it serves as an
-illustration of how to match groups in regular expressions but it has some 
+illustration of how to match groups in regular expressions but it has some
 drawbacks:
 1. If you use <tab> for expanding the snippets and also for completion then
    if you were trying to use <tab> to complete "be form" to "be formatted"
@@ -886,4 +886,3 @@ Contributers are listed in chronological order:
    Martin Grenfell (scrooloose)
 
 vim:tw=78:ts=8:ft=help:norl:
-

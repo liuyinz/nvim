@@ -66,6 +66,9 @@
   "snippets.userSnippetsDirectory": "~/.config/nvim/snippets",
   "snippets.loadFromExtensions": false,
   "snippets.snipmate.enable": false,
+  "snippets.extends": {
+    "jsonc": ["json"],
+  },
 
   // yank
   "yank.highlight.enable": false,
@@ -138,8 +141,8 @@
   "vimlsp.indexes.count": 5,
   "vimlsp.indexes.gap": 50,
   "vimlsp.indexes.projectRootPatterns": [".git", "autoload", "plugin"],
-  "vimlsp.suggest.fromVimruntime": true,
-  "vimlsp.suggest.fromRuntimepath": true,
+  "vimlsp.suggest.fromVimruntime": false,
+  "vimlsp.suggest.fromRuntimepath": false,
 
   //language server
   "languageserver": {

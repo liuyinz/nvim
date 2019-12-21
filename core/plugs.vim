@@ -15,9 +15,9 @@ let g:coc_global_extensions =[
   \]
 
 augroup CocAuto
-  autocmd!
-  " Update signature help on jump placeholder
-  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+    autocmd!
+    " Update signature help on jump placeholder
+    autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 augroup end
 
 " coc-list
@@ -160,33 +160,33 @@ nnoremap <silent> <Leader>t :<C-U>Goyo<CR>
 " s:goyo_enter()
 " Disable visual candy in Goyo mode
 function! s:goyo_enter()
-  if has('gui_running')
-    " Gui fullscreen
-    set fullscreen
-    set background=light
-    set linespace=7
-  elseif exists('$TMUX')
-    " Hide tmux status
-    silent !tmux set status off
-  endif
-  " Activate Limelight
-  Limelight
+    if has('gui_running')
+        " Gui fullscreen
+        set fullscreen
+        set background=light
+        set linespace=7
+    elseif exists('$TMUX')
+        " Hide tmux status
+        silent !tmux set status off
+    endif
+    " Activate Limelight
+    Limelight
 endfunction
 
 " s:goyo_leave()
 " Enable visuals when leaving Goyo mode
 function! s:goyo_leave()
-  if has('gui_running')
-    " Gui exit fullscreen
-    set nofullscreen
-    set background=dark
-    set linespace=0
-  elseif exists('$TMUX')
-    " Show tmux status
-    silent !tmux set status on
-  endif
-  " De-activate Limelight
-  Limelight!
+    if has('gui_running')
+        " Gui exit fullscreen
+        set nofullscreen
+        set background=dark
+        set linespace=0
+    elseif exists('$TMUX')
+        " Show tmux status
+        silent !tmux set status on
+    endif
+    " De-activate Limelight
+    Limelight!
 endfunction
 
 
@@ -199,7 +199,8 @@ let g:indentLine_setConceal = 1
 let g:indentLine_setColors  =  1
 let g:indentline_char='¦'
 let g:indentLine_color_gui = '#544B64'
-let g:indentLine_fileTypeExclude = ['defx', 'fzf', 'vista_kind', 'yaml', 'json']
+let g:indentLine_fileTypeExclude = [
+  \'defx', 'fzf', 'vista_kind', 'yaml', 'json', 'help']
 let g:indentLine_bufTypeExclude = ['help', 'terminal']
 let g:indentLine_faster = 1
 
@@ -455,7 +456,7 @@ let g:formatters_javascript = ['prettier']
 let g:formatters_typescript = ['prettier']
 let g:formatters_markdown   = ['prettier']
 
-au BufWrite * :Autoformat
+" au BufWrite * :Autoformat
 nnoremap <leader>f :Autoformat<cr>
 vmap     <leader>f :Autoformat<cr>
 
@@ -572,8 +573,6 @@ xmap A  <Plug>(niceblock-A)
 
 " Language
 " ---------------
-nmap <silent> <localleader>ds <Plug>(pydocstring)
-
 
 let g:mta_use_matchparen_group = 0
 let g:mta_set_default_matchtag_color = 0
@@ -594,6 +593,7 @@ let g:echodoc#type = 'float'
 " vim-snippets
 " -----------------------------
 let g:ultisnips_python_style = "google"
+let g:ultisnips_author='liuyinz'
 let g:ultisnips_python_triple_quoting_style = "single"
 let g:ultisnips_javascript = {
   \ 'keyword-spacing': 'always',

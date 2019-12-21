@@ -130,7 +130,8 @@ Plug 'Valloric/MatchTagAlways', { 'for' : ['html', 'xml', 'xhtml', 'jinja' ]}
 " other
 Plug 'sheerun/vim-polyglot'
 Plug 'neoclide/jsonc.vim', { 'for' : 'jsonc' }
-
+" Snippets
+Plug 'honza/vim-snippets'
 call plug#end()
 
 " source core/*.vim
