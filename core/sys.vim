@@ -66,6 +66,7 @@ set diffopt=internal,filler,vertical,context:0
 
 " Behavior
 "-----------------------------
+set autochdir
 set packpath=
 set linebreak
 set breakindent

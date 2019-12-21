@@ -571,12 +571,6 @@ xmap A  <Plug>(niceblock-A)
 let g:mta_use_matchparen_group = 0
 let g:mta_set_default_matchtag_color = 0
 
-let g:rooter_change_directory_for_non_project_files = 'current'
-let g:rooter_resolve_links = 1
-let g:rooter_silent_chdir = 1
-let g:rooter_patterns = ['.root', 'package.json', '.git','.git/','.vscode/']
-let g:rooter_use_lcd = 1
-
 " echodoc
 " -----------------------------
 let g:echodoc#enable_at_startup = 1
