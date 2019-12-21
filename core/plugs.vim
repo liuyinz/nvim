@@ -11,8 +11,8 @@ let g:coc_global_extensions =[
   \ 'coc-lists', 'coc-marketplace', 'coc-translator','coc-rls',
   \ 'coc-json','coc-yaml','coc-python', 'coc-snippets', 'coc-vimlsp',
   \ 'coc-html', 'coc-css','coc-tsserver', 'coc-vetur', 'coc-emmet',
-  \ 'coc-angular', 'coc-svg', 'coc-gitignore','coc-git','coc-yank',
-  \ 'coc-imselect']
+  \ 'coc-angular', 'coc-svg', 'coc-gitignore','coc-git', 'coc-imselect'
+  \]
 
 augroup CocAuto
   autocmd!

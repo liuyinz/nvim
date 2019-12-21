@@ -71,13 +71,6 @@
     "jsonc": ["json"],
   },
 
-  // yank
-  "yank.highlight.enable": false,
-  "yank.list.maxsize": 1000,
-  "yank.enableCompletion": true,
-  "yank.priority": 30,
-  "yank.limit": 5,
-
   // Coc-list
   "list.source.mru.ignoreGitIgnore": false,
   "list.source.grep.useLiteral": true,
@@ -106,7 +99,7 @@
   // emmet
   "emmet.showExpandedAbbreviation": "always",
   "emmet.priority": 99,
-  "emmet.optimizeStylesheetParsing":false,
+  "emmet.optimizeStylesheetParsing": false,
   /* "emmet.extensionsPath": "~/.config/nvim", */
   "emmet.includeLanguages": {
     "vue-html": "html",
