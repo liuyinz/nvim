@@ -1,124 +1,136 @@
 let g:lightline = {
   \ 'colorscheme': 'deus',
   \ 'active': {
-  \   'left': [['homemode'],['gitinfo'],['cocstatus']],
-  \   'right':[['lineinfo'],['filesize'],['filencode'],['asyncrun_status'],['cocerror'],['cocwarn'],['cocfix']],
+  \ 'left':  [ [ 'mode' ],
+  \            [ 'gitinfo' ],
+  \            [ 'coc_diagnostic' ],
+  \            [ 'asyncrun_status' ]] ,
+  \ 'right': [ [ 'lineinfo' ],
+  \            [ 'filesize' ],
+  \            [ 'filetype' ],
+  \            [ 'fileformat' ],
+  \            [ 'fileencoding' ],
+  \            [ 'readonly' ] ]
   \ },
   \ 'inactive': {
-  \   'left': [['homemode'], ['filename_active']],
-  \   'right':[['lineinfo']],
-  \ },
-  \ 'tabline': {
-  \   'left': [['buffers']],
+  \ 'left':  [ [ 'mode' ],
+  \            [ 'gitinfo' ]],
+  \ 'right': [ [ 'lineinfo' ],
+  \            [ 'filesize' ],
+  \            [ 'filetype' ],
+  \            [ 'fileformat' ],
+  \            [ 'fileencoding' ],
+  \            [ 'readonly' ]]
   \ },
   \ 'component': {
-  \   'filesize': "%{HumanSize(line2byte('$') + len(getline('$')))}",
-  \   'absolutepath': '%F',
-  \   'relativepath': '%f'
+  \ },
+  \ 'component_function': {
+  \   'lineinfo': 'LineInfo',
+  \   'filetype': 'FileType',
+  \   'gitinfo': 'GitInfo',
+  \   'fileformat': 'FileFormat',
+  \   'fileencoding': 'FileEncoding',
+  \   'readonly': 'ReadOnly',
+  \   'filesize': 'FileSize',
+  \   'filepath': 'FilePath',
+  \   'coc_diagnostic': 'CocDiagnostic',
+  \   'cocfix': 'CocFixes',
   \ },
   \ 'component_expand': {
   \   'buffers': 'lightline#bufferline#buffers',
-  \   'cocerror': 'LightLineCocError',
-  \   'cocwarn' : 'LightLineCocWarn',
   \   'asyncrun_status': 'lightline#asyncrun#status',
-  \ },
-  \ 'component_function': {
-  \   'homemode': 'LightlineMode',
-  \   'gitinfo': 'LightLineGit',
-  \   'cocstatus': 'CocStatusBar',
-  \   'cocfix': 'LightlineCocFixes',
-  \   'filencode': 'FileEncoding',
-  \   'readonly': 'LightLineReadonly',
-  \   'filename_active': 'LightlineFilenameActive',
-  \   'lineinfo': 'LightlineLineinfo',
-  \   'filename': 'LightLineFname',
-  \   'filetype': 'LightLineFiletype',
-  \   'fileformat': 'LightLineFileformat',
   \ },
   \ 'component_type': {'buffers': 'tabsel'},
   \ 'separator': { 'left': "", 'right': ""},
-  \ 'subseparator': { 'left': "", 'right': ""}
+  \ 'subseparator': { 'left': "", 'right': ""},
+  \ 'tabline':{
+  \ 'left': [['buffers']],
+  \ 'right': [['filepath']],
+  \ }
   \ }
 
+let g:lightline#bufferline#filename_modifier = ':t'
+let g:lightline#bufferline#read_only = ' '
+let g:lightline#bufferline#unnamed = '[No name]'
+let g:lightline#bufferline#show_number  = 2
+let g:lightline#bufferline#number_map = {
+  \ 0: '⓿', 1: '❶', 2: '❷', 3: '❸', 4: '❹',
+  \ 5: '❺', 6: '❻', 7: '❼', 8: '❽', 9: '❾'}
+
+nmap <Leader>1 <Plug>lightline#bufferline#go(1)
+nmap <Leader>2 <Plug>lightline#bufferline#go(2)
+nmap <Leader>3 <Plug>lightline#bufferline#go(3)
+nmap <Leader>4 <Plug>lightline#bufferline#go(4)
+nmap <Leader>5 <Plug>lightline#bufferline#go(5)
+nmap <Leader>6 <Plug>lightline#bufferline#go(6)
+nmap <Leader>7 <Plug>lightline#bufferline#go(7)
+nmap <Leader>8 <Plug>lightline#bufferline#go(8)
+nmap <Leader>9 <Plug>lightline#bufferline#go(9)
 
 function! s:lightline_is_lean() abort
-  return &filetype =~? '\v^defx|mundo(diff)?$'
+  return &filetype =~? '\v^defx|help|fugitive|mundo(diff)?$'
 endfunction
 
 function! s:lightline_is_plain() abort
-  return &buftype ==? 'terminal' || &filetype =~? '\v^help|denite|defx|vista_kind|tagbar$'
+  return &buftype ==? 'terminal'
 endfunction
 
-function! LightlineLineinfo() abort
-  return &filetype ==? 'help'             ? ''  :
-    \  &filetype ==? 'defx'             ? ' ' :
-    \  &filetype ==? 'denite'           ? ' ' :
-    \  &filetype ==? 'tagbar'           ? ' ' :
-    \  &filetype ==? 'vista_kind'       ? ' ' :
-    \  &filetype =~? '\v^mundo(diff)?$' ? ' ' :
-    \  s:lightline_is_lean() || s:lightline_is_plain() ? ' '  :
-    \  printf('☰ %d:%d %d%%', line('.'), col('.'), 100*line('.')/line('$'))
+" LineInfo
+function! LineInfo() abort
+  return s:lightline_is_lean() ? toupper(&filetype) :
+    \ s:lightline_is_plain() ? toupper(&buftype) :
+    \ printf('☰ %d:%d %d%%', line('.'), col('.'), 100*line('.')/line('$'))
 endfunction
 
-function! LightlineMode() abort
-  return s:lightline_is_lean() || s:lightline_is_plain() ? toupper(&filetype) : lightline#mode()
+" FileType
+function! FileType() abort
+  return s:lightline_is_plain() || s:lightline_is_lean() ? '' :
+    \ &filetype == '' ? 'no ft' : &filetype
 endfunction
 
-function! s:get_buffer_number()
-  let i = 0
-  for nr in filter(range(1, bufnr('$')), 'bufexists(v:val) && buflisted(v:val)')
-    let i += 1
-    if nr == bufnr('')
-      return i
-    endif
-  endfor
-  return ''
+" FileFormat
+function! FileFormat() abort
+  return &fileformat == 'unix' ? '' : &fileformat
 endfunction
 
-function! LightlineFilenameActive() abort
-  if s:lightline_is_lean()
-    return ''
-  endif
-  if &buftype ==? 'terminal'
-    return has('nvim') ? b:term_title . ' (' . b:terminal_job_pid . ')' : ''
-  endif
-  if &filetype ==? 'denite'
-    return denite#get_status_sources()
-  endif
-  if &filetype ==? 'tagbar'
-    return get(g:lightline, 'fname', '')
-  endif
-  if &filetype ==? 'vista_kind'
-    return get(g:lightline, 'VISTA', '')
-  endif
-  if empty(expand('%:t'))
-    return '[No Name]'
-  endif
-
-  let mo = s:lightline_modified()
-  return empty(mo) ? LightLineFname() : LightLineFname() . ' ' . mo
+" FileEncoding
+function! FileEncoding() abort
+  return &fileencoding == 'utf-8' ? '' : &fileencoding
 endfunction
 
-function! s:lightline_modified() abort
-  return s:lightline_is_lean() || s:lightline_is_plain() ?  ''  :
-    \ &modified ?  '+' :
-    \ &modifiable ?  ''  : '-'
+" Readonly
+function! ReadOnly()
+  return s:lightline_is_lean() ? '' :
+    \ &readonly ? '' :
+    \ &modified ? '[+]' : ''
 endfunction
 
-function! LightLineReadonly()
-  if &filetype == "help"
-    return ""
-  elseif &readonly
-    return ""
-  else
-    return ""
-  endif
+" HumanSize
+function! HumanSize(bytes) abort
+  let l:bytes = a:bytes
+  let l:sizes = ['B', 'K', 'M', 'G']
+  let l:i = 0
+  while l:bytes >= 1024
+    let l:bytes = l:bytes / 1024.0
+    let l:i += 1
+  endwhile
+  return printf('%.1f%s', l:bytes, l:sizes[l:i])
 endfunction
 
-function! LightLineGit()abort
-  if &filetype ==? 'defx'
-    return ""
-  endif
+" FileSize
+function! FileSize() abort
+  return s:lightline_is_lean() || s:lightline_is_plain() ? '' :
+    \ HumanSize(line2byte('$') + len(getline('$')))
+endfunction
+
+" FilePath
+function! FilePath()
+  let prepath = pathshorten(expand('%:p:~:h:h')) . "/" . expand('%:p:h:t')
+  return expand('%:t') !=# '' ? prepath : ''
+endfunction
+
+" GitInfo
+function! GitInfo() abort
   let gitbranch=get(g:, 'coc_git_status', '')
   let gitcount=get(b:, 'coc_git_status', '')
   let gitinfo = []
@@ -130,63 +142,29 @@ function! LightLineGit()abort
   endif
   call add(gitinfo,gitbranch)
   call add(gitinfo,gitcount)
-  return trim(join(gitinfo,''))
+  return s:lightline_is_lean() ? '' : trim(join(gitinfo,''))
 endfunction
 
-function! CocStatusBar() abort
-  let status=get(g:, 'coc_status', '')
-  if empty(status)
-    return ""
-  endif
-  let regstatus=substitute(status,"TSC","Ⓣ ","")
-  let statusbar= split(regstatus)
-  if &filetype ==? "go"
-    let gobar ="Ⓖ "
-    call add(statusbar,gobar)
-  endif
-  "return join(statusbar," ")
-  let s = join(statusbar," ")
-  if empty(s)
-    return ""
-  endif
-  if &filetype ==? 'defx'
-    return ""
-  endif
-  return join(['❖',s])
-endfunction
-
-function! LightLineCocError()
-  let error_sign = get(g:, 'coc_status_error_sign', has('mac') ? '❌ ' : 'E')
+" CocDiagnostic
+function! CocDiagnostic() abort
   let info = get(b:, 'coc_diagnostic_info', {})
-  if empty(info)
-    return ''
-  endif
-  let errmsgs = []
+  if empty(info) | return '' | endif
+  let msgs = []
   if get(info, 'error', 0)
-    call add(errmsgs, error_sign . info['error'])
+    call add(msgs, 'E' . info['error'])
   endif
-  return join(errmsgs, ' ')
-endfunction
-
-function! LightLineCocWarn() abort
-  let warning_sign = get(g:, 'coc_status_warning_sign')
-  let info = get(b:, 'coc_diagnostic_info', {})
-  if empty(info)
-    return ''
-  endif
-  let warnmsgs = []
   if get(info, 'warning', 0)
-    call add(warnmsgs, warning_sign . info['warning'])
+    call add(msgs, 'W' . info['warning'])
   endif
-  return join(warnmsgs, ' ')
+  return join(msgs, ':')
 endfunction
 
-function! LightlineCocFixes() abort
+function! CocFixes() abort
   let b:coc_line_fixes = get(get(b:, 'coc_quickfixes', {}), line('.'), 0)
   return b:coc_line_fixes > 0 ? printf('%d ', b:coc_line_fixes) : ''
 endfunction
 
-" Diagnostic's feedback {{{
+" Diagnostic's feedback
 function! CocUpdateQuickFixes(error, actions) abort
   let coc_quickfixes = {}
   try
@@ -215,60 +193,3 @@ endfunction
 autocmd  MyAutoCmd User CocStatusChange,CocDiagnosticChange,CocGitStatusChange
   \   call lightline#update()
   \|  call CocActionAsync('quickfixes', function('CocUpdateQuickFixes'))
-
-
-function! LightLineFname()
-  let icon = (strlen(&filetype) ? ' ' . WebDevIconsGetFileTypeSymbol() : 'no ft')
-  let filename = LightLineFilename()
-  let ret = [filename,icon]
-  if filename == ''
-    return ''
-  endif
-  return join([filename, icon],'')
-endfunction
-
-function! LightLineFilename()
-  return ('' != LightLineReadonly() ? LightLineReadonly() . ' ' : '') .
-    \ ('' != expand('%:t') ? expand('%:t') : '')
-endfunction
-
-function! FileEncoding()
-  if &filetype==?'defx'
-    return ""
-  endif
-  return (&fenc!=#""?&fenc:&enc)
-endfunction
-
-function! LightLineFiletype()
-  return winwidth(0) > 70 ? (strlen(&filetype) ? &filetype . ' ' . WebDevIconsGetFileTypeSymbol() : 'no ft') : ''
-endfunction
-
-fun! HumanSize(bytes) abort
-  let l:bytes = a:bytes
-  let l:sizes = ['B', 'K', 'M', 'G']
-  let l:i = 0
-  while l:bytes >= 1024
-    let l:bytes = l:bytes / 1024.0
-    let l:i += 1
-  endwhile
-  return printf('%.1f%s', l:bytes, l:sizes[l:i])
-endfun
-
-let g:lightline#bufferline#show_number  = 2
-let g:lightline#bufferline#shorten_path = 1
-let g:lightline#bufferline#enable_devicons = 0
-let g:lightline#bufferline#filename_modifier = ':t'
-let g:lightline#bufferline#unnamed      = '[No Name]'
-let g:lightline#bufferline#number_map = {
-  \ 0: '⓿ ', 1: '❶ ', 2: '❷ ', 3: '❸ ', 4: '❹ ',
-  \ 5: '❺ ', 6: '❻ ', 7: '❼ ', 8: '❽ ', 9: '❾ '}
-
-nmap <Leader>1 <Plug>lightline#bufferline#go(1)
-nmap <Leader>2 <Plug>lightline#bufferline#go(2)
-nmap <Leader>3 <Plug>lightline#bufferline#go(3)
-nmap <Leader>4 <Plug>lightline#bufferline#go(4)
-nmap <Leader>5 <Plug>lightline#bufferline#go(5)
-nmap <Leader>6 <Plug>lightline#bufferline#go(6)
-nmap <Leader>7 <Plug>lightline#bufferline#go(7)
-nmap <Leader>8 <Plug>lightline#bufferline#go(8)
-nmap <Leader>9 <Plug>lightline#bufferline#go(9)
