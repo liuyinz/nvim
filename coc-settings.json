@@ -61,6 +61,7 @@
   "codeLens.enable": true,
   "list.maxHeight": 15,
   "session.directory": "~/.cache/nvim/sessions",
+  "imselect.enableStatusItem": false,
 
   // snippets
   "snippets.priority": 90,

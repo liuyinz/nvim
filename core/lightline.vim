@@ -3,13 +3,14 @@ let g:lightline = {
   \ 'active': {
   \ 'left':  [ [ 'mode' ],
   \            [ 'gitinfo' ],
+  \            [ 'coc_diagnostic' ],
   \            [ 'asyncrun_status' ]] ,
   \ 'right': [ [ 'lineinfo' ],
   \            [ 'filesize' ],
   \            [ 'filetype' ],
   \            [ 'fileformat' ],
   \            [ 'fileencoding' ],
-  \            [ 'readonly' ]]
+  \            [ 'readonly' ] ]
   \ },
   \ 'inactive': {
   \ 'left':  [ [ 'mode' ],
@@ -24,18 +25,20 @@ let g:lightline = {
   \ 'component': {
   \ },
   \ 'component_function': {
-  \ 'lineinfo': 'LineInfo',
-  \ 'filetype': 'FileType',
-  \ 'gitinfo': 'GitInfo',
-  \ 'fileformat': 'FileFormat',
-  \ 'fileencoding': 'FileEncoding',
-  \ 'readonly': 'ReadOnly',
-  \ 'filesize': 'FileSize',
-  \ 'filepath': 'FilePath',
+  \   'lineinfo': 'LineInfo',
+  \   'filetype': 'FileType',
+  \   'gitinfo': 'GitInfo',
+  \   'fileformat': 'FileFormat',
+  \   'fileencoding': 'FileEncoding',
+  \   'readonly': 'ReadOnly',
+  \   'filesize': 'FileSize',
+  \   'filepath': 'FilePath',
+  \   'coc_diagnostic': 'CocDiagnostic',
+  \   'cocfix': 'CocFixes',
   \ },
   \ 'component_expand': {
-  \ 'buffers': 'lightline#bufferline#buffers',
-  \ 'asyncrun_status': 'lightline#asyncrun#status',
+  \   'buffers': 'lightline#bufferline#buffers',
+  \   'asyncrun_status': 'lightline#asyncrun#status',
   \ },
   \ 'component_type': {'buffers': 'tabsel'},
   \ 'separator': { 'left': "", 'right': ""},
@@ -47,7 +50,7 @@ let g:lightline = {
   \ }
 
 let g:lightline#bufferline#filename_modifier = ':t'
-let g:lightline#bufferline#read_only = ''
+let g:lightline#bufferline#read_only = ' '
 let g:lightline#bufferline#unnamed = '[No name]'
 let g:lightline#bufferline#show_number  = 2
 let g:lightline#bufferline#number_map = {
@@ -72,46 +75,30 @@ function! s:lightline_is_plain() abort
   return &buftype ==? 'terminal'
 endfunction
 
-" LineInfo:
+" LineInfo
 function! LineInfo() abort
   return s:lightline_is_lean() ? toupper(&filetype) :
     \ s:lightline_is_plain() ? toupper(&buftype) :
     \ printf('☰ %d:%d %d%%', line('.'), col('.'), 100*line('.')/line('$'))
 endfunction
 
-" FileType:
+" FileType
 function! FileType() abort
   return s:lightline_is_plain() || s:lightline_is_lean() ? '' :
     \ &filetype == '' ? 'no ft' : &filetype
 endfunction
 
-" GitInfo:
-function! GitInfo() abort
-  let gitbranch=get(g:, 'coc_git_status', '')
-  let gitcount=get(b:, 'coc_git_status', '')
-  let gitinfo = []
-  if empty(gitbranch)
-    let gitbranch=""
-  endif
-  if empty(gitcount)
-    let gitcount=""
-  endif
-  call add(gitinfo,gitbranch)
-  call add(gitinfo,gitcount)
-  return s:lightline_is_lean() ? '' : trim(join(gitinfo,''))
-endfunction
-
-" FileFormat:
+" FileFormat
 function! FileFormat() abort
   return &fileformat == 'unix' ? '' : &fileformat
 endfunction
 
-" FileEncoding:
+" FileEncoding
 function! FileEncoding() abort
   return &fileencoding == 'utf-8' ? '' : &fileencoding
 endfunction
 
-" Readonly:
+" Readonly
 function! ReadOnly()
   return s:lightline_is_lean() ? '' :
     \ &readonly ? '' :
@@ -130,14 +117,79 @@ function! HumanSize(bytes) abort
   return printf('%.1f%s', l:bytes, l:sizes[l:i])
 endfunction
 
-" FileSize:
+" FileSize
 function! FileSize() abort
   return s:lightline_is_lean() || s:lightline_is_plain() ? '' :
     \ HumanSize(line2byte('$') + len(getline('$')))
 endfunction
 
-" FilePath:
+" FilePath
 function! FilePath()
   let prepath = pathshorten(expand('%:p:~:h:h')) . "/" . expand('%:p:h:t')
   return expand('%:t') !=# '' ? prepath : ''
 endfunction
+
+" GitInfo
+function! GitInfo() abort
+  let gitbranch=get(g:, 'coc_git_status', '')
+  let gitcount=get(b:, 'coc_git_status', '')
+  let gitinfo = []
+  if empty(gitbranch)
+    let gitbranch=""
+  endif
+  if empty(gitcount)
+    let gitcount=""
+  endif
+  call add(gitinfo,gitbranch)
+  call add(gitinfo,gitcount)
+  return s:lightline_is_lean() ? '' : trim(join(gitinfo,''))
+endfunction
+
+" CocDiagnostic
+function! CocDiagnostic() abort
+  let info = get(b:, 'coc_diagnostic_info', {})
+  if empty(info) | return '' | endif
+  let msgs = []
+  if get(info, 'error', 0)
+    call add(msgs, 'E' . info['error'])
+  endif
+  if get(info, 'warning', 0)
+    call add(msgs, 'W' . info['warning'])
+  endif
+  return join(msgs, ':')
+endfunction
+
+function! CocFixes() abort
+  let b:coc_line_fixes = get(get(b:, 'coc_quickfixes', {}), line('.'), 0)
+  return b:coc_line_fixes > 0 ? printf('%d ', b:coc_line_fixes) : ''
+endfunction
+
+" Diagnostic's feedback
+function! CocUpdateQuickFixes(error, actions) abort
+  let coc_quickfixes = {}
+  try
+    for action in a:actions
+      if action.kind ==? 'quickfix'
+        for change in action.edit.documentChanges
+          for edit in change.edits
+            let start_line = edit.range.start.line + 1
+            let end_line = edit.range.end.line + 1
+            let coc_quickfixes[start_line] = get(coc_quickfixes, start_line, 0) + 1
+            if start_line != end_line
+              let coc_quickfixes[end_line] = get(coc_quickfixes, end_line, 0) + 1
+            endif
+          endfor
+        endfor
+      endif
+    endfor
+  catch
+  endtry
+  if coc_quickfixes != get(b:, 'coc_quickfixes', {})
+    let b:coc_quickfixes = coc_quickfixes
+    call lightline#update()
+  endif
+endfunction
+
+autocmd  MyAutoCmd User CocStatusChange,CocDiagnosticChange,CocGitStatusChange
+  \   call lightline#update()
+  \|  call CocActionAsync('quickfixes', function('CocUpdateQuickFixes'))
