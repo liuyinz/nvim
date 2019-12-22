@@ -22,6 +22,10 @@ let g:lightline = {
   \            [ 'fileencoding' ],
   \            [ 'readonly' ]]
   \ },
+  \ 'tabline':{
+  \ 'left': [['buffers']],
+  \ 'right': [['filepath']],
+  \ },
   \ 'component': {
   \ },
   \ 'component_function': {
@@ -42,11 +46,7 @@ let g:lightline = {
   \ },
   \ 'component_type': {'buffers': 'tabsel'},
   \ 'separator': { 'left': "", 'right': ""},
-  \ 'subseparator': { 'left': "", 'right': ""},
-  \ 'tabline':{
-  \ 'left': [['buffers']],
-  \ 'right': [['filepath']],
-  \ }
+  \ 'subseparator': { 'left': "", 'right': ""}
   \ }
 
 let g:lightline#bufferline#filename_modifier = ':t'
