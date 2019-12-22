@@ -75,6 +75,11 @@ function! s:lightline_is_plain() abort
   return &buftype ==? 'terminal'
 endfunction
 
+" winwidth_is_narrow
+function! s:winwidth_is_narrow() abort
+  return winwidth(0) < 90
+endfunction
+
 " LineInfo
 function! LineInfo() abort
   return s:lightline_is_lean() ? toupper(&filetype) :
@@ -119,8 +124,9 @@ endfunction
 
 " FileSize
 function! FileSize() abort
-  return s:lightline_is_lean() || s:lightline_is_plain() ? '' :
-    \ HumanSize(line2byte('$') + len(getline('$')))
+  return s:lightline_is_lean()
+    \ || s:lightline_is_plain()
+    \ ? '' : HumanSize(line2byte('$') + len(getline('$')))
 endfunction
 
 " FilePath

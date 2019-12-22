@@ -80,12 +80,12 @@ highlight def Lf_hl_popup_fuzzyMode    guifg=#14212b guibg=#C65378 gui=bold
 highlight def Lf_hl_popup_regexMode    guifg=#14212b guibg=#e6e666 gui=bold
 highlight def Lf_hl_popup_category     guifg=#f2ebc7 guibg=#6e7476 gui=bold
 
-highlight def Lf_hl_match       guifg=#00ff7f guibg=NONE gui=bold
-highlight def Lf_hl_match0      guifg=#00ff7f guibg=NONE gui=bold
-highlight def Lf_hl_match1      guifg=#43b9f0 guibg=NONE gui=bold
-highlight def Lf_hl_match2      guifg=#e6e666 guibg=NONE gui=bold
-highlight def Lf_hl_match3      guifg=#3ff5d1 guibg=NONE gui=bold
-highlight def Lf_hl_match4      guifg=#FF0000 guibg=NONE gui=bold
-highlight def Lf_hl_matchRefine guifg=Magenta guibg=NONE gui=bold
-highlight def Lf_hl_cursorline         guifg=#C65378 guibg=#212026 gui=bold
-highlight def Lf_hl_selection          guifg=Black   guibg=#a5eb84 gui=NONE
+highlight def Lf_hl_match       guifg=#00ff7f guibg=NONE    gui=bold
+highlight def Lf_hl_match0      guifg=#00ff7f guibg=NONE    gui=bold
+highlight def Lf_hl_match1      guifg=#43b9f0 guibg=NONE    gui=bold
+highlight def Lf_hl_match2      guifg=#e6e666 guibg=NONE    gui=bold
+highlight def Lf_hl_match3      guifg=#3ff5d1 guibg=NONE    gui=bold
+highlight def Lf_hl_match4      guifg=#FF0000 guibg=NONE    gui=bold
+highlight def Lf_hl_matchRefine guifg=Magenta guibg=NONE    gui=bold
+highlight def Lf_hl_cursorline  guifg=#C65378 guibg=#212026 gui=bold
+highlight def Lf_hl_selection   guifg=Black   guibg=#a5eb84 gui=NONE
