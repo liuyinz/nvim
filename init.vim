@@ -82,10 +82,10 @@ Plug 'tpope/vim-git', { 'for' : [ 'git', 'gtcmmit', 'gitrebase', 'gitconfig' ] }
 Plug 'junegunn/gv.vim'
 " ui
 Plug 'liuchengxu/space-vim-theme'
-Plug 'ryanoasis/vim-devicons'
+" Plug 'ryanoasis/vim-devicons'
 Plug 'itchyny/lightline.vim'
-" Plug 'mengelbrecht/lightline-bufferline'
-" Plug 'albertomontesg/lightline-asyncrun'
+Plug 'mengelbrecht/lightline-bufferline'
+Plug 'albertomontesg/lightline-asyncrun'
 Plug 'Yggdroot/indentLine'
 Plug 'luochen1990/rainbow'
 Plug 'junegunn/limelight.vim', { 'on' : 'Limelight'}
