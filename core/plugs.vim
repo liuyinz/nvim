@@ -250,7 +250,7 @@ let g:better_whitespace_enabled=1
 let g:strip_whitespace_on_save=1
 let g:strip_whitespace_confirm=0
 let g:strip_whitelines_at_eof=1
-let g:better_whitespace_filetypes_blacklist=['diff', 'gitcommit', 'qf', 'help','far','git']
+let g:better_whitespace_filetypes_blacklist=['diff', 'gitcommit', 'qf', 'help','far','mundo','git']
 
 
 " Hipairs
@@ -318,20 +318,10 @@ nmap <leader>ca  <plug>NERDCommenterAppend
 " vim-choosewin
 " -----------------------------
 let g:choosewin_statusline_replace = 1
-" let g:choosewin_tabline_replace    = 1
-" let g:choosewin_label_align = 'center'
-" let g:choosewin_label_padding = 3
-" let g:choosewin_label_fill = 0
 let g:choosewin_label = 'ASDFZXCV'
-let g:choosewin_tablabel = 'QWER'
+let g:choosewin_tablabel = 'QWERT'
 let g:choosewin_overlay_enable = 0
-" let g:choosewin_overlay_font_size = 'auto'
-" let g:choosewin_overlay_shade = 0
-" let g:choosewin_overlay_clear_multibyte = 1
-" let g:choosewin_overlay_shade_priority = 100
-" let g:choosewin_overlay_label_priority = 101
-let g:choosewin_blink_on_land = 1
-" let g:choosewin_return_on_single_win = 0
+let g:choosewin_blink_on_land = 0
 
 let g:choosewin_color_label = {
   \'gui': ['#5d4d7a', 'white', 'bold'],
@@ -358,12 +348,12 @@ let g:choosewin_keymap = {
   \ '[':     '<NOP>',
   \ ']':     '<NOP>',
   \ '$':     '<NOP>',
-  \ 'k':     'tab_close',
+  \ 'k':     '<NOP>',
   \ ';':     '<NOP>',
   \ ',':     'previous',
-  \ 'g':     'swap',
-  \ 'G':     'swap_stay',
-  \ "\<CR>": 'win_land',
+  \ 'g':     '<NOP>',
+  \ 'G':     '<NOP>',
+  \ "\<CR>": '<NOP>',
   \ }
 
 nmap <silent><nowait> , <Plug>(choosewin)
