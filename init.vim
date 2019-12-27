@@ -96,6 +96,7 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'kana/vim-niceblock'
 Plug 'romainl/vim-cool'
 Plug 'Shougo/echodoc.vim'
+Plug 'junegunn/vim-peekaboo'
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 " Plug 'brooth/far.vim'
 " motion
