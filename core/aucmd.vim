@@ -14,6 +14,7 @@ augroup  MyAutoCmd
 	" Term setting
 	autocmd TermOpen * IndentLinesDisable
 	autocmd TermOpen * setlocal nonumber norelativenumber
+	autocmd TermOpen * startinsert
 
 	" Automatically set read-only for files being edited elsewhere
 	" autocmd SwapExists * nested let v:swapchoice = 'o'

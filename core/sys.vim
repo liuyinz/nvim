@@ -213,7 +213,7 @@ inoremap <silent><expr> <C-k> pumvisible() ? "\<C-p>" : "\<Esc>O"
 "-------------------------------------
 " Write & quit
 nnoremap <silent> <Leader>w  :write<CR>
-nnoremap <silent> <Leader>q  :quit<CR>
+nnoremap <silent> <Leader>q  :quit!<CR>
 nnoremap <silent> <Leader>wq :wq<CR>
 nnoremap <silent> <leader>ww :SudoWrite<CR>
 
@@ -260,13 +260,6 @@ xnoremap < <gv
 nmap >>  >>_
 nmap <<  <<_
 
-" Toggle fold
-nnoremap z1 :set foldlevel=1
-nnoremap z9 :set foldlevel=9
-
-" Start an external command with a single bang
-nnoremap <localleader><localleader> :!
-
 " When pressing <leader>cd switch to the directory of the open buffer
 map <Leader>cd :lcd %:p:h<CR>:pwd<CR>
 
@@ -281,6 +274,15 @@ nnoremap <leader>cn *``cgn
 nnoremap <leader>cN *``cgN
 vnoremap <expr> <leader>cn "y/\\V\<C-r>=escape(@\", '/')\<CR>\<CR>" . "``cgn"
 vnoremap <expr> <leader>cN "y/\\V\<C-r>=escape(@\", '/')\<CR>\<CR>" . "``cgN"
+
+" Terminal
+"-------------------------------------
+" Start an external command with a single bang
+nnoremap <localleader><localleader> :!
+nnoremap <silent> <leader>t :vsplit term://zsh<CR>
+tnoremap <Esc> <C-\><C-n>
+tnoremap <Esc> <C-\><C-n>
+tnoremap <expr> <C-R> '<C-\><C-N>"'.nr2char(getchar()).'pi'
 
 " nnoremap <leader>yr
 "     \:let @+=expand("%")<CR>:echo 'Relative path copied to clipboard.'<CR>
