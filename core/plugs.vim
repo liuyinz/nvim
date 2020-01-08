@@ -159,7 +159,7 @@ autocmd! User GoyoLeave
 autocmd  User GoyoEnter nested call <SID>goyo_enter()
 autocmd  User GoyoLeave nested call <SID>goyo_leave()
 
-nnoremap <silent> <Leader>t :<C-U>Goyo<CR>
+nnoremap <silent> <Leader>g :<C-U>Goyo<CR>
 
 " s:goyo_enter()
 " Disable visual candy in Goyo mode
@@ -208,6 +208,7 @@ let g:indentLine_fileTypeExclude = [
 let g:indentLine_bufTypeExclude = ['help', 'terminal']
 let g:indentLine_faster = 1
 
+autocmd TermOpen * IndentLinesDisable
 
 " rainbow
 " -----------------------------

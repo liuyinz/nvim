@@ -4,20 +4,12 @@ augroup  MyAutoCmd
 	autocmd!
 
 	" Reload vim config automatically
-	autocmd BufWritePost $VIM_PATH/{*.vim,*.yaml} nested
+	autocmd BufWritePost $VIM_PATH/{*.vim,*.json} nested
 		\ source $MYVIMRC | redraw
 
 	" Highlight current line only on focused window
-	autocmd WinEnter,InsertLeave * if &ft !~# 'denite' | set cursorline | endif
-	autocmd WinLeave,InsertEnter * if &ft !~# 'denite' | set nocursorline | endif
-
-	" Term setting
-	autocmd TermOpen * IndentLinesDisable
-	autocmd TermOpen * setlocal nonumber norelativenumber
-	autocmd TermOpen * startinsert
-
-	" Automatically set read-only for files being edited elsewhere
-	" autocmd SwapExists * nested let v:swapchoice = 'o'
+	autocmd WinEnter,InsertLeave * set cursorline
+	autocmd WinLeave,InsertEnter * set nocursorline
 
 	" Equalize window dimensions when resizing vim window
 	autocmd VimResized * tabdo wincmd =
@@ -29,13 +21,6 @@ augroup  MyAutoCmd
 	autocmd FocusGained * checktime
 
 	autocmd Syntax * if line('$') > 5000 | syntax sync minlines=200 | endif
-
-	" Update filetype on save if empty
-	autocmd BufWritePost * nested
-		\ if &l:filetype ==# '' || exists('b:ftdetect')
-		\ |   unlet! b:ftdetect
-		\ |   filetype detect
-		\ | endif
 
 	" Reload Vim script automatically if setlocal autoread
 	autocmd BufWritePost,FileWritePost *.vim nested
@@ -51,11 +36,30 @@ augroup  MyAutoCmd
 		\|   execute 'normal! g`"zvzz'
 		\| endif
 
-	" Filetype
+augroup END
+
+
+" term setting
+augroup TermSet
+	autocmd!
+	autocmd TermOpen * setlocal nonumber norelativenumber
+	autocmd TermOpen * startinsert
+augroup END
+
+
+" filetypeset
+augroup FileTypeSet
+	autocmd!
+
+	" Update filetype on save if empty
+	autocmd BufWritePost * nested
+		\ if &l:filetype ==# '' || exists('b:ftdetect')
+		\ |   unlet! b:ftdetect
+		\ |   filetype detect
+		\ | endif
+
 	autocmd FileType crontab setlocal nobackup nowritebackup
-
 	autocmd FileType gitcommit setlocal spell
-
 	autocmd FileType gitcommit,qfreplace setlocal nofoldenable
 
 	" https://webpack.github.io/docs/webpack-dev-server.html#working-with-editors-ides-supporting-safe-write
@@ -71,7 +75,6 @@ augroup  MyAutoCmd
 		\ | setlocal matchpairs-=<:>
 
 	autocmd FileType zsh setlocal shiftwidth=4 foldenable foldmethod=marker
-
 	autocmd FileType html setlocal path+=./;/ shiftwidth=2 foldenable foldmethod=indent
 
 	autocmd FileType markdown
@@ -86,6 +89,3 @@ augroup  MyAutoCmd
 	autocmd FileType go setlocal matchpairs-=<:> matchpairs-=(:)
 
 augroup END
-
-
-" vim: set foldmethod=marker ts=2 sw=2 tw=80 noet :

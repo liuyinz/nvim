@@ -71,7 +71,7 @@ function! s:lightline_is_lean() abort
   return &filetype =~? '\v^defx|vim-plug|help|fugitive|GV|git|mundo(diff)?$'
 endfunction
 
-function! s:lightline_is_plain() abort
+function! s:lightline_is_terminal() abort
   return &buftype ==? 'terminal'
 endfunction
 
@@ -83,13 +83,15 @@ endfunction
 " LineInfo
 function! LineInfo() abort
   return s:lightline_is_lean() ? toupper(&filetype) :
-    \ s:lightline_is_plain() ? toupper(&buftype) :
+    \ s:lightline_is_terminal() ? toupper(&buftype) :
     \ printf('☰ %d:%d %d%%', line('.'), col('.'), 100*line('.')/line('$'))
 endfunction
 
 " FileType
 function! FileType() abort
-  return s:lightline_is_plain() || s:lightline_is_lean() ? '' :
+  return s:lightline_is_terminal() ||
+    \ s:lightline_is_lean() ||
+    \ line2byte('$')  == -1 ? '' :
     \ &filetype == '' ? 'no ft' : &filetype
 endfunction
 
@@ -124,15 +126,16 @@ endfunction
 
 " FileSize
 function! FileSize() abort
-  return s:lightline_is_lean()
-    \ || s:lightline_is_plain()
-    \ ? '' : HumanSize(line2byte('$') + len(getline('$')))
+  return s:lightline_is_lean() ||
+    \ s:lightline_is_terminal() ||
+    \ line2byte('$') == -1 ?
+    \ '' : HumanSize(line2byte('$') + len(getline('$')))
 endfunction
 
 " FilePath
 function! FilePath()
   let prepath = pathshorten(expand('%:p:~:h:h')) . "/" . expand('%:p:h:t')
-  return expand('%:t') !=# '' ? prepath : ''
+  return s:lightline_is_terminal() || expand('%:t') ==# '' ? '' : prepath
 endfunction
 
 " GitInfo

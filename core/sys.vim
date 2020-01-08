@@ -218,7 +218,7 @@ nnoremap <silent> <Leader>wq :wq<CR>
 nnoremap <silent> <leader>ww :SudoWrite<CR>
 
 " Buffer
-nnoremap <silent> <leader>d   :<C-u>bdelete<CR>
+nnoremap <silent> <leader>d   :<C-u>bdelete!<CR>
 " Close all other buffer
 nnoremap <silent> <leader>ob  :<c-u>up <bar> %bd <bar> e#<cr>
 " Close all other windows
