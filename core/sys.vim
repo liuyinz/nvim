@@ -184,29 +184,12 @@ let g:ruby_no_expensive = 1
 
 "
 " Folding {{{
-" augroup: a
-" function: f
 let g:vimsyn_folding = 'af'
 let g:tex_fold_enabled = 1
 let g:xml_syntax_folding = 1
 let g:php_folding = 2
 let g:php_phpdoc_folding = 1
 let g:perl_fold = 1
-
-
-" sys-map
-" Insert & command
-"-------------------------------------
-" Emacs style
-noremap! <C-a> <Home>
-noremap! <C-e> <End>
-noremap! <C-b> <Left>
-noremap! <C-f> <Right>
-noremap! <C-d> <Del>
-
-" Selection || newline
-inoremap <silent><expr> <C-j> pumvisible() ? "\<C-n>" : "\<Esc>o"
-inoremap <silent><expr> <C-k> pumvisible() ? "\<C-p>" : "\<Esc>O"
 
 
 " Window and Buffer
@@ -216,7 +199,6 @@ nnoremap <silent> <Leader>w  :write<CR>
 nnoremap <silent> <Leader>q  :quit!<CR>
 nnoremap <silent> <Leader>wq :wq<CR>
 nnoremap <silent> <leader>ww :SudoWrite<CR>
-
 " Buffer
 nnoremap <silent> <leader>d   :<C-u>bdelete!<CR>
 " Close all other buffer
@@ -232,14 +214,36 @@ nnoremap <silent> <leader>L  <C-w>L
 nnoremap <silent> <leader>T  <C-w>T
 nnoremap <silent> <leader>=  <C-w>=
 
-" split windows to tmux
-" nnoremap <silent> <leader>tv
-"     \:<C-u>call system("xclip -i -selection clipboard", expand("%:p:h"))<CR>
-"     \:!tmux splitw -h -c $(xclip -o -selectio clipboard)<CR>
-"
-" nnoremap <silent> <leader>th
-"     \:<C-u>call system("xclip -i -selection clipboard", expand("%:p:h"))<CR>
-"     \:!tmux splitw -v -c $(xclip -o -selectio clipboard) -p 20<CR>
+
+" Insert & command
+"-------------------------------------
+" Emacs style
+noremap! <C-a> <Home>
+noremap! <C-e> <End>
+noremap! <C-b> <Left>
+noremap! <C-f> <Right>
+noremap! <C-d> <Del>
+
+" Selection || newline
+inoremap <silent><expr> <C-j> pumvisible() ? "\<C-n>" : "\<Esc>o"
+inoremap <silent><expr> <C-k> pumvisible() ? "\<C-p>" : "\<Esc>O"
+
+
+" Terminal
+"-------------------------------------
+" Start an external command with a single bang
+nnoremap <localleader><localleader> :!
+nnoremap <silent> <leader>t :vsplit term://zsh<CR>
+tnoremap <Esc> <C-\><C-n>
+tnoremap <Esc> <C-\><C-n>
+tnoremap <expr> <C-R> '<C-\><C-N>"'.nr2char(getchar()).'pi'
+
+augroup TermSet
+    autocmd!
+    autocmd TermOpen * setlocal nonumber norelativenumber
+    autocmd TermOpen * startinsert
+augroup END
+
 
 " Normal mode
 "-------------------------------------
@@ -275,14 +279,14 @@ nnoremap <leader>cN *``cgN
 vnoremap <expr> <leader>cn "y/\\V\<C-r>=escape(@\", '/')\<CR>\<CR>" . "``cgn"
 vnoremap <expr> <leader>cN "y/\\V\<C-r>=escape(@\", '/')\<CR>\<CR>" . "``cgN"
 
-" Terminal
-"-------------------------------------
-" Start an external command with a single bang
-nnoremap <localleader><localleader> :!
-nnoremap <silent> <leader>t :vsplit term://zsh<CR>
-tnoremap <Esc> <C-\><C-n>
-tnoremap <Esc> <C-\><C-n>
-tnoremap <expr> <C-R> '<C-\><C-N>"'.nr2char(getchar()).'pi'
+" Append modeline to EOF
+nnoremap <silent> <Leader>ll :call <SID>append_modeline()<CR>
+function! s:append_modeline()
+    let l:modeline = printf(' vim: set ts=%d sw=%d tw=%d %set :',
+      \ &tabstop, &shiftwidth, &textwidth, &expandtab ? '' : 'no')
+    let l:modeline = substitute(&commentstring, '%s', l:modeline, '')
+    call append(line('$'), l:modeline)
+endfunction
 
 " nnoremap <leader>yr
 "     \:let @+=expand("%")<CR>:echo 'Relative path copied to clipboard.'<CR>
@@ -292,15 +296,6 @@ tnoremap <expr> <C-R> '<C-\><C-N>"'.nr2char(getchar()).'pi'
 
 " nnoremap <leader>cp yap<S-}>p
 " nnoremap <leader>a =ip
-
-" " Append modeline to EOF
-nnoremap <silent> <Leader>ll :call <SID>append_modeline()<CR>
-function! s:append_modeline()
-    let l:modeline = printf(' vim: set ts=%d sw=%d tw=%d %set :',
-      \ &tabstop, &shiftwidth, &textwidth, &expandtab ? '' : 'no')
-    let l:modeline = substitute(&commentstring, '%s', l:modeline, '')
-    call append(line('$'), l:modeline)
-endfunction
 
 " C-r: Easier search and replace
 " xnoremap <C-r> :<C-u>call <SID>get_selection('/')<CR>
@@ -325,4 +320,15 @@ endfunction
 
 " xnoremap p  "0p
 " nnoremap x "_x
-" vim: set ts=4 sw=4 tw=78 et :
+"
+"
+ "split windows to tmux
+" nnoremap <silent> <leader>tv
+"     \:<C-u>call system("xclip -i -selection clipboard", expand("%:p:h"))<CR>
+"     \:!tmux splitw -h -c $(xclip -o -selectio clipboard)<CR>
+"
+" nnoremap <silent> <leader>th
+"     \:<C-u>call system("xclip -i -selection clipboard", expand("%:p:h"))<CR>
+"     \:!tmux splitw -v -c $(xclip -o -selectio clipboard) -p 20<CR>
+
+"vim: set ts=4 sw=4 tw=78 et :

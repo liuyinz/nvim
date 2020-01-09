@@ -35,15 +35,6 @@ augroup  MyAutoCmd
 		\      line("'\"") >= 1 && line("'\"") <= line("$")
 		\|   execute 'normal! g`"zvzz'
 		\| endif
-
-augroup END
-
-
-" term setting
-augroup TermSet
-	autocmd!
-	autocmd TermOpen * setlocal nonumber norelativenumber
-	autocmd TermOpen * startinsert
 augroup END
 
 
@@ -87,5 +78,4 @@ augroup FileTypeSet
 	autocmd FileType yaml.docker-compose setlocal expandtab
 	autocmd FileType json setlocal conceallevel=0
 	autocmd FileType go setlocal matchpairs-=<:> matchpairs-=(:)
-
 augroup END
