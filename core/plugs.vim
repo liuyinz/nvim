@@ -466,6 +466,14 @@ au FileType python let b:AutoPairs = AutoPairsDefine({
 let g:asyncrun_open = 8
 let g:lightline#asyncrun#indicator_none = ''
 let g:lightline#asyncrun#indicator_run = 'Running...'
+" command! -bang -nargs=* -complete=file Make AsyncRun -program=make @ <args>
+" if exists(':Make') == 2
+"   noautocmd Make
+" else
+"   silent noautocmd make!
+"   redraw!
+"   return 'call fugitive#cwindow()'
+" endif
 
 
 " Vim-Markdown
