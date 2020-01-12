@@ -1,5 +1,3 @@
-" Plugin Settings
-
 " Coc.nvim
 " -----------------------------
 " let g:coc_node_args = ['--nolazy', '--inspect-brk=6045']

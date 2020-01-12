@@ -106,7 +106,7 @@ Plug 'MattesGroeger/vim-bookmarks'
 " file
 Plug 'Yggdroot/LeaderF', { 'do' : './install.sh'}
 Plug 'rbgrouleff/bclose.vim'
-Plug 'francoiscabrol/ranger.vim', { 'on' : [ 'Ranger' ,'RangerCurrentFileExistingOrNewTab']}
+Plug 'francoiscabrol/ranger.vim', { 'on' : [ 'Ranger']}
 " format
 Plug 'Chiel92/vim-autoformat', { 'on' : 'Autoformat'}
 Plug 'ntpeters/vim-better-whitespace'
