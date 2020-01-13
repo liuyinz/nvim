@@ -16,33 +16,6 @@
   "suggest.snippetIndicator": "Ⓢ ",
   "suggest.echodocSupport": true,
   "suggest.acceptSuggestionOnCommitCharacter": true,
-  "suggest.completionItemKindLabels": {
-    "function": "\u0192",
-    "method": "\uf09a",
-    "variable": "\ue79b",
-    "constant": "\uf8fe",
-    "struct": "\ufb44",
-    "class": "\uf0e8",
-    "interface": "\uf417",
-    "text": "\ue612",
-    "enum": "\uf435",
-    "enumMember": "\uf02b",
-    "module": "\uf40d",
-    "color": "\ue22b",
-    "property": "\ue624",
-    "field": "\uf9be",
-    "unit": "\uf475",
-    "file": "\uf723",
-    "value": "\uf89f",
-    "event": "\ufacd",
-    "folder": "\uf114",
-    "keyword": "\uf1de",
-    "snippet": "\ue60b",
-    "operator": "\u03a8",
-    "reference": "\ufa46",
-    "typeParameter": "\uf728",
-    "default": "\uf29c"
-  },
 
   // Signature
   "signature.enable": true,
@@ -95,7 +68,23 @@
   "translator.engines": ["ciba"],
   "translator.maxsize": 5000,
 
-  // ts,js
+  // coc-eslint
+  "eslint.packageManager": "npm",
+  "eslint.autoFix": false,
+  "eslint.autoFixOnSave": true,
+  "eslint.options": {},
+  "eslint.filetypes":[
+    "javascript",
+    "javascriptreact",
+    "vue",
+    "typescript",
+    "typescriptreact"
+  ],
+
+  // coc-tsserver
+  "javascript.format.enabled":false,
+  "typescript.format.enabled": false,
+  "tsserver.npm": "/usr/local/bin/npm",
 
   // emmet
   "emmet.showExpandedAbbreviation": "always",
@@ -109,10 +98,12 @@
     "javascript.jsx": "javascriptreact",
     "typescript.tsx": "typescriptreact"
   },
+
   // rust
   "rust-client.logToFile": true,
   "rust-client.revealOutputChannelOn": "info",
   "rust-client.updateOnStartup": true,
+
   // python
   "python.autoComplete.addBrackets": true,
   "python.jediEnabled": true,

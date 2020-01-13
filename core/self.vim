@@ -55,7 +55,7 @@ augroup FileTypeSet
 
   " https://webpack.github.io/docs/webpack-dev-server.html#working-with-editors-ides-supporting-safe-write
   autocmd FileType css,javascript,jsx,javascript.jsx setlocal backupcopy=yes
-
+  autocmd FileType javascript  setlocal shiftwidth=4
   autocmd FileType php
     \ setlocal matchpairs-=<:> iskeyword+=\\ path+=/usr/local/share/pear
   "   \ | setlocal formatoptions=qroct " Correct indent after opening a phpdocblock
@@ -74,7 +74,7 @@ augroup FileTypeSet
 
   autocmd FileType apache setlocal path+=./;/
   autocmd FileType cam setlocal nonumber synmaxcol=10000
-  autocmd FileType yaml,json setlocal shiftwidth=2
+  " autocmd FileType yaml,json setlocal shiftwidth=4
   autocmd FileType yaml.docker-compose setlocal expandtab
   autocmd FileType json setlocal conceallevel=0
   autocmd FileType go setlocal matchpairs-=<:> matchpairs-=(:)
