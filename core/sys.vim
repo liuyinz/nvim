@@ -225,8 +225,8 @@ noremap! <C-f> <Right>
 noremap! <C-d> <Del>
 
 " Selection || newline
-inoremap <silent><expr> <C-j> pumvisible() ? "\<C-n>" : "\<Esc>o"
-inoremap <silent><expr> <C-k> pumvisible() ? "\<C-p>" : "\<Esc>O"
+" inoremap <silent><expr> <C-j> pumvisible() ? "\<C-n>" : "\<Esc>o"
+" inoremap <silent><expr> <C-k> pumvisible() ? "\<C-p>" : "\<Esc>O"
 
 
 " Terminal

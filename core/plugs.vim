@@ -1,16 +1,36 @@
 " Coc.nvim
 " -----------------------------
 " let g:coc_node_args = ['--nolazy', '--inspect-brk=6045']
-let g:coc_snippet_next = '<TAB>'
-let g:coc_snippet_prev = '<S-TAB>'
 let g:coc_status_error_sign = '•'
 let g:coc_status_warning_sign = '•'
 let g:coc_global_extensions =[
-  \ 'coc-lists', 'coc-marketplace', 'coc-translator','coc-rls',
-  \ 'coc-json','coc-yaml','coc-python', 'coc-snippets', 'coc-vimlsp',
-  \ 'coc-html', 'coc-css','coc-tsserver', 'coc-vetur', 'coc-emmet',
-  \ 'coc-angular', 'coc-svg', 'coc-gitignore','coc-git', 'coc-imselect'
+  \ 'coc-lists', 'coc-marketplace', 'coc-translator', 'coc-rls',
+  \ 'coc-json', 'coc-yaml', 'coc-python', 'coc-snippets', 'coc-vimlsp',
+  \ 'coc-html', 'coc-css', 'coc-tsserver', 'coc-vetur', 'coc-emmet',
+  \ 'coc-angular', 'coc-svg', 'coc-gitignore', 'coc-git', 'coc-imselect'
   \]
+
+inoremap <silent><expr> <TAB>
+  \ pumvisible() ? "\<C-n>" :
+  \ <SID>check_back_space() ? "\<TAB>" :
+  \ coc#refresh()
+
+inoremap <silent><expr> <S-TAB>
+  \ pumvisible() ? "\<C-p>" :
+  \ "\<C-h>"
+
+inoremap <expr> <C-j>
+  \ pumvisible() ? "\<C-y>" :
+  \ coc#jumpable() ?
+  \ "\<C-r>=coc#rpc#request('doKeymap', ['snippets-jump',''])\<CR>" :
+  \ "\<Esc>o"
+
+vmap <C-j> <Plug>(coc-snippets-select)
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
 
 augroup CocAuto
   autocmd!
@@ -18,16 +38,10 @@ augroup CocAuto
   autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 augroup end
 
-" coc-list
-vmap <C-l> <Plug>(coc-snippets-select)
-inoremap <silent><expr> <C-l>
-  \ pumvisible() ? coc#_select_confirm() :
-  \ coc#refresh()
-
 nnoremap <silent> <localleader>d  :<C-u>CocList diagnostics<cr>
 nnoremap <silent> <localleader>v  :<C-u>CocList vimcommands<cr>
 
-nmap <silent> tt  <Plug>(coc-translator-p)
+nmap <silent> tt <Plug>(coc-translator-p)
 nmap <silent> [d <Plug>(coc-diagnostic-prev)
 nmap <silent> ]d <Plug>(coc-diagnostic-next)
 nmap <silent> [g <Plug>(coc-git-prevchunk)
