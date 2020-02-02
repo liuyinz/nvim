@@ -73,7 +73,7 @@ Plug 'neoclide/coc.nvim', { 'branch' : 'release' }
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-eunuch'
-Plug 'tpope/tpope-vim-abolish'
+Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-surround'
 " git
 Plug 'tpope/vim-fugitive'

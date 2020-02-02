@@ -12,7 +12,7 @@ augroup  MyAutoCmd
   autocmd WinLeave,InsertEnter * set nocursorline
 
   " Equalize window dimensions when resizing vim window
-  " autocmd VimResized * tabdo wincmd =
+  autocmd VimResized * tabdo wincmd =
 
   " Force write shada on leaving nvim
   autocmd VimLeave * if has('nvim') | wshada! | else | wviminfo! | endif
