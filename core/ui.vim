@@ -37,8 +37,8 @@ highlight GutterChange      gui=bold guifg=#e18254 guibg=#292b2e
 highlight GutterDelete      gui=bold guifg=#f2241f guibg=#292b2e
 highlight GutterChangeDelet gui=bold guifg=#ce537a guibg=#292b2e
 
-" repo coc-highlight
-highlight CocHighlightText guifg=None guibg=#544B64
+" " repo coc-highlight
+" highlight CocHighlightText guifg=None guibg=#544B64
 
 " repo: vim-scripts/xml.vim
 highlight MatchTag guifg=None guibg=#544B64
@@ -65,27 +65,27 @@ hi Defx_git_Staged    guifg=#e6e666
 " highlight def link Lf_hl_help         Comment
 " highlight def link Lf_hl_helpCmd      Identifier
 
-highlight def Lf_hl_popup_cursor       guifg=#14212b guibg=#C65378 gui=NONE
-highlight def Lf_hl_popup_inputText    guifg=#ecebf0 guibg=#34323E gui=bold
-highlight def Lf_hl_popup_blank        guifg=NONE    guibg=#34323E gui=NONE
-highlight def Lf_hl_popup_prompt       guifg=#C65378 guibg=NONE    gui=bold
-highlight def Lf_hl_popup_lineInfo     guifg=#353129 guibg=#dce6da gui=bold
-highlight def Lf_hl_popup_total        guifg=#f2ebc7 guibg=#6e7476 gui=bold
-highlight def Lf_hl_popup_spin         guifg=#e6e666 guibg=NONE    gui=NONE
-highlight def Lf_hl_popup_normalMode   guifg=#333300 guibg=#99C27C gui=bold
-highlight def Lf_hl_popup_inputMode    guifg=#003333 guibg=#65B0ED gui=bold
-highlight def Lf_hl_popup_nameOnlyMode guifg=#14212b guibg=#C65378 gui=bold
-highlight def Lf_hl_popup_fullPathMode guifg=#14212b guibg=#C65378 gui=bold
-highlight def Lf_hl_popup_fuzzyMode    guifg=#14212b guibg=#C65378 gui=bold
-highlight def Lf_hl_popup_regexMode    guifg=#14212b guibg=#e6e666 gui=bold
-highlight def Lf_hl_popup_category     guifg=#f2ebc7 guibg=#6e7476 gui=bold
+" highlight def Lf_hl_popup_cursor       guifg=#14212b guibg=#C65378 gui=NONE
+" highlight def Lf_hl_popup_inputText    guifg=#ecebf0 guibg=#34323E gui=bold
+" highlight def Lf_hl_popup_blank        guifg=NONE    guibg=#34323E gui=NONE
+" highlight def Lf_hl_popup_prompt       guifg=#C65378 guibg=NONE    gui=bold
+" highlight def Lf_hl_popup_lineInfo     guifg=#353129 guibg=#dce6da gui=bold
+" highlight def Lf_hl_popup_total        guifg=#f2ebc7 guibg=#6e7476 gui=bold
+" highlight def Lf_hl_popup_spin         guifg=#e6e666 guibg=NONE    gui=NONE
+" highlight def Lf_hl_popup_normalMode   guifg=#333300 guibg=#99C27C gui=bold
+" highlight def Lf_hl_popup_inputMode    guifg=#003333 guibg=#65B0ED gui=bold
+" highlight def Lf_hl_popup_nameOnlyMode guifg=#14212b guibg=#C65378 gui=bold
+" highlight def Lf_hl_popup_fullPathMode guifg=#14212b guibg=#C65378 gui=bold
+" highlight def Lf_hl_popup_fuzzyMode    guifg=#14212b guibg=#C65378 gui=bold
+" highlight def Lf_hl_popup_regexMode    guifg=#14212b guibg=#e6e666 gui=bold
+" highlight def Lf_hl_popup_category     guifg=#f2ebc7 guibg=#6e7476 gui=bold
 
-highlight def Lf_hl_match       guifg=#00ff7f guibg=NONE    gui=bold
-highlight def Lf_hl_match0      guifg=#00ff7f guibg=NONE    gui=bold
-highlight def Lf_hl_match1      guifg=#43b9f0 guibg=NONE    gui=bold
-highlight def Lf_hl_match2      guifg=#e6e666 guibg=NONE    gui=bold
-highlight def Lf_hl_match3      guifg=#3ff5d1 guibg=NONE    gui=bold
-highlight def Lf_hl_match4      guifg=#FF0000 guibg=NONE    gui=bold
-highlight def Lf_hl_matchRefine guifg=Magenta guibg=NONE    gui=bold
-highlight def Lf_hl_cursorline  guifg=#C65378 guibg=#212026 gui=bold
-highlight def Lf_hl_selection   guifg=Black   guibg=#a5eb84 gui=NONE
+" highlight def Lf_hl_match       guifg=#00ff7f guibg=NONE    gui=bold
+" highlight def Lf_hl_match0      guifg=#00ff7f guibg=NONE    gui=bold
+" highlight def Lf_hl_match1      guifg=#43b9f0 guibg=NONE    gui=bold
+" highlight def Lf_hl_match2      guifg=#e6e666 guibg=NONE    gui=bold
+" highlight def Lf_hl_match3      guifg=#3ff5d1 guibg=NONE    gui=bold
+" highlight def Lf_hl_match4      guifg=#FF0000 guibg=NONE    gui=bold
+" highlight def Lf_hl_matchRefine guifg=Magenta guibg=NONE    gui=bold
+" highlight def Lf_hl_cursorline  guifg=#C65378 guibg=#212026 gui=bold
+" highlight def Lf_hl_selection   guifg=Black   guibg=#a5eb84 gui=NONE
