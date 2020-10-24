@@ -7,8 +7,8 @@ function! Has_Color(name) abort
     return !empty(globpath(&rtp, pat))
 endfunction
 
-if Has_Color('space_vim_theme')
-    colorscheme space_vim_theme
+if Has_Color('citylights')
+    colorscheme citylights
 endif
 
 " Highlignt
@@ -59,11 +59,11 @@ hi Defx_git_Unmerged  guifg=#5298D5
 hi Defx_git_Deleted   guifg=#FF0000
 hi Defx_git_Staged    guifg=#e6e666
 
-" Leaderf-popupp
-highlight def link Lf_hl_popup_window Pmenu
-highlight def link Lf_hl_popup_cwd    Lf_hl_popup_category
-highlight def link Lf_hl_help         Comment
-highlight def link Lf_hl_helpCmd      Identifier
+" " Leaderf-popupp
+" highlight def link Lf_hl_popup_window Pmenu
+" highlight def link Lf_hl_popup_cwd    Lf_hl_popup_category
+" highlight def link Lf_hl_help         Comment
+" highlight def link Lf_hl_helpCmd      Identifier
 
 highlight def Lf_hl_popup_cursor       guifg=#14212b guibg=#C65378 gui=NONE
 highlight def Lf_hl_popup_inputText    guifg=#ecebf0 guibg=#34323E gui=bold

@@ -1,57 +1,57 @@
-" Coc.nvim
-" -----------------------------
-" let g:coc_node_args = ['--nolazy', '--inspect-brk=6045']
-let g:coc_status_error_sign = '•'
-let g:coc_status_warning_sign = '•'
-let g:coc_global_extensions =[
-  \ 'coc-lists', 'coc-marketplace', 'coc-translator', 'coc-rls', 'coc-emmet',
-  \ 'coc-json', 'coc-yaml', 'coc-python', 'coc-snippets', 'coc-vimlsp',
-  \ 'coc-html', 'coc-css', 'coc-tsserver', 'coc-eslint', 'coc-vetur',
-  \ 'coc-angular', 'coc-svg', 'coc-gitignore', 'coc-git', 'coc-imselect'
-  \]
+" " Coc.nvim
+" " -----------------------------
+" " let g:coc_node_args = ['--nolazy', '--inspect-brk=6045']
+" let g:coc_status_error_sign = '•'
+" let g:coc_status_warning_sign = '•'
+" let g:coc_global_extensions =[
+"   \ 'coc-lists', 'coc-marketplace', 'coc-translator', 'coc-rls', 'coc-emmet',
+"   \ 'coc-json', 'coc-yaml', 'coc-python', 'coc-snippets', 'coc-vimlsp',
+"   \ 'coc-html', 'coc-css', 'coc-tsserver', 'coc-eslint', 'coc-vetur',
+"   \ 'coc-angular', 'coc-svg', 'coc-gitignore', 'coc-git', 'coc-imselect'
+"   \]
 
-inoremap <silent><expr> <TAB>
-  \ pumvisible() ? "\<C-n>" :
-  \ <SID>check_back_space() ? "\<TAB>" :
-  \ coc#refresh()
+" inoremap <silent><expr> <TAB>
+"   \ pumvisible() ? "\<C-n>" :
+"   \ <SID>check_back_space() ? "\<TAB>" :
+"   \ coc#refresh()
 
-inoremap <silent><expr> <S-TAB>
-  \ pumvisible() ? "\<C-p>" :
-  \ "\<C-h>"
+" inoremap <silent><expr> <S-TAB>
+"   \ pumvisible() ? "\<C-p>" :
+"   \ "\<C-h>"
 
-inoremap <expr> <C-j>
-  \ pumvisible() ? "\<C-y>" :
-  \ coc#jumpable() ?
-  \ "\<C-r>=coc#rpc#request('doKeymap', ['snippets-jump',''])\<CR>" :
-  \ "\<Esc>o"
+" inoremap <expr> <C-j>
+"   \ pumvisible() ? "\<C-y>" :
+"   \ coc#jumpable() ?
+"   \ "\<C-r>=coc#rpc#request('doKeymap', ['snippets-jump',''])\<CR>" :
+"   \ "\<Esc>o"
 
-vmap <C-j> <Plug>(coc-snippets-select)
+" vmap <C-j> <Plug>(coc-snippets-select)
 
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
+" function! s:check_back_space() abort
+"   let col = col('.') - 1
+"   return !col || getline('.')[col - 1]  =~# '\s'
+" endfunction
 
-augroup CocAuto
-  autocmd!
-  " Update signature help on jump placeholder
-  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
-augroup end
+" augroup CocAuto
+"   autocmd!
+"   " Update signature help on jump placeholder
+"   autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+" augroup end
 
-nnoremap <silent> <localleader>d  :<C-u>CocList diagnostics<cr>
-nnoremap <silent> <localleader>v  :<C-u>CocList vimcommands<cr>
+" nnoremap <silent> <localleader>d  :<C-u>CocList diagnostics<cr>
+" nnoremap <silent> <localleader>v  :<C-u>CocList vimcommands<cr>
 
-nmap <silent> tt <Plug>(coc-translator-p)
-nmap <silent> [d <Plug>(coc-diagnostic-prev)
-nmap <silent> ]d <Plug>(coc-diagnostic-next)
-nmap <silent> [g <Plug>(coc-git-prevchunk)
-nmap <silent> ]g <Plug>(coc-git-nextchunk)
+" nmap <silent> tt <Plug>(coc-translator-p)
+" nmap <silent> [d <Plug>(coc-diagnostic-prev)
+" nmap <silent> ]d <Plug>(coc-diagnostic-next)
+" nmap <silent> [g <Plug>(coc-git-prevchunk)
+" nmap <silent> ]g <Plug>(coc-git-nextchunk)
 
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gD <Plug>(coc-declaration)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gr <Plug>(coc-references)
+" nmap <silent> gd <Plug>(coc-definition)
+" nmap <silent> gD <Plug>(coc-declaration)
+" nmap <silent> gi <Plug>(coc-implementation)
+" nmap <silent> gy <Plug>(coc-type-definition)
+" nmap <silent> gr <Plug>(coc-references)
 
 " fugitive
 " -----------------------------
@@ -78,90 +78,91 @@ vnoremap <silent> <localleader>gl :GV<CR>
 nnoremap <silent> <localleader>glb :GV!<CR>
 
 
-" Leaderf
-" -----------------------------
-"  ui
-let g:Lf_WindowPosition = 'popup'
-" let g:Lf_CursorBlink = 0
-let g:Lf_PreviewPopupWidth = 0
-let g:Lf_StlSeparator = { 'left': '', 'right': '' }
-let g:Lf_PopupWidth = &columns * 7/10
-let g:Lf_PopupHeight = float2nr(&lines * 0.55)
-" let g:Lf_PopupPreviewPosition = 'cursor'
-" set
-" let g:Lf_PythonVersion = 3
-let g:Lf_DefaultMode = 'NameOnly'
-" let g:Lf_ShowRelativePath = 1
-" let g:Lf_NoChdir = 0
-let g:Lf_CacheDirectory= expand('$DATA_PATH')
-let g:Lf_UseVersionControlTool = 0
-let g:Lf_RecurseSubmodules = 1
-let g:Lf_FollowLinks = 1
-let g:Lf_ReverseOrder = 0
-let g:Lf_HistoryNumber = 100000
-" let g:Lf_DelimiterChar = ';'
-" let g:Lf_RootMarkers=['.git', '.hg', '.svn']
-let g:Lf_WorkingDirectoryMode = 'Af'
-let g:Lf_HideHelp = 1
-let g:Lf_ShowHidden = 1
-let g:Lf_EmptyQuery = 0
-let g:Lf_IgnoreCurrentBufferName = 1
-" let g:Lf_DiscardEmptyBuffer = 0
-let g:Lf_CommandMap = {
-  \ '<Up>'  : ['<C-P>'],
-  \ '<Down>': ['<C-N>'],
-  \ '<C-L>' : ['<C-Q>'],
-  \ '<C-]>' : ['<C-L>'],
-  \}
-let g:Lf_WildIgnore = {
-  \ 'dir': ['.svn','.git','.hg','*.cache'],
-  \ 'file': ['*.sw?','~$*','*.bak','*.exe','*.o','*.so','*.py[co]']
-  \}
-let g:Lf_MruFileExclude=[]
-let g:Lf_MruWildIgnore = {
-  \ 'dir': ['.cache','runtime','.git','private/var','var/folders'],
-  \ 'file': []
-  \}
-let g:Lf_PreviewCode = 0
-let g:Lf_PreviewInPopup = 0
-let g:Lf_RgConfig = [
-  \ "--hidden",
-  \ "--follow",
-  \ "--trim",
-  \ "--smart-case",
-  \ "--auto-hybrid-regex",
-  \ "--sortr=modified",
-  \ "--ignore-file=/Users/ray/.rgignore",
-  \ "--colors=path:fg:green",
-  \ "--colors=match:fg:red",
-  \ "--colors=match:style:bold",
-  \ "--colors=line:fg:blue",
-  \ "--colors=line:style:bold",
-  \ "--colors=column:fg:blue",
-  \ "--colors=column:style:bold"
-  \ ]
-" gtags
-" let g:Lf_CtagsFuncOpts = {
-"     \ 'c': '--c-kinds=fp',
-"     \ 'rust': '--rust-kinds=f',
-"     \ }
-let g:Lf_Gtagslabel= 'native-pygments'
-let g:Lf_GtagsAutoGenerate = 1
-let g:Lf_GtagsAcceptDotfiles = 1
-let g:Lf_GtagsSkipUnreadable = 1
-let g:Lf_GtagsSkipSymlink = ""
+" " Leaderf
+" " -----------------------------
+" "  ui
+" " let g:Lf_WindowPosition = 'popup'
+" " let g:Lf_CursorBlink = 0
+" let g:Lf_PreviewPopupWidth = 0
+" let g:Lf_StlSeparator = { 'left': '', 'right': '' }
+" " let g:Lf_PopupWidth = &columns * 7/10
+" " let g:Lf_PopupHeight = float2nr(&lines * 0.55)
+" " let g:Lf_PopupPreviewPosition = 'cursor'
+" " set
+" " let g:Lf_PythonVersion = 3
+" let g:Lf_DefaultMode = 'NameOnly'
+" " let g:Lf_ShowRelativePath = 1
+" " let g:Lf_NoChdir = 0
+" let g:Lf_CacheDirectory= expand('$DATA_PATH')
+" let g:Lf_UseVersionControlTool = 0
+" let g:Lf_RecurseSubmodules = 1
+" let g:Lf_FollowLinks = 1
+" let g:Lf_ReverseOrder = 0
+" let g:Lf_HistoryNumber = 100000
+" " let g:Lf_DelimiterChar = ';'
+" " let g:Lf_RootMarkers=['.git', '.hg', '.svn']
+" let g:Lf_WorkingDirectoryMode = 'Af'
+" let g:Lf_HideHelp = 1
+" let g:Lf_ShowHidden = 1
+" let g:Lf_ShowDevIcons = 0
+" let g:Lf_EmptyQuery = 0
+" let g:Lf_IgnoreCurrentBufferName = 1
+" " let g:Lf_DiscardEmptyBuffer = 0
+" let g:Lf_CommandMap = {
+"   \ '<Up>'  : ['<C-P>'],
+"   \ '<Down>': ['<C-N>'],
+"   \ '<C-L>' : ['<C-Q>'],
+"   \ '<C-]>' : ['<C-L>'],
+"   \}
+" let g:Lf_WildIgnore = {
+"   \ 'dir': ['.svn','.git','.hg','*.cache'],
+"   \ 'file': ['*.sw?','~$*','*.bak','*.exe','*.o','*.so','*.py[co]']
+"   \}
+" let g:Lf_MruFileExclude=[]
+" let g:Lf_MruWildIgnore = {
+"   \ 'dir': ['.cache','runtime','.git','private/var','var/folders'],
+"   \ 'file': []
+"   \}
+" let g:Lf_PreviewCode = 0
+" let g:Lf_PreviewInPopup = 0
+" let g:Lf_RgConfig = [
+"   \ "--hidden",
+"   \ "--follow",
+"   \ "--trim",
+"   \ "--smart-case",
+"   \ "--auto-hybrid-regex",
+"   \ "--sortr=modified",
+"   \ "--ignore-file=/Users/ray/.rgignore",
+"   \ "--colors=path:fg:green",
+"   \ "--colors=match:fg:red",
+"   \ "--colors=match:style:bold",
+"   \ "--colors=line:fg:blue",
+"   \ "--colors=line:style:bold",
+"   \ "--colors=column:fg:blue",
+"   \ "--colors=column:style:bold"
+"   \ ]
+" " gtags
+" " let g:Lf_CtagsFuncOpts = {
+" "     \ 'c': '--c-kinds=fp',
+" "     \ 'rust': '--rust-kinds=f',
+" "     \ }
+" let g:Lf_Gtagslabel= 'native-pygments'
+" let g:Lf_GtagsAutoGenerate = 1
+" let g:Lf_GtagsAcceptDotfiles = 1
+" let g:Lf_GtagsSkipUnreadable = 1
+" let g:Lf_GtagsSkipSymlink = ""
 
-nnoremap <silent> <localleader>a :<C-u>Leaderf file ~<cr>
-nnoremap <silent> <localleader>w :<C-u>Leaderf file<cr>
-nnoremap <silent> <localleader>p :<C-u>Leaderf mru<cr>
-nnoremap <silent> <localleader>t :<C-u>Leaderf bufTag --all<cr>
-nnoremap <silent> <localleader>f :<C-u>Leaderf function --all<cr>
-nnoremap <silent> <localleader>c :<C-u>Leaderf cmdHistory<cr>
-nnoremap <silent> <localleader>s :<C-u>Leaderf searchHistory<cr>
-nnoremap <silent> <localleader>h :<C-u>Leaderf help --cword<cr>
-nnoremap <silent> <localleader>r :<C-u>Leaderf rg<cr>
-vmap     <silent> <localleader>r :<C-U><C-R>=printf("Leaderf rg
-  \ -F -e %s ", leaderf#Rg#visual())<cr><cr>
+" nnoremap <silent> <localleader>a :<C-u>Leaderf file ~<cr>
+" nnoremap <silent> <localleader>w :<C-u>Leaderf file<cr>
+" nnoremap <silent> <localleader>p :<C-u>Leaderf mru<cr>
+" nnoremap <silent> <localleader>t :<C-u>Leaderf bufTag --all<cr>
+" nnoremap <silent> <localleader>f :<C-u>Leaderf function --all<cr>
+" nnoremap <silent> <localleader>c :<C-u>Leaderf cmdHistory<cr>
+" nnoremap <silent> <localleader>s :<C-u>Leaderf searchHistory<cr>
+" nnoremap <silent> <localleader>h :<C-u>Leaderf help --cword<cr>
+" nnoremap <silent> <localleader>r :<C-u>Leaderf rg<cr>
+" vmap     <silent> <localleader>r :<C-U><C-R>=printf("Leaderf rg
+"   \ -F -e %s ", leaderf#Rg#visual())<cr><cr>
 
 
 " Goyo
@@ -600,5 +601,5 @@ let g:ultisnips_javascript = {
 
 " Polyglot
 " -----------------------------
-let g:polyglot_disabled = []
+" let g:polyglot_disabled = []
 let g:python_highlight_all = 1

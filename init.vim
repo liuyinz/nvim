@@ -68,7 +68,9 @@ call plug#begin($DATA_PATH . '/plugged')
 
 " Basic
 Plug 'junegunn/vim-plug'
-Plug 'neoclide/coc.nvim', { 'branch' : 'release' }
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
+
 " tpope
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-unimpaired'
@@ -81,7 +83,7 @@ Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-git', { 'for' : [ 'git', 'gtcmmit', 'gitrebase', 'gitconfig' ] }
 Plug 'junegunn/gv.vim'
 " ui
-Plug 'liuchengxu/space-vim-theme'
+Plug 'saltdotac/citylights.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'mengelbrecht/lightline-bufferline'
 Plug 'albertomontesg/lightline-asyncrun'
@@ -98,13 +100,12 @@ Plug 'romainl/vim-cool'
 Plug 'Shougo/echodoc.vim'
 Plug 'junegunn/vim-peekaboo'
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
-" Plug 'brooth/far.vim'
 " motion
 Plug 't9md/vim-choosewin'
 Plug 'easymotion/vim-easymotion'
 Plug 'MattesGroeger/vim-bookmarks'
 " file
-Plug 'Yggdroot/LeaderF', { 'do' : './install.sh'}
+" Plug 'Yggdroot/LeaderF', { 'do' : './install.sh'}
 Plug 'rbgrouleff/bclose.vim'
 Plug 'francoiscabrol/ranger.vim', { 'on' : [ 'Ranger']}
 " format
@@ -113,12 +114,9 @@ Plug 'ntpeters/vim-better-whitespace'
 Plug 'junegunn/vim-easy-align'
 " Run
 Plug 'skywind3000/asyncrun.vim', { 'on' : [ 'AsyncRun!', 'AsyncRun' ]}
-" Plug 'carlosrocha/vim-chrome-devtools', { 'do': 'npm install && npm run build' }
 " integration
 Plug 'JGShaw/dash.vim'
 Plug 'tyru/open-browser.vim'
-" JS,TS
-Plug 'peitalin/vim-jsx-typescript', { 'for' : 'tsx'}
 " Markdown
 Plug 'iamcco/markdown-preview.nvim', {
   \'do' : { -> mkdp#util#install() },
