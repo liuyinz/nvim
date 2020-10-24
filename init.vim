@@ -117,13 +117,13 @@ Plug 'skywind3000/asyncrun.vim', { 'on' : [ 'AsyncRun!', 'AsyncRun' ]}
 " integration
 Plug 'JGShaw/dash.vim'
 Plug 'tyru/open-browser.vim'
-" Markdown
-Plug 'iamcco/markdown-preview.nvim', {
-  \'do' : { -> mkdp#util#install() },
-  \'for' : [ 'markdown', 'pandoc.markdown', 'rmd'],
-  \'on' : 'MarkdownPreview'}
-" Html,Xml
-Plug 'Valloric/MatchTagAlways', { 'for' : ['html', 'xml', 'xhtml', 'jinja' ]}
+" " Markdown
+" Plug 'iamcco/markdown-preview.nvim', {
+"   \'do' : { -> mkdp#util#install() },
+"   \'for' : [ 'markdown', 'pandoc.markdown', 'rmd'],
+"   \'on' : 'MarkdownPreview'}
+" " Html,Xml
+" Plug 'Valloric/MatchTagAlways', { 'for' : ['html', 'xml', 'xhtml', 'jinja' ]}
 " other
 Plug 'sheerun/vim-polyglot'
 Plug 'neoclide/jsonc.vim', { 'for' : 'jsonc' }

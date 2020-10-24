@@ -1,10 +1,9 @@
 let g:lightline = {
-  \ 'colorscheme': 'deus',
+  \ 'colorscheme': 'one',
   \ 'active': {
   \ 'left':  [ [ 'mode' ],
-  \            [ 'gitinfo' ],
-  \            [ 'coc_diagnostic' ],
-  \            [ 'asyncrun_status' ]] ,
+  \            [ 'gitbranch' ],
+  \            [ 'asyncrun_status' ]],
   \ 'right': [ [ 'lineinfo' ],
   \            [ 'filesize' ],
   \            [ 'filetype' ],
@@ -14,7 +13,7 @@ let g:lightline = {
   \ },
   \ 'inactive': {
   \ 'left':  [ [ 'mode' ],
-  \            [ 'gitinfo' ]],
+  \            [ 'gitbranch' ]],
   \ 'right': [ [ 'lineinfo' ],
   \            [ 'filesize' ],
   \            [ 'filetype' ],
@@ -29,16 +28,14 @@ let g:lightline = {
   \ 'component': {
   \ },
   \ 'component_function': {
+  \   'gitbranch': 'FugitiveHead',
   \   'lineinfo': 'LineInfo',
   \   'filetype': 'FileType',
-  \   'gitinfo': 'GitInfo',
   \   'fileformat': 'FileFormat',
   \   'fileencoding': 'FileEncoding',
   \   'readonly': 'ReadOnly',
   \   'filesize': 'FileSize',
   \   'filepath': 'FilePath',
-  \   'coc_diagnostic': 'CocDiagnostic',
-  \   'cocfix': 'CocFixes',
   \ },
   \ 'component_expand': {
   \   'buffers': 'lightline#bufferline#buffers',
