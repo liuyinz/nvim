@@ -42,8 +42,9 @@ let g:lightline = {
   \   'asyncrun_status': 'lightline#asyncrun#status',
   \ },
   \ 'component_type': {'buffers': 'tabsel'},
-  \ 'separator': { 'left': "", 'right': ""},
-  \ 'subseparator': { 'left': "", 'right': ""}
+  \ 'separator': { 'left': "\ue0b8", 'right': "\ue0be"},
+  \ 'subseparator': { 'left': "\ue0b9", 'right': "\ue0b9"},
+  \ 'tabline_separator': { 'left': "\ue0bc", 'right': "\ue0ba" }
   \ }
 
 let g:lightline#bufferline#filename_modifier = ':t'

@@ -4,7 +4,7 @@
 " set vfile=$DATA_PATH/nvim.log
 
 " General Settings
-"-----------------------------
+" ----------------------------
 if has('termguicolors')
     set termguicolors
 endif

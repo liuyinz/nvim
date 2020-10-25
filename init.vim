@@ -59,8 +59,8 @@ if has('vim_starting')
   nnoremap ;        <Nop>
   xnoremap ;        <Nop>
   " Initialize base requirements
-  let g:mapleader="\<Space>"
-  let g:maplocalleader=';'
+  let g:mapleader=';'
+  let g:maplocalleader="\<Space>"
 
 endif
 
@@ -107,7 +107,8 @@ Plug 'MattesGroeger/vim-bookmarks'
 " file
 " Plug 'Yggdroot/LeaderF', { 'do' : './install.sh'}
 Plug 'rbgrouleff/bclose.vim'
-Plug 'francoiscabrol/ranger.vim', { 'on' : [ 'Ranger']}
+Plug 'ptzz/lf.vim'
+" Plug 'francoiscabrol/ranger.vim', { 'on' : [ 'Ranger']}
 " format
 Plug 'Chiel92/vim-autoformat', { 'on' : 'Autoformat'}
 Plug 'ntpeters/vim-better-whitespace'

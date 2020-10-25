@@ -601,5 +601,3 @@ let g:ultisnips_javascript = {
 
 " Polyglot
 " -----------------------------
-" let g:polyglot_disabled = []
-let g:python_highlight_all = 1
