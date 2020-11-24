@@ -68,10 +68,11 @@ call plug#begin($DATA_PATH . '/plugged')
 
 " Basic
 Plug 'junegunn/vim-plug'
-Plug 'junegunn/fzf'
-Plug 'junegunn/fzf.vim'
+Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
+Plug 'voldikss/vim-floaterm'
+" Plug 'voldikss/fzf-floaterm'
 
-" tpope
+" edit
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-eunuch'
@@ -81,12 +82,14 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-git', { 'for' : [ 'git', 'gtcmmit', 'gitrebase', 'gitconfig' ] }
+Plug 'jreybert/vimagit'
 Plug 'junegunn/gv.vim'
 " ui
-Plug 'saltdotac/citylights.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'mengelbrecht/lightline-bufferline'
 Plug 'albertomontesg/lightline-asyncrun'
+Plug 'joshdick/onedark.vim'
+Plug 'mhinz/vim-startify'
 Plug 'Yggdroot/indentLine'
 Plug 'luochen1990/rainbow'
 Plug 'junegunn/limelight.vim', { 'on' : 'Limelight'}
@@ -99,16 +102,11 @@ Plug 'kana/vim-niceblock'
 Plug 'romainl/vim-cool'
 Plug 'Shougo/echodoc.vim'
 Plug 'junegunn/vim-peekaboo'
-Plug 'mg979/vim-visual-multi', {'branch': 'master'}
+" Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 " motion
 Plug 't9md/vim-choosewin'
 Plug 'easymotion/vim-easymotion'
-Plug 'MattesGroeger/vim-bookmarks'
-" file
-" Plug 'Yggdroot/LeaderF', { 'do' : './install.sh'}
-Plug 'rbgrouleff/bclose.vim'
-Plug 'ptzz/lf.vim'
-" Plug 'francoiscabrol/ranger.vim', { 'on' : [ 'Ranger']}
+" Plug 'MattesGroeger/vim-bookmarks'
 " format
 Plug 'Chiel92/vim-autoformat', { 'on' : 'Autoformat'}
 Plug 'ntpeters/vim-better-whitespace'
@@ -123,8 +121,6 @@ Plug 'tyru/open-browser.vim'
 "   \'do' : { -> mkdp#util#install() },
 "   \'for' : [ 'markdown', 'pandoc.markdown', 'rmd'],
 "   \'on' : 'MarkdownPreview'}
-" " Html,Xml
-" Plug 'Valloric/MatchTagAlways', { 'for' : ['html', 'xml', 'xhtml', 'jinja' ]}
 " other
 Plug 'sheerun/vim-polyglot'
 Plug 'neoclide/jsonc.vim', { 'for' : 'jsonc' }

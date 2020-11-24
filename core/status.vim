@@ -44,12 +44,12 @@ let g:lightline = {
   \ 'component_type': {'buffers': 'tabsel'},
   \ 'separator': { 'left': "\ue0b8", 'right': "\ue0be"},
   \ 'subseparator': { 'left': "\ue0b9", 'right': "\ue0b9"},
-  \ 'tabline_separator': { 'left': "\ue0bc", 'right': "\ue0ba" }
+  \ 'tabline_separator': { 'left': "", 'right': "" }
   \ }
 
 let g:lightline#bufferline#filename_modifier = ':t'
-let g:lightline#bufferline#read_only = ' '
-let g:lightline#bufferline#unnamed = '[No name]'
+let g:lightline#bufferline#read_only = '[RO]'
+let g:lightline#bufferline#unnamed = '[Untitle]'
 let g:lightline#bufferline#show_number  = 2
 let g:lightline#bufferline#number_map = {
   \ 0: '⓿', 1: '❶', 2: '❷', 3: '❸', 4: '❹',
@@ -66,7 +66,7 @@ nmap <Leader>8 <Plug>lightline#bufferline#go(8)
 nmap <Leader>9 <Plug>lightline#bufferline#go(9)
 
 function! s:lightline_is_lean() abort
-  return &filetype =~? '\v^defx|vim-plug|help|fugitive|GV|git|mundo(diff)?$'
+  return &filetype =~? '\v^defx|startify|vim-plug|help|fugitive|GV|git|mundo(diff)?$'
 endfunction
 
 function! s:lightline_is_terminal() abort
@@ -82,7 +82,7 @@ endfunction
 function! LineInfo() abort
   return s:lightline_is_lean() ? toupper(&filetype) :
     \ s:lightline_is_terminal() ? toupper(&buftype) :
-    \ printf('☰ %d:%d %d%%', line('.'), col('.'), 100*line('.')/line('$'))
+    \ printf('%d:%d,%d%%', line('.'), col('.'), 100*line('.')/line('$'))
 endfunction
 
 " FileType
@@ -106,7 +106,7 @@ endfunction
 " Readonly
 function! ReadOnly()
   return s:lightline_is_lean() ? '' :
-    \ &readonly ? '' :
+    \ &readonly ? '[RO]' :
     \ &modified ? '[+]' : ''
 endfunction
 

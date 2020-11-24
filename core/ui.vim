@@ -2,34 +2,35 @@
 
 " Theme
 " -----------------------------
-function! Has_Color(name) abort
-    let pat = 'colors/'.a:name.'.vim'
-    return !empty(globpath(&rtp, pat))
-endfunction
+" function! Has_Color(name) abort
+"     let pat = 'colors/'.a:name.'.vim'
+"     return !empty(globpath(&rtp, pat))
+" endfunction
 
-if Has_Color('citylights')
-    colorscheme citylights
-endif
+" if Has_Color('citylights')
+"     colorscheme citylights
+" endif
+
 
 " Highlignt
 " -----------------------------
-" term
-let g:terminal_color_0  = '#292b2e'
-let g:terminal_color_1  = '#ff5b82'
-let g:terminal_color_2  = '#47d7a0'
-let g:terminal_color_3  = '#e7e562'
-let g:terminal_color_4  = '#5db3ee'
-let g:terminal_color_5  = '#da6cda'
-let g:terminal_color_6  = '#56e8ea'
-let g:terminal_color_7  = '#ececec'
-let g:terminal_color_8  = '#423f38'
-let g:terminal_color_9  = '#ff5b82'
-let g:terminal_color_10 = '#47d7a0'
-let g:terminal_color_11 = '#e7e562'
-let g:terminal_color_12 = '#5db3ee'
-let g:terminal_color_13 = '#da6cda'
-let g:terminal_color_14 = '#56e8ea'
-let g:terminal_color_15 = '#ececec'
+" ter
+" let g:terminal_color_0  = '#292b2e'
+" let g:terminal_color_1  = '#ff5b82'
+" let g:terminal_color_2  = '#47d7a0'
+" let g:terminal_color_3  = '#e7e562'
+" let g:terminal_color_4  = '#5db3ee'
+" let g:terminal_color_5  = '#da6cda'
+" let g:terminal_color_6  = '#56e8ea'
+" let g:terminal_color_7  = '#ececec'
+" let g:terminal_color_8  = '#423f38'
+" let g:terminal_color_9  = '#ff5b82'
+" let g:terminal_color_10 = '#47d7a0'
+" let g:terminal_color_11 = '#e7e562'
+" let g:terminal_color_12 = '#5db3ee'
+" let g:terminal_color_13 = '#da6cda'
+" let g:terminal_color_14 = '#56e8ea'
+" let g:terminal_color_15 = '#ececec'
 
 " Coc-git gitter signcolumn
 highlight GutterAdd         gui=bold guifg=#67b11d guibg=#292b2e
@@ -50,21 +51,21 @@ highlight DiffChange guibg=#3e3a45 guifg=none    gui=none
 highlight DiffText   guibg=#675d78 guifg=none    gui=bold
 
 " Defx-git
-hi Defx_git_Ignored   guifg=NONE
-hi Defx_git_Unknown   guifg=NONE
-hi Defx_git_Untracked guifg=#C65378
-hi Defx_git_Renamed   guifg=#00ff7f
-hi Defx_git_Modified  guifg=#00ff7f
-hi Defx_git_Unmerged  guifg=#5298D5
-hi Defx_git_Deleted   guifg=#FF0000
-hi Defx_git_Staged    guifg=#e6e666
+" hi Defx_git_Ignored   guifg=NONE
+" hi Defx_git_Unknown   guifg=NONE
+" hi Defx_git_Untracked guifg=#C65378
+" hi Defx_git_Renamed   guifg=#00ff7f
+" hi Defx_git_Modified  guifg=#00ff7f
+" hi Defx_git_Unmerged  guifg=#5298D5
+" hi Defx_git_Deleted   guifg=#FF0000
+" hi Defx_git_Staged    guifg=#e6e666
 
 " " Leaderf-popupp
 " highlight def link Lf_hl_popup_window Pmenu
 " highlight def link Lf_hl_popup_cwd    Lf_hl_popup_category
 " highlight def link Lf_hl_help         Comment
 " highlight def link Lf_hl_helpCmd      Identifier
-
+"
 " highlight def Lf_hl_popup_cursor       guifg=#14212b guibg=#C65378 gui=NONE
 " highlight def Lf_hl_popup_inputText    guifg=#ecebf0 guibg=#34323E gui=bold
 " highlight def Lf_hl_popup_blank        guifg=NONE    guibg=#34323E gui=NONE
@@ -79,7 +80,7 @@ hi Defx_git_Staged    guifg=#e6e666
 " highlight def Lf_hl_popup_fuzzyMode    guifg=#14212b guibg=#C65378 gui=bold
 " highlight def Lf_hl_popup_regexMode    guifg=#14212b guibg=#e6e666 gui=bold
 " highlight def Lf_hl_popup_category     guifg=#f2ebc7 guibg=#6e7476 gui=bold
-
+"
 " highlight def Lf_hl_match       guifg=#00ff7f guibg=NONE    gui=bold
 " highlight def Lf_hl_match0      guifg=#00ff7f guibg=NONE    gui=bold
 " highlight def Lf_hl_match1      guifg=#43b9f0 guibg=NONE    gui=bold

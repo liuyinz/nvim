@@ -6,8 +6,8 @@
 
 | Keys    | Description    |
 | ------- | -------------- |
-| `Space` | LeaderKey      |
-| `;`     | LocalLeaderKey |
+| `;`     | LeaderKey      |
+| `Space` | LocalLeaderKey |
 
 - Line
 
@@ -24,19 +24,13 @@
 
 - Buffer
 
-| Keys  | Mode  | Description                  |
-| ----- | ----- | ---------------------------- |
-| `j`   | N,V   | gj                           |
-| `k`   | N,V   | gk                           |
-| `ml`  | N,X,O | easymotion-move-line         |
-| `mf`  | N,X,O | easymotion-move-char         |
-| `m/`  | N,X,O | easymotion-move-char-multi   |
-| `mw`  | N,X,O | easymotion-move-word-begin   |
-| `mww` | N,X,O | easymotion-move-WORD-begin   |
-| `me`  | N,X,O | easymotion-move-word-end     |
-| `mee` | N,X,O | easymotion-move-WORD-end     |
-| `mr`  | N,X,O | easymotion-move-repeat       |
-| `mn`  | N,X,O | easymotion-move-match-select |
+| Keys | Mode  | Description                  |
+| ---- | ----- | ---------------------------- |
+| `j`  | N,V   | gj                           |
+| `k`  | N,V   | gk                           |
+| `ml` | N,X,O | easymotion-move-line         |
+| `mw` | N,X,O | easymotion-move-word-begin   |
+| `mn` | N,X,O | easymotion-move-match-select |
 
 - Window
 
@@ -93,32 +87,6 @@
 | `<Leader>` + `cn` | N,V  | change word repeatable |
 | `<Leader>` + `cN` | N,V  | change word repeatable |
 | `<Leader>` + `t`  | N    | open Goyo              |
-
-### Defx
-
-| Keys             | Mode | Description                    |
-| ---------------- | ---- | ------------------------------ |
-| `<Leader>` + `e` | N    | open defx                      |
-| `q`              | Defx | exit defx                      |
-| `h`              | Defx | Return to the parent directory |
-| `l`              | Defx | open file or folder            |
-| `n`              | Defx | touch new file or dir          |
-| `dd`             | Defx | delete                         |
-| `rn`             | Defx | rename                         |
-| `cd`             | Defx | cd \\\$HOME                    |
-| `sv`             | Defx | Open in vsplit                 |
-| `sh`             | Defx | Open in hsplit                 |
-| `st`             | Defx | Open in new tab                |
-| `tt`             | Defx | toogle tree                    |
-| `tr`             | Defx | toogle tree -r                 |
-| `zh`             | Defx | show ignore files              |
-| `yp`             | Defx | copy the path of file          |
-| `space`          | Defx | toggle select                  |
-| `v`              | Defx | toggle select all              |
-| `Ctrl` + `r`     | Defx | redraw                         |
-| `yy`             | Defx | copy                           |
-| `mv`             | Defx | move                           |
-| `pp`             | Defx | paste                          |
 
 ### CoC
 
@@ -287,10 +255,6 @@
 | ------------ | ---- | -------------------- |
 | `Ctrl` + `p` | C    | command history up   |
 | `Ctrl` + `n` | C    | command history down |
-| `*`          | N    | Match                |
-| `#`          | N    | match reverse        |
-| `/`          | N    | search               |
-| `?`          | N    | search reverse       |
 | `ga`         | N,V  | EasyAlign            |
 | `gb`         | N,V  | Open Browser         |
 | `gf`         | N,V  | Open Filepath        |

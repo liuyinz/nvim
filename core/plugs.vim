@@ -53,6 +53,117 @@
 " nmap <silent> gy <Plug>(coc-type-definition)
 " nmap <silent> gr <Plug>(coc-references)
 
+" Gruvbox
+" -----------------------------
+let g:onedark_hide_endofbuffer=1
+let g:onedark_terminal_italics=1
+colorscheme onedark
+
+" Floaterm
+" -----------------------------
+let g:floaterm_rootmarkers=['.git','.hg','.vscode']
+let g:floaterm_gitcommit='floaterm'
+" let g:floaterm_winblend=10
+
+nnoremap <silent> <localleader>a :FloatermToggle --name=LG --height=0.9 --width=0.8 lazygit<CR>
+nnoremap   <silent>   <F7>    :FloatermNew<CR>
+tnoremap   <silent>   <F7>    <C-\><C-n>:FloatermNew<CR>
+nnoremap   <silent>   <F8>    :FloatermPrev<CR>
+tnoremap   <silent>   <F8>    <C-\><C-n>:FloatermPrev<CR>
+nnoremap   <silent>   <F9>    :FloatermNext<CR>
+tnoremap   <silent>   <F9>    <C-\><C-n>:FloatermNext<CR>
+nnoremap   <silent>   <C-;>   :FloatermToggle<CR>
+tnoremap   <silent>   <C-;>   <C-\><C-n>:FloatermToggle<CR>
+
+" Leaderf
+" -----------------------------
+"  ui
+" let g:Lf_StlColorscheme = 'one-dark'
+" let g:Lf_PopupColorscheme = 'gruvbox-default'
+let g:Lf_WindowPosition = 'popup'
+" let g:Lf_CursorBlink = 0
+let g:Lf_PreviewPopupWidth = 0
+let g:Lf_StlSeparator = { 'left': "\ue0b8", 'right': "\ue0be" }
+" let g:Lf_PopupWidth = &columns * 7/10
+" let g:Lf_PopupHeight = float2nr(&lines * 0.55)
+" let g:Lf_PopupPreviewPosition = 'cursor'
+" set
+" let g:Lf_PythonVersion = 3
+let g:Lf_DefaultMode = 'NameOnly'
+" let g:Lf_ShowRelativePath = 1
+" let g:Lf_NoChdir = 0
+let g:Lf_CacheDirectory= expand('$DATA_PATH')
+let g:Lf_UseVersionControlTool = 0
+let g:Lf_RecurseSubmodules = 1
+let g:Lf_FollowLinks = 1
+let g:Lf_ReverseOrder = 0
+let g:Lf_HistoryNumber = 100000
+" let g:Lf_DelimiterChar = ';'
+" let g:Lf_RootMarkers=['.git', '.hg', '.svn']
+let g:Lf_WorkingDirectoryMode = 'Af'
+let g:Lf_HideHelp = 1
+let g:Lf_ShowHidden = 1
+let g:Lf_ShowDevIcons = 0
+let g:Lf_EmptyQuery = 0
+let g:Lf_IgnoreCurrentBufferName = 1
+" let g:Lf_DiscardEmptyBuffer = 0
+let g:Lf_CommandMap = {
+  \ '<Up>'  : ['<C-P>'],
+  \ '<Down>': ['<C-N>'],
+  \ '<C-L>' : ['<C-Q>'],
+  \ '<C-]>' : ['<C-L>'],
+  \}
+let g:Lf_WildIgnore = {
+  \ 'dir': ['.svn','.git','.hg','*.cache'],
+  \ 'file': ['*.sw?','~$*','*.bak','*.exe','*.o','*.so','*.py[co]']
+  \}
+let g:Lf_MruFileExclude=[]
+let g:Lf_MruWildIgnore = {
+  \ 'dir': ['.cache','runtime','.git','private/var','var/folders'],
+  \ 'file': []
+  \}
+let g:Lf_PreviewCode = 0
+let g:Lf_PreviewInPopup = 0
+let g:Lf_RgConfig = [
+  \ "--hidden",
+  \ "--follow",
+  \ "--trim",
+  \ "--smart-case",
+  \ "--auto-hybrid-regex",
+  \ "--sortr=modified",
+  \ "--ignore-file=/Users/ray/.rgignore",
+  \ "--colors=path:fg:green",
+  \ "--colors=match:fg:red",
+  \ "--colors=match:style:bold",
+  \ "--colors=line:fg:blue",
+  \ "--colors=line:style:bold",
+  \ "--colors=column:fg:blue",
+  \ "--colors=column:style:bold"
+  \ ]
+" gtags
+" let g:Lf_CtagsFuncOpts = {
+"     \ 'c': '--c-kinds=fp',
+"     \ 'rust': '--rust-kinds=f',
+"     \ }
+let g:Lf_Gtagslabel= 'native-pygments'
+let g:Lf_GtagsAutoGenerate = 1
+let g:Lf_GtagsAcceptDotfiles = 1
+let g:Lf_GtagsSkipUnreadable = 1
+let g:Lf_GtagsSkipSymlink = ""
+
+nnoremap <silent> <localleader>a :<C-u>Leaderf file ~<cr>
+nnoremap <silent> <localleader>w :<C-u>Leaderf file<cr>
+nnoremap <silent> <localleader>p :<C-u>Leaderf mru<cr>
+nnoremap <silent> <localleader>t :<C-u>Leaderf bufTag --all<cr>
+nnoremap <silent> <localleader>f :<C-u>Leaderf function --all<cr>
+nnoremap <silent> <localleader>c :<C-u>Leaderf cmdHistory<cr>
+nnoremap <silent> <localleader>s :<C-u>Leaderf searchHistory<cr>
+nnoremap <silent> <localleader>h :<C-u>Leaderf help --cword<cr>
+nnoremap <silent> <localleader>r :<C-u>Leaderf rg<cr>
+vmap     <silent> <localleader>r :<C-U><C-R>=printf("Leaderf rg
+  \ -F -e %s ", leaderf#Rg#visual())<cr><cr>
+
+
 " fugitive
 " -----------------------------
 nnoremap <silent> <localleader>gs  :Gstatus<CR>
@@ -77,92 +188,6 @@ nnoremap <silent> <localleader>gl :GV<CR>
 vnoremap <silent> <localleader>gl :GV<CR>
 nnoremap <silent> <localleader>glb :GV!<CR>
 
-
-" " Leaderf
-" " -----------------------------
-" "  ui
-" " let g:Lf_WindowPosition = 'popup'
-" " let g:Lf_CursorBlink = 0
-" let g:Lf_PreviewPopupWidth = 0
-" let g:Lf_StlSeparator = { 'left': '', 'right': '' }
-" " let g:Lf_PopupWidth = &columns * 7/10
-" " let g:Lf_PopupHeight = float2nr(&lines * 0.55)
-" " let g:Lf_PopupPreviewPosition = 'cursor'
-" " set
-" " let g:Lf_PythonVersion = 3
-" let g:Lf_DefaultMode = 'NameOnly'
-" " let g:Lf_ShowRelativePath = 1
-" " let g:Lf_NoChdir = 0
-" let g:Lf_CacheDirectory= expand('$DATA_PATH')
-" let g:Lf_UseVersionControlTool = 0
-" let g:Lf_RecurseSubmodules = 1
-" let g:Lf_FollowLinks = 1
-" let g:Lf_ReverseOrder = 0
-" let g:Lf_HistoryNumber = 100000
-" " let g:Lf_DelimiterChar = ';'
-" " let g:Lf_RootMarkers=['.git', '.hg', '.svn']
-" let g:Lf_WorkingDirectoryMode = 'Af'
-" let g:Lf_HideHelp = 1
-" let g:Lf_ShowHidden = 1
-" let g:Lf_ShowDevIcons = 0
-" let g:Lf_EmptyQuery = 0
-" let g:Lf_IgnoreCurrentBufferName = 1
-" " let g:Lf_DiscardEmptyBuffer = 0
-" let g:Lf_CommandMap = {
-"   \ '<Up>'  : ['<C-P>'],
-"   \ '<Down>': ['<C-N>'],
-"   \ '<C-L>' : ['<C-Q>'],
-"   \ '<C-]>' : ['<C-L>'],
-"   \}
-" let g:Lf_WildIgnore = {
-"   \ 'dir': ['.svn','.git','.hg','*.cache'],
-"   \ 'file': ['*.sw?','~$*','*.bak','*.exe','*.o','*.so','*.py[co]']
-"   \}
-" let g:Lf_MruFileExclude=[]
-" let g:Lf_MruWildIgnore = {
-"   \ 'dir': ['.cache','runtime','.git','private/var','var/folders'],
-"   \ 'file': []
-"   \}
-" let g:Lf_PreviewCode = 0
-" let g:Lf_PreviewInPopup = 0
-" let g:Lf_RgConfig = [
-"   \ "--hidden",
-"   \ "--follow",
-"   \ "--trim",
-"   \ "--smart-case",
-"   \ "--auto-hybrid-regex",
-"   \ "--sortr=modified",
-"   \ "--ignore-file=/Users/ray/.rgignore",
-"   \ "--colors=path:fg:green",
-"   \ "--colors=match:fg:red",
-"   \ "--colors=match:style:bold",
-"   \ "--colors=line:fg:blue",
-"   \ "--colors=line:style:bold",
-"   \ "--colors=column:fg:blue",
-"   \ "--colors=column:style:bold"
-"   \ ]
-" " gtags
-" " let g:Lf_CtagsFuncOpts = {
-" "     \ 'c': '--c-kinds=fp',
-" "     \ 'rust': '--rust-kinds=f',
-" "     \ }
-" let g:Lf_Gtagslabel= 'native-pygments'
-" let g:Lf_GtagsAutoGenerate = 1
-" let g:Lf_GtagsAcceptDotfiles = 1
-" let g:Lf_GtagsSkipUnreadable = 1
-" let g:Lf_GtagsSkipSymlink = ""
-
-" nnoremap <silent> <localleader>a :<C-u>Leaderf file ~<cr>
-" nnoremap <silent> <localleader>w :<C-u>Leaderf file<cr>
-" nnoremap <silent> <localleader>p :<C-u>Leaderf mru<cr>
-" nnoremap <silent> <localleader>t :<C-u>Leaderf bufTag --all<cr>
-" nnoremap <silent> <localleader>f :<C-u>Leaderf function --all<cr>
-" nnoremap <silent> <localleader>c :<C-u>Leaderf cmdHistory<cr>
-" nnoremap <silent> <localleader>s :<C-u>Leaderf searchHistory<cr>
-" nnoremap <silent> <localleader>h :<C-u>Leaderf help --cword<cr>
-" nnoremap <silent> <localleader>r :<C-u>Leaderf rg<cr>
-" vmap     <silent> <localleader>r :<C-U><C-R>=printf("Leaderf rg
-"   \ -F -e %s ", leaderf#Rg#visual())<cr><cr>
 
 
 " Goyo
@@ -217,8 +242,8 @@ let g:indentLine_setColors  =  1
 let g:indentline_char='¦'
 let g:indentLine_color_gui = '#544B64'
 let g:indentLine_fileTypeExclude = [
-  \'defx', 'fzf', 'vista_kind', 'yaml', 'json', 'help']
-let g:indentLine_bufTypeExclude = ['help', 'terminal']
+  \'defx', 'fzf', 'vista_kind', 'yaml', 'json', 'help','startify']
+let g:indentLine_bufTypeExclude = ['help', 'terminal','startify']
 let g:indentLine_faster = 1
 
 autocmd TermOpen * IndentLinesDisable
@@ -382,21 +407,9 @@ let g:EasyMotion_smartcase = 1
 let g:EasyMotion_use_smartsign_us = 1
 let g:EasyMotion_space_jump_first = 1
 " map m <Plug>(easymotion-prefix)
-" move to line,word begin,word end
-nmap <silent> ml    <Plug>(easymotion-overwin-line)
-vmap <silent> ml    <Plug>(easymotion-bd-jk)
-omap <silent> ml    <Plug>(easymotion-bd-jk)
-map  <silent> mw    <Plug>(easymotion-bd-w)
-map  <silent> mmw   <Plug>(easymotion-bd-W)
-map  <silent> me    <Plug>(easymotion-bd-e)
-map  <silent> mme   <Plug>(easymotion-bd-E)
-" imap <silent> <C-l> <Esc>mw
-" move to {char}
-map   mf    <Plug>(easymotion-bd-f)
-map   mt    <Plug>(easymotion-bd-t)
-map   mr    <Plug>(easymotion-repeat)
-map   mn    <Plug>(easymotion-bd-n)
-map   m/    <Plug>(easymotion-bd-fn)
+map <silent> ml  <Plug>(easymotion-bd-jk)
+map <silent> mw  <Plug>(easymotion-bd-w)
+map <silent> mn  <Plug>(easymotion-bd-n)
 
 
 " Dash
@@ -438,7 +451,7 @@ nmap  [m   <Plug>BookmarkPrev
 " let g:autoformat_autoindent = 0
 " let g:autoformat_retab = 0
 " let g:autoformat_remove_trailing_spaces = 0
-let g:formatdef_shfmt       = '"shfmt -i 4 -ci"'
+let g:formatdef_shfmt       = '"shfmt -i 2 -ci"'
 let g:formatdef_isblack     = '"isort - | black -l 79 -q -"'
 let g:formatters_python     = ['isblack']
 let g:formatters_sh         = ['shfmt']
@@ -533,38 +546,30 @@ let g:lightline#asyncrun#indicator_run = 'Running...'
 " nmap <localleader>mt  :<C-u>Toc<CR>
 " nmap <localleader>ms  :<C-u>SetexToAtx<CR>
 
-" markdown-preview.nvim
-" -----------------------------
-let g:mkdp_echo_preview_url = 1
-let g:mkdp_page_title = '「${name}」'
-let g:mkdp_markdown_css = '/home/ray/.npm-global/lib/node_modules/markdown.css/dest/github/markdown.css'
-let g:mkdp_highlight_css = '/home/ray/.npm-global/lib/node_modules/highlight.js/styles/dark.css'
-let g:mkdp_preview_options = {
-  \ 'mkit': {},
-  \ 'katex': {},
-  \ 'uml': {},
-  \ 'maid': {},
-  \ 'disable_sync_scroll': 0,
-  \ 'sync_scroll_type': 'middle',
-  \ 'hide_yaml_meta': 1
-  \ }
-" let g:mkdp_auto_start = 0
-" let g:mkdp_auto_close = 1
-" let g:mkdp_refresh_slow = 0
-" let g:mkdp_command_for_global = 0
-" let g:mkdp_open_to_the_world = 0
-" let g:mkdp_open_ip = ''
-" let g:mkdp_browser = ''0
-" let g:mkdp_browserfunc = ''
-" let g:mkdp_port = ''
-
-
-" Ranger
-" -----------------------------
-let g:ranger_map_keys = 0
-let g:ranger_replace_netrw = 1
-nnoremap <leader>a :Ranger<CR>
-nnoremap <leader>A :RangerCurrentFileExistingOrNewTab<CR>
+" " markdown-preview.nvim
+" " -----------------------------
+" let g:mkdp_echo_preview_url = 1
+" let g:mkdp_page_title = '「${name}」'
+" let g:mkdp_markdown_css = '/home/ray/.npm-global/lib/node_modules/markdown.css/dest/github/markdown.css'
+" let g:mkdp_highlight_css = '/home/ray/.npm-global/lib/node_modules/highlight.js/styles/dark.css'
+" let g:mkdp_preview_options = {
+"   \ 'mkit': {},
+"   \ 'katex': {},
+"   \ 'uml': {},
+"   \ 'maid': {},
+"   \ 'disable_sync_scroll': 0,
+"   \ 'sync_scroll_type': 'middle',
+"   \ 'hide_yaml_meta': 1
+"   \ }
+" " let g:mkdp_auto_start = 0
+" " let g:mkdp_auto_close = 1
+" " let g:mkdp_refresh_slow = 0
+" " let g:mkdp_command_for_global = 0
+" " let g:mkdp_open_to_the_world = 0
+" " let g:mkdp_open_ip = ''
+" " let g:mkdp_browser = ''0
+" " let g:mkdp_browserfunc = ''
+" " let g:mkdp_port = ''
 
 
 " vim-easy-align
