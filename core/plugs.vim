@@ -1,59 +1,4 @@
-" " Coc.nvim
-" " -----------------------------
-" " let g:coc_node_args = ['--nolazy', '--inspect-brk=6045']
-" let g:coc_status_error_sign = '•'
-" let g:coc_status_warning_sign = '•'
-" let g:coc_global_extensions =[
-"   \ 'coc-lists', 'coc-marketplace', 'coc-translator', 'coc-rls', 'coc-emmet',
-"   \ 'coc-json', 'coc-yaml', 'coc-python', 'coc-snippets', 'coc-vimlsp',
-"   \ 'coc-html', 'coc-css', 'coc-tsserver', 'coc-eslint', 'coc-vetur',
-"   \ 'coc-angular', 'coc-svg', 'coc-gitignore', 'coc-git', 'coc-imselect'
-"   \]
-
-" inoremap <silent><expr> <TAB>
-"   \ pumvisible() ? "\<C-n>" :
-"   \ <SID>check_back_space() ? "\<TAB>" :
-"   \ coc#refresh()
-
-" inoremap <silent><expr> <S-TAB>
-"   \ pumvisible() ? "\<C-p>" :
-"   \ "\<C-h>"
-
-" inoremap <expr> <C-j>
-"   \ pumvisible() ? "\<C-y>" :
-"   \ coc#jumpable() ?
-"   \ "\<C-r>=coc#rpc#request('doKeymap', ['snippets-jump',''])\<CR>" :
-"   \ "\<Esc>o"
-
-" vmap <C-j> <Plug>(coc-snippets-select)
-
-" function! s:check_back_space() abort
-"   let col = col('.') - 1
-"   return !col || getline('.')[col - 1]  =~# '\s'
-" endfunction
-
-" augroup CocAuto
-"   autocmd!
-"   " Update signature help on jump placeholder
-"   autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
-" augroup end
-
-" nnoremap <silent> <localleader>d  :<C-u>CocList diagnostics<cr>
-" nnoremap <silent> <localleader>v  :<C-u>CocList vimcommands<cr>
-
-" nmap <silent> tt <Plug>(coc-translator-p)
-" nmap <silent> [d <Plug>(coc-diagnostic-prev)
-" nmap <silent> ]d <Plug>(coc-diagnostic-next)
-" nmap <silent> [g <Plug>(coc-git-prevchunk)
-" nmap <silent> ]g <Plug>(coc-git-nextchunk)
-
-" nmap <silent> gd <Plug>(coc-definition)
-" nmap <silent> gD <Plug>(coc-declaration)
-" nmap <silent> gi <Plug>(coc-implementation)
-" nmap <silent> gy <Plug>(coc-type-definition)
-" nmap <silent> gr <Plug>(coc-references)
-
-" Gruvbox
+" theme
 " -----------------------------
 let g:onedark_hide_endofbuffer=1
 let g:onedark_terminal_italics=1
@@ -84,12 +29,6 @@ function! StartFloatermSilently() abort
   wincmd o
 endfunction
 autocmd VimEnter * call StartFloatermSilently()
-
-" function! StartFloatermSilently() abort
-"   FloatermNew
-"   call timer_start(1, {-> execute('FloatermHide!')})
-" endfunction
-" autocmd VimEnter * call StartFloatermSilently()
 
 " Leaderf
 " -----------------------------
@@ -140,22 +79,6 @@ let g:Lf_MruWildIgnore = {
   \}
 let g:Lf_PreviewCode = 0
 let g:Lf_PreviewInPopup = 0
-let g:Lf_RgConfig = [
-  \ "--hidden",
-  \ "--follow",
-  \ "--trim",
-  \ "--smart-case",
-  \ "--auto-hybrid-regex",
-  \ "--sortr=modified",
-  \ "--ignore-file=/Users/ray/.rgignore",
-  \ "--colors=path:fg:green",
-  \ "--colors=match:fg:red",
-  \ "--colors=match:style:bold",
-  \ "--colors=line:fg:blue",
-  \ "--colors=line:style:bold",
-  \ "--colors=column:fg:blue",
-  \ "--colors=column:style:bold"
-  \ ]
 " gtags
 " let g:Lf_CtagsFuncOpts = {
 "     \ 'c': '--c-kinds=fp',
@@ -168,8 +91,8 @@ let g:Lf_GtagsSkipUnreadable = 1
 let g:Lf_GtagsSkipSymlink = ""
 
 "nnoremap <silent> <localleader>a :<C-u>Leaderf file<cr>
-nnoremap <silent> <localleader>w :<C-u>Leaderf file<cr>
-nnoremap <silent> <localleader>p :<C-u>Leaderf mru<cr>
+nnoremap <silent> <localleader>p :<C-u>Leaderf file<cr>
+nnoremap <silent> <localleader>w :<C-u>Leaderf mru<cr>
 nnoremap <silent> <localleader>t :<C-u>Leaderf bufTag --all<cr>
 nnoremap <silent> <localleader>f :<C-u>Leaderf function --all<cr>
 nnoremap <silent> <localleader>c :<C-u>Leaderf cmdHistory<cr>
@@ -203,8 +126,6 @@ vmap     <silent> <localleader>r :<C-U><C-R>=printf("Leaderf rg
 nnoremap <silent> <localleader>gl :GV<CR>
 vnoremap <silent> <localleader>gl :GV<CR>
 nnoremap <silent> <localleader>glb :GV!<CR>
-
-
 
 " Goyo
 " -----------------------------
@@ -623,3 +544,58 @@ let g:ultisnips_javascript = {
 
 " Polyglot
 " -----------------------------
+
+" " Coc.nvim
+" " -----------------------------
+" " let g:coc_node_args = ['--nolazy', '--inspect-brk=6045']
+" let g:coc_status_error_sign = '•'
+" let g:coc_status_warning_sign = '•'
+" let g:coc_global_extensions =[
+"   \ 'coc-lists', 'coc-marketplace', 'coc-translator', 'coc-rls', 'coc-emmet',
+"   \ 'coc-json', 'coc-yaml', 'coc-python', 'coc-snippets', 'coc-vimlsp',
+"   \ 'coc-html', 'coc-css', 'coc-tsserver', 'coc-eslint', 'coc-vetur',
+"   \ 'coc-angular', 'coc-svg', 'coc-gitignore', 'coc-git', 'coc-imselect'
+"   \]
+
+" inoremap <silent><expr> <TAB>
+"   \ pumvisible() ? "\<C-n>" :
+"   \ <SID>check_back_space() ? "\<TAB>" :
+"   \ coc#refresh()
+
+" inoremap <silent><expr> <S-TAB>
+"   \ pumvisible() ? "\<C-p>" :
+"   \ "\<C-h>"
+
+" inoremap <expr> <C-j>
+"   \ pumvisible() ? "\<C-y>" :
+"   \ coc#jumpable() ?
+"   \ "\<C-r>=coc#rpc#request('doKeymap', ['snippets-jump',''])\<CR>" :
+"   \ "\<Esc>o"
+
+" vmap <C-j> <Plug>(coc-snippets-select)
+
+" function! s:check_back_space() abort
+"   let col = col('.') - 1
+"   return !col || getline('.')[col - 1]  =~# '\s'
+" endfunction
+
+" augroup CocAuto
+"   autocmd!
+"   " Update signature help on jump placeholder
+"   autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+" augroup end
+
+" nnoremap <silent> <localleader>d  :<C-u>CocList diagnostics<cr>
+" nnoremap <silent> <localleader>v  :<C-u>CocList vimcommands<cr>
+
+" nmap <silent> tt <Plug>(coc-translator-p)
+" nmap <silent> [d <Plug>(coc-diagnostic-prev)
+" nmap <silent> ]d <Plug>(coc-diagnostic-next)
+" nmap <silent> [g <Plug>(coc-git-prevchunk)
+" nmap <silent> ]g <Plug>(coc-git-nextchunk)
+
+" nmap <silent> gd <Plug>(coc-definition)
+" nmap <silent> gD <Plug>(coc-declaration)
+" nmap <silent> gi <Plug>(coc-implementation)
+" nmap <silent> gy <Plug>(coc-type-definition)
+" nmap <silent> gr <Plug>(coc-references)
