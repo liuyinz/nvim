@@ -65,15 +65,31 @@ let g:floaterm_rootmarkers=['.git','.hg','.vscode']
 let g:floaterm_gitcommit='floaterm'
 " let g:floaterm_winblend=10
 
-nnoremap <silent> <localleader>a :FloatermToggle --name=LG --height=0.9 --width=0.8 lazygit<CR>
-nnoremap   <silent>   <F7>    :FloatermNew<CR>
-tnoremap   <silent>   <F7>    <C-\><C-n>:FloatermNew<CR>
-nnoremap   <silent>   <F8>    :FloatermPrev<CR>
-tnoremap   <silent>   <F8>    <C-\><C-n>:FloatermPrev<CR>
-nnoremap   <silent>   <F9>    :FloatermNext<CR>
-tnoremap   <silent>   <F9>    <C-\><C-n>:FloatermNext<CR>
-nnoremap   <silent>   <C-;>   :FloatermToggle<CR>
-tnoremap   <silent>   <C-;>   <C-\><C-n>:FloatermToggle<CR>
+nnoremap   <silent>   <leader>gb    :FloatermNew --height=0.99 --width=0.99 --name=Ranger --autoclose=2 ranger<CR>
+nnoremap   <silent>   <leader>gg    :FloatermNew --height=0.99 --width=0.99 --name=LazyGit --autoclose=2 lazygit<CR>
+nnoremap   <silent>   <F7>   :FloatermToggle<CR>
+tnoremap   <silent>   <F7>   <C-\><C-n>:FloatermToggle<CR>
+
+nnoremap   <silent>   <F2>    :FloatermNew<CR>
+tnoremap   <silent>   <F2>    <C-\><C-n>:FloatermNew<CR>
+nnoremap   <silent>   <F4>    :FloatermPrev<CR>
+tnoremap   <silent>   <F4>    <C-\><C-n>:FloatermPrev<CR>
+nnoremap   <silent>   <F5>    :FloatermNext<CR>
+tnoremap   <silent>   <F5>    <C-\><C-n>:FloatermNext<CR>
+
+function! StartFloatermSilently() abort
+  FloatermNew
+  FloatermHide
+  stopinsert
+  wincmd o
+endfunction
+autocmd VimEnter * call StartFloatermSilently()
+
+" function! StartFloatermSilently() abort
+"   FloatermNew
+"   call timer_start(1, {-> execute('FloatermHide!')})
+" endfunction
+" autocmd VimEnter * call StartFloatermSilently()
 
 " Leaderf
 " -----------------------------
@@ -151,7 +167,7 @@ let g:Lf_GtagsAcceptDotfiles = 1
 let g:Lf_GtagsSkipUnreadable = 1
 let g:Lf_GtagsSkipSymlink = ""
 
-nnoremap <silent> <localleader>a :<C-u>Leaderf file ~<cr>
+"nnoremap <silent> <localleader>a :<C-u>Leaderf file<cr>
 nnoremap <silent> <localleader>w :<C-u>Leaderf file<cr>
 nnoremap <silent> <localleader>p :<C-u>Leaderf mru<cr>
 nnoremap <silent> <localleader>t :<C-u>Leaderf bufTag --all<cr>
@@ -164,23 +180,23 @@ vmap     <silent> <localleader>r :<C-U><C-R>=printf("Leaderf rg
   \ -F -e %s ", leaderf#Rg#visual())<cr><cr>
 
 
-" fugitive
-" -----------------------------
-nnoremap <silent> <localleader>gs  :Gstatus<CR>
-nnoremap <silent> <localleader>ga  :Gwrite<CR>
-nnoremap <silent> <localleader>gq  :Gwq<CR>
-nnoremap <silent> <localleader>ge  :Gread<CR>
-nnoremap <silent> <localleader>gc  :Gcommit<CR>
-nnoremap <silent> <localleader>gd  :Gvdiffsplit<CR>
-nnoremap <silent> <localleader>gmt :Gvdiffsplit!<CR>
-vnoremap <silent> <localleader>gb  :Gbrowse<CR>
-nnoremap <localleader>grb :Grebase<Space>
-nnoremap <localleader>grn :Grename<Space>
-nnoremap <localleader>gm  :Gmerge<Space>
-nnoremap <localleader>grm :Gremove<Space>
-nnoremap <localleader>gf  :Gfetch<Space>
-nnoremap <localleader>gp  :Gpush<Space>
-nnoremap <localleader>gpl :Gpull<Space>
+"" fugitive
+"" -----------------------------
+"nnoremap <silent> <localleader>gs  :Gstatus<CR>
+"nnoremap <silent> <localleader>ga  :Gwrite<CR>
+"nnoremap <silent> <localleader>gq  :Gwq<CR>
+"nnoremap <silent> <localleader>ge  :Gread<CR>
+"nnoremap <silent> <localleader>gc  :Gcommit<CR>
+"nnoremap <silent> <localleader>gd  :Gvdiffsplit<CR>
+"nnoremap <silent> <localleader>gmt :Gvdiffsplit!<CR>
+"vnoremap <silent> <localleader>gb  :Gbrowse<CR>
+"nnoremap <localleader>grb :Grebase<Space>
+"nnoremap <localleader>grn :Grename<Space>
+"nnoremap <localleader>gm  :Gmerge<Space>
+"nnoremap <localleader>grm :Gremove<Space>
+"nnoremap <localleader>gf  :Gfetch<Space>
+"nnoremap <localleader>gp  :Gpush<Space>
+"nnoremap <localleader>gpl :Gpull<Space>
 
 " gv
 " ----------------------------
@@ -197,7 +213,7 @@ autocmd! User GoyoLeave
 autocmd  User GoyoEnter nested call <SID>goyo_enter()
 autocmd  User GoyoLeave nested call <SID>goyo_leave()
 
-nnoremap <silent> <Leader>g :<C-U>Goyo<CR>
+" nnoremap <silent> <Leader>g :<C-U>Goyo<CR>
 
 " s:goyo_enter()
 " Disable visual candy in Goyo mode
@@ -277,6 +293,7 @@ let g:rainbow_conf = {
   \        'parentheses': ['start=/\v\<((area|base|br|col|embed|hr|img|input|keygen|link|menuitem|meta|param|source|track|wbr)[ >])@!\z([-_:a-zA-Z0-9]+)(\s+[-_:a-zA-Z0-9]+(\=("[^"]*"|'."'".'[^'."'".']*'."'".'|[^ '."'".'"><=`]*))?)*\>/ end=#</\z1># fold'],
   \    },
   \    'css': 0,
+  \    'floaterm': 0,
   \}
   \}
 

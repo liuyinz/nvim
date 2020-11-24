@@ -70,7 +70,7 @@ call plug#begin($DATA_PATH . '/plugged')
 Plug 'junegunn/vim-plug'
 Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
 Plug 'voldikss/vim-floaterm'
-" Plug 'voldikss/fzf-floaterm'
+" Plug 'voldikss/leaderf-floaterm'
 
 " edit
 Plug 'tpope/vim-repeat'
@@ -79,10 +79,10 @@ Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-surround'
 " git
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-rhubarb'
-Plug 'tpope/vim-git', { 'for' : [ 'git', 'gtcmmit', 'gitrebase', 'gitconfig' ] }
-Plug 'jreybert/vimagit'
+" Plug 'tpope/vim-fugitive'
+" Plug 'tpope/vim-rhubarb'
+" Plug 'tpope/vim-git', { 'for' : [ 'git', 'gtcmmit', 'gitrebase', 'gitconfig' ] }
+" Plug 'jreybert/vimagit'
 Plug 'junegunn/gv.vim'
 " ui
 Plug 'itchyny/lightline.vim'
