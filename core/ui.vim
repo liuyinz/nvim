@@ -2,11 +2,11 @@
 
 " vimdiff color
 " -----------------------------
-highlight DiffAdd    guifg=none    guibg=#4B5634 gui=none
-highlight DiffDelete guifg=#ab464b guibg=#ab464b gui=none
-highlight DiffChange guibg=#3e3a45 guifg=none    gui=none
-highlight DiffText   guibg=#675d78 guifg=none    gui=bold
-
+" highlight DiffAdd    guifg=none    guibg=#4B5634 gui=none
+" highlight DiffDelete guifg=#ab464b guibg=#ab464b gui=none
+" highlight DiffChange guibg=#3e3a45 guifg=none    gui=none
+" highlight DiffText   guibg=#675d78 guifg=none    gui=bold
+"
 " " Coc-git gitter signcolumn
 " highlight GutterAdd         gui=bold guifg=#67b11d guibg=#292b2e
 " highlight GutterChange      gui=bold guifg=#e18254 guibg=#292b2e

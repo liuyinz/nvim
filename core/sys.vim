@@ -1,7 +1,6 @@
 " logging
 "-----------------------------
 " set verbose=8
-set verbosefile=$DATA_PATH/log
 
 " General Settings
 " ----------------------------
@@ -95,6 +94,7 @@ set bsdir=buffer
 set mouse=a
 set fileformat=unix
 set fileformats=unix,dos
+set verbosefile=$DATA_PATH/log
 
 " Tabs and Indents
 "-----------------------------
@@ -256,6 +256,7 @@ vnoremap <silent> k gk
 nnoremap Q @q
 nnoremap Y y$
 nnoremap D d$
+nnoremap U <C-r>
 
 " Use tab for indenting
 xnoremap > >gv|
@@ -320,14 +321,5 @@ endfunction
 " xnoremap p  "0p
 " nnoremap x "_x
 "
-"
- "split windows to tmux
-" nnoremap <silent> <leader>tv
-"     \:<C-u>call system("xclip -i -selection clipboard", expand("%:p:h"))<CR>
-"     \:!tmux splitw -h -c $(xclip -o -selectio clipboard)<CR>
-"
-" nnoremap <silent> <leader>th
-"     \:<C-u>call system("xclip -i -selection clipboard", expand("%:p:h"))<CR>
-"     \:!tmux splitw -v -c $(xclip -o -selectio clipboard) -p 20<CR>
 
 "vim: set ts=4 sw=4 tw=78 et :

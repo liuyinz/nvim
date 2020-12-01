@@ -15,8 +15,9 @@ nnoremap   <silent>   <leader>gb
   \ :FloatermNew --height=0.99 --width=0.99 --name=Ranger --autoclose=2 ranger<CR>
 nnoremap   <silent>   <leader>gg
   \ :FloatermNew --height=0.99 --width=0.99 --name=LazyGit --autoclose=2 lazygit<CR>
-nnoremap   <silent>   <F7>   :FloatermToggle<CR>
-tnoremap   <silent>   <F7>   <C-\><C-n>:FloatermToggle<CR>
+
+nnoremap   <silent>   <C-t>   :FloatermToggle<CR>
+tnoremap   <silent>   <C-t>   <C-\><C-n>:FloatermToggle<CR>
 
 nnoremap   <silent>   <F2>    :FloatermNew<CR>
 tnoremap   <silent>   <F2>    <C-\><C-n>:FloatermNew<CR>
