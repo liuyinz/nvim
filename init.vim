@@ -114,6 +114,8 @@ Plug 'neoclide/jsonc.vim', { 'for' : 'jsonc' }
 " Snippets
 Plug 'honza/vim-snippets'
 " html
+Plug 'mattn/webapi-vim'
+Plug 'mattn/vim-gist'
 Plug 'mattn/emmet-vim'
 " vim
 Plug 'rbtnn/vim-vimscript_indentexpr'
