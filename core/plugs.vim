@@ -542,6 +542,12 @@ let g:ultisnips_javascript = {
   \ 'space-before-function-paren': 'always',
   \ }
 
+" emmet
+" -----------------------------
+let g:user_emmet_leader_key='<C-Z>'
+let g:user_emmet_install_global = 0
+autocmd FileType html,css EmmetInstall
+
 " Polyglot
 " -----------------------------
 

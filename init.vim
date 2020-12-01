@@ -125,6 +125,8 @@ Plug 'sheerun/vim-polyglot'
 Plug 'neoclide/jsonc.vim', { 'for' : 'jsonc' }
 " Snippets
 Plug 'honza/vim-snippets'
+" html
+Plug 'mattn/emmet-vim'
 call plug#end()
 
 " source core/*.vim
