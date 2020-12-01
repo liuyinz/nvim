@@ -1,7 +1,7 @@
 " logging
 "-----------------------------
-" set verbose=15
-" set vfile=$DATA_PATH/nvim.log
+" set verbose=8
+set verbosefile=$DATA_PATH/log
 
 " General Settings
 " ----------------------------

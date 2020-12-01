@@ -239,10 +239,11 @@ let g:matchup_matchparen_nomode = "vV\<c-v>"
 let g:matchup_matchparen_hi_surround_always = 0
 let g:matchup_matchparen_deferred = 1
 let g:matchup_matchparen_deferred_show_delay = 20
-let g:matchup_matchpref['html'] = { 'nolists' : 1 , 'tagnameonly' : 1}
+let g:matchup_matchpref={ 'html' : { 'nolists' : 1 , 'tagnameonly' : 1 }}
 
 " vim-mundo
 " -----------------------------
+let g:mundo_prefer_python3 = 1
 let g:mundo_width = 40
 let g:mundo_preview_height = 20
 let g:mundo_right = 0
