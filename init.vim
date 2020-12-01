@@ -1,26 +1,21 @@
 " Disable pre-bundled plugins
-let g:loaded_getscript         = 1
-let g:loaded_getscriptPlugin   = 1
-let g:loaded_gzip              = 1
-let g:loaded_logiPat           = 1
-let g:loaded_matchit           = 1
-let g:loaded_rrhelper          = 1
-let g:loaded_shada_plugin      = 1
 let g:loaded_tar               = 1
 let g:loaded_tarPlugin         = 1
-let g:loaded_tutor_mode_plugin = 1
-let g:loaded_2html_plugin      = 1
-let g:loaded_vimball           = 1
-let g:loaded_vimballPlugin     = 1
 let g:loaded_zip               = 1
 let g:loaded_zipPlugin         = 1
-" let g:loaded_netrw             = 1
-" let g:loaded_netrwPlugin       = 1
-let g:netrw_nogx               = 1
+let g:loaded_gzip              = 1
+let g:loaded_netrw             = 1
+let g:loaded_netrwPlugin       = 1
+let g:loaded_2html_plugin      = 1
+let g:loaded_tutor_mode_plugin = 1
+let g:loaded_matchit           = 1
+let g:loaded_matchparen        = 1
+" let g:loaded_shada_autoload    = 1
+
 
 " Set main configuration directory, and where cache is stored.
 let $VIM_PATH = fnamemodify(resolve(expand('<sfile>:p')), ':h')
-let $DATA_PATH = expand('~/.local/share'.'/nvim')
+let $DATA_PATH = stdpath('data')
 
 if has('vim_starting')
   if &runtimepath !~# $VIM_PATH
@@ -29,12 +24,10 @@ if has('vim_starting')
 
   " Ensure data directories
   for s:path in [
-    \ $DATA_PATH,
-    \ $DATA_PATH . '/undo',
-    \ $DATA_PATH . '/bookmarks',
-    \ $DATA_PATH . '/sessions',
-    \ $DATA_PATH . '/plugged',
-    \ ]
+      \ $DATA_PATH,
+      \ $DATA_PATH . '/plugs',
+      \ $DATA_PATH . '/bookmarks',
+      \ ]
     if ! isdirectory(s:path)
       call mkdir(s:path, 'p')
     endif
@@ -61,10 +54,9 @@ if has('vim_starting')
   " Initialize base requirements
   let g:mapleader=';'
   let g:maplocalleader="\<Space>"
-
 endif
 
-call plug#begin($DATA_PATH . '/plugged')
+call plug#begin($DATA_PATH . '/plugs')
 
 " Basic
 Plug 'junegunn/vim-plug'
@@ -127,6 +119,9 @@ Plug 'neoclide/jsonc.vim', { 'for' : 'jsonc' }
 Plug 'honza/vim-snippets'
 " html
 Plug 'mattn/emmet-vim'
+" vim
+Plug 'rbtnn/vim-vimscript_indentexpr'
+Plug 'andymass/vim-matchup'
 call plug#end()
 
 " source core/*.vim

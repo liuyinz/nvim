@@ -86,7 +86,6 @@ scriptencoding utf-8
 set nobackup
 set noswapfile
 set undofile
-set undodir=$DATA_PATH/undo
 set autoread
 set autowrite
 set hidden
