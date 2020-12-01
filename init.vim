@@ -20,7 +20,7 @@ let g:netrw_nogx               = 1
 
 " Set main configuration directory, and where cache is stored.
 let $VIM_PATH = fnamemodify(resolve(expand('<sfile>:p')), ':h')
-let $DATA_PATH = expand('~/.cache'.'/nvim')
+let $DATA_PATH = expand('~/.local/share'.'/nvim')
 
 if has('vim_starting')
   if &runtimepath !~# $VIM_PATH
