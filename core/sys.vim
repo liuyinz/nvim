@@ -53,7 +53,7 @@ set cmdwinheight=5
 set display=lastline
 set noshowmode
 set shortmess=acIF
-set scrolloff=5
+set scrolloff=0
 set noruler
 set title
 set showtabline=2

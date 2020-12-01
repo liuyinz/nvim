@@ -13,7 +13,7 @@ let g:loaded_matchparen        = 1
 " let g:loaded_shada_autoload    = 1
 
 
-" Set main configuration directory, and where cache is stored.
+" Set main configuration directory
 let $VIM_PATH = fnamemodify(resolve(expand('<sfile>:p')), ':h')
 let $DATA_PATH = stdpath('data')
 

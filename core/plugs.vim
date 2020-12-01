@@ -10,8 +10,10 @@ let g:floaterm_rootmarkers=['.git','.hg','.vscode']
 let g:floaterm_gitcommit='floaterm'
 " let g:floaterm_winblend=10
 
-nnoremap   <silent>   <leader>gb    :FloatermNew --height=0.99 --width=0.99 --name=Ranger --autoclose=2 ranger<CR>
-nnoremap   <silent>   <leader>gg    :FloatermNew --height=0.99 --width=0.99 --name=LazyGit --autoclose=2 lazygit<CR>
+nnoremap   <silent>   <leader>gb
+  \ :FloatermNew --height=0.99 --width=0.99 --name=Ranger --autoclose=2 ranger<CR>
+nnoremap   <silent>   <leader>gg
+  \ :FloatermNew --height=0.99 --width=0.99 --name=LazyGit --autoclose=2 lazygit<CR>
 nnoremap   <silent>   <F7>   :FloatermToggle<CR>
 tnoremap   <silent>   <F7>   <C-\><C-n>:FloatermToggle<CR>
 
@@ -172,7 +174,11 @@ let g:rainbow_active = 1
 let g:rainbow_conf = {
   \'guifgs': ['skyblue', 'hotpink', 'seagreen', 'orange'],
   \'operators': '_,_',
-  \'parentheses': ['start=/(/ end=/)/ fold', 'start=/\[/ end=/\]/ fold', 'start=/{/ end=/}/ fold'],
+  \'parentheses': [
+  \   'start=/(/ end=/)/ fold',
+  \   'start=/\[/ end=/\]/ fold',
+  \   'start=/{/ end=/}/ fold'
+  \   ],
   \'separately': {
   \    '*': {},
   \    'tex': {
