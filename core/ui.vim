@@ -1,54 +1,31 @@
 " UI
 
-" Theme
-" -----------------------------
-" function! Has_Color(name) abort
-"     let pat = 'colors/'.a:name.'.vim'
-"     return !empty(globpath(&rtp, pat))
-" endfunction
-
-" if Has_Color('citylights')
-"     colorscheme citylights
-" endif
-
-
-" Highlignt
-" -----------------------------
-" ter
-" let g:terminal_color_0  = '#292b2e'
-" let g:terminal_color_1  = '#ff5b82'
-" let g:terminal_color_2  = '#47d7a0'
-" let g:terminal_color_3  = '#e7e562'
-" let g:terminal_color_4  = '#5db3ee'
-" let g:terminal_color_5  = '#da6cda'
-" let g:terminal_color_6  = '#56e8ea'
-" let g:terminal_color_7  = '#ececec'
-" let g:terminal_color_8  = '#423f38'
-" let g:terminal_color_9  = '#ff5b82'
-" let g:terminal_color_10 = '#47d7a0'
-" let g:terminal_color_11 = '#e7e562'
-" let g:terminal_color_12 = '#5db3ee'
-" let g:terminal_color_13 = '#da6cda'
-" let g:terminal_color_14 = '#56e8ea'
-" let g:terminal_color_15 = '#ececec'
-
-" Coc-git gitter signcolumn
-highlight GutterAdd         gui=bold guifg=#67b11d guibg=#292b2e
-highlight GutterChange      gui=bold guifg=#e18254 guibg=#292b2e
-highlight GutterDelete      gui=bold guifg=#f2241f guibg=#292b2e
-highlight GutterChangeDelet gui=bold guifg=#ce537a guibg=#292b2e
-
-" " repo coc-highlight
-" highlight CocHighlightText guifg=None guibg=#544B64
-
-" repo: vim-scripts/xml.vim
-highlight MatchTag guifg=None guibg=#544B64
-
 " vimdiff color
+" -----------------------------
 highlight DiffAdd    guifg=none    guibg=#4B5634 gui=none
 highlight DiffDelete guifg=#ab464b guibg=#ab464b gui=none
 highlight DiffChange guibg=#3e3a45 guifg=none    gui=none
 highlight DiffText   guibg=#675d78 guifg=none    gui=bold
+
+" " Coc-git gitter signcolumn
+" highlight GutterAdd         gui=bold guifg=#67b11d guibg=#292b2e
+" highlight GutterChange      gui=bold guifg=#e18254 guibg=#292b2e
+" highlight GutterDelete      gui=bold guifg=#f2241f guibg=#292b2e
+" highlight GutterChangeDelet gui=bold guifg=#ce537a guibg=#292b2e
+"
+" " repo coc-highlight
+" highlight CocHighlightText guifg=None guibg=#544B64
+
+" vim-scripts/xml.vim
+" -----------------------------
+highlight MatchTag guifg=None guibg=NONE gui=reverse
+
+" andymass/vim-matchup
+" -----------------------------
+highlight MatchParen guifg=NONE guibg=NONE gui=reverse
+highlight MatchParenCur guifg=NONE guibg=NONE gui=reverse,underline
+highlight MatchWord guibg=#4d5463 gui=bold
+highlight MatchWordCur guibg=#4d5463 gui=bold,underline
 
 " Defx-git
 " hi Defx_git_Ignored   guifg=NONE

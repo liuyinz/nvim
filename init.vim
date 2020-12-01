@@ -12,7 +12,6 @@ let g:loaded_matchit           = 1
 let g:loaded_matchparen        = 1
 " let g:loaded_shada_autoload    = 1
 
-
 " Set main configuration directory
 let $VIM_PATH = fnamemodify(resolve(expand('<sfile>:p')), ':h')
 let $DATA_PATH = stdpath('data')
@@ -57,6 +56,7 @@ endif
 call plug#begin($DATA_PATH . '/plugs')
 
 " Basic
+Plug 'joshdick/onedark.vim'
 Plug 'junegunn/vim-plug'
 Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
 Plug 'voldikss/vim-floaterm'
@@ -77,7 +77,6 @@ Plug 'junegunn/gv.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'mengelbrecht/lightline-bufferline'
 Plug 'albertomontesg/lightline-asyncrun'
-Plug 'joshdick/onedark.vim'
 Plug 'mhinz/vim-startify'
 Plug 'Yggdroot/indentLine'
 Plug 'luochen1990/rainbow'

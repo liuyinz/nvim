@@ -3,6 +3,7 @@
 let g:onedark_hide_endofbuffer=1
 let g:onedark_terminal_italics=1
 colorscheme onedark
+autocmd ColorScheme * source $VIM_PATH/core/ui.vim
 
 " Floaterm
 " -----------------------------
@@ -202,7 +203,7 @@ let g:rainbow_conf = {
   \    },
   \    'css': 0,
   \    'floaterm': 0,
-  \}
+  \   }
   \}
 
 
@@ -216,29 +217,29 @@ let g:strip_whitespace_confirm=0
 let g:strip_whitelines_at_eof=1
 let g:better_whitespace_filetypes_blacklist=['diff', 'gitcommit', 'qf', 'help','far','mundo','git']
 
-
-" Hipairs
+" autopairs
 " -----------------------------
-" let g:hiPairs_enable_matchParen = 0
-" let g:hiPairs_hl_matchPair = {
-"     \'term'    : 'underline,bold',
-"     \'cterm'   : 'underline,bold',
-"     \'ctermfg' : 'NONE',
-"     \'ctermbg' : 'NONE',
-"     \'gui'     : 'None',
-"     \'guifg'   : 'None',
-"     \'guibg'   : '#544B64'
-"     \}
-" let g:hiPairs_hl_unmatchPair = {
-"     \'term'    : 'underline,italic',
-"     \'cterm'   : 'NONE',
-"     \'ctermfg' : '231',
-"     \'ctermbg' : '196',
-"     \'gui'     : 'None',
-"     \'guifg'   : 'None',
-"     \'guibg'   : 'None'
-"     \}
+let g:AutoPairs={'(':')', '[':']', '{':'}',"'":"'",'"':'"', '`':'`'}
+let AutoPairsShortcutFastWrap=''
+let AutoPairsShortcutToggle=''
+let g:AutoPairsFlyMode = 0
 
+au FileType html let b:AutoPairs = AutoPairsDefine({'<':'>','<!--' : '-->'})
+au FileType python let b:AutoPairs = AutoPairsDefine({
+  \ '```':'```',
+  \ '"""':'"""',
+  \ "'''":"'''"
+  \ })
+
+" vim-matchup
+" -----------------------------
+let g:matchup_matchparen_enable = 0
+let g:matchup_matchparen_offscreen = { 'method' : 'popup'}
+let g:matchup_matchparen_nomode = "vV\<c-v>"
+let g:matchup_matchparen_hi_surround_always = 0
+let g:matchup_matchparen_deferred = 1
+let g:matchup_matchparen_deferred_show_delay = 20
+let g:matchup_matchpref['html'] = { 'nolists' : 1 , 'tagnameonly' : 1}
 
 " vim-mundo
 " -----------------------------
@@ -350,21 +351,6 @@ let g:formatters_markdown   = ['prettier']
 " au BufWrite * :Autoformat
 nnoremap <leader>f :Autoformat<cr>
 vmap     <leader>f :Autoformat<cr>
-
-
-" autopairs
-" -----------------------------
-let g:AutoPairs={'(':')', '[':']', '{':'}',"'":"'",'"':'"', '`':'`'}
-let AutoPairsShortcutFastWrap=''
-let AutoPairsShortcutToggle=''
-let g:AutoPairsFlyMode = 0
-
-au FileType html let b:AutoPairs = AutoPairsDefine({'<':'>','<!--' : '-->'})
-au FileType python let b:AutoPairs = AutoPairsDefine({
-  \ '```':'```',
-  \ '"""':'"""',
-  \ "'''":"'''"
-  \ })
 
 
 " Asyncrun
