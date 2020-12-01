@@ -47,8 +47,6 @@ if has('vim_starting')
   " Release keymappings prefixes, evict entirely for use of plug-ins.
   nnoremap <Space>  <Nop>
   xnoremap <Space>  <Nop>
-  nnoremap ,        <Nop>
-  xnoremap ,        <Nop>
   nnoremap ;        <Nop>
   xnoremap ;        <Nop>
   " Initialize base requirements
@@ -95,7 +93,6 @@ Plug 'Shougo/echodoc.vim'
 Plug 'junegunn/vim-peekaboo'
 " Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 " motion
-Plug 't9md/vim-choosewin'
 Plug 'easymotion/vim-easymotion'
 " Plug 'MattesGroeger/vim-bookmarks'
 " format

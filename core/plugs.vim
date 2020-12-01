@@ -102,25 +102,6 @@ nnoremap <silent> <localleader>r :<C-u>Leaderf rg<cr>
 vmap     <silent> <localleader>r :<C-U><C-R>=printf("Leaderf rg
   \ -F -e %s ", leaderf#Rg#visual())<cr><cr>
 
-
-"" fugitive
-"" -----------------------------
-"nnoremap <silent> <localleader>gs  :Gstatus<CR>
-"nnoremap <silent> <localleader>ga  :Gwrite<CR>
-"nnoremap <silent> <localleader>gq  :Gwq<CR>
-"nnoremap <silent> <localleader>ge  :Gread<CR>
-"nnoremap <silent> <localleader>gc  :Gcommit<CR>
-"nnoremap <silent> <localleader>gd  :Gvdiffsplit<CR>
-"nnoremap <silent> <localleader>gmt :Gvdiffsplit!<CR>
-"vnoremap <silent> <localleader>gb  :Gbrowse<CR>
-"nnoremap <localleader>grb :Grebase<Space>
-"nnoremap <localleader>grn :Grename<Space>
-"nnoremap <localleader>gm  :Gmerge<Space>
-"nnoremap <localleader>grm :Gremove<Space>
-"nnoremap <localleader>gf  :Gfetch<Space>
-"nnoremap <localleader>gp  :Gpush<Space>
-"nnoremap <localleader>gpl :Gpull<Space>
-
 " gv
 " ----------------------------
 nnoremap <silent> <localleader>gl :GV<CR>
@@ -290,51 +271,6 @@ nmap <leader>cy  <plug>NERDCommenterYank
 xmap <leader>cy  <plug>NERDCommenterYank
 nmap <leader>ce  <plug>NERDCommenterToEOL
 nmap <leader>ca  <plug>NERDCommenterAppend
-
-
-" vim-choosewin
-" -----------------------------
-let g:choosewin_statusline_replace = 1
-let g:choosewin_label = 'ASDFZXCV'
-let g:choosewin_tablabel = 'QWERT'
-let g:choosewin_overlay_enable = 0
-let g:choosewin_blink_on_land = 0
-
-let g:choosewin_color_label = {
-  \'gui': ['#5d4d7a', 'white', 'bold'],
-  \'cterm': ['#5d4d7a', 'white', 'bold'] }
-
-let g:choosewin_color_label_current = {
-  \'gui':['#C792EA', 'black', 'bold'],
-  \'cterm': ['#C792EA', 'black', 'bold'] }
-
-let g:choosewin_color_overlay = {
-  \'gui': ['#5d4d7a','#5d4d7a'],
-  \'cterm': ['#5d4d7a','#5d4d7a'] }
-
-let g:choosewin_color_overlay_current = {
-  \'gui': ['#C792EA','#C792EA'],
-  \'cterm': ['#C792EA','#C792EA'] }
-
-let g:choosewin_color_shade = {
-  \'gui':[ '', '#292B2E'],
-  \'cterm': ['', '#292B2E'] }
-
-let g:choosewin_keymap = {
-  \ '0':     '<NOP>',
-  \ '[':     '<NOP>',
-  \ ']':     '<NOP>',
-  \ '$':     '<NOP>',
-  \ 'k':     '<NOP>',
-  \ ';':     '<NOP>',
-  \ ',':     'previous',
-  \ 'g':     '<NOP>',
-  \ 'G':     '<NOP>',
-  \ "\<CR>": '<NOP>',
-  \ }
-
-nmap <silent><nowait> , <Plug>(choosewin)
-
 
 " vim-easymotion
 " -----------------------------
