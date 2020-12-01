@@ -59,6 +59,7 @@ call plug#begin($DATA_PATH . '/plugs')
 Plug 'joshdick/onedark.vim'
 Plug 'junegunn/vim-plug'
 Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
+Plug 'Yggdroot/LeaderF-marks'
 Plug 'voldikss/vim-floaterm'
 
 " edit

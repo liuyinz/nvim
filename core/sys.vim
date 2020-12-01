@@ -5,39 +5,39 @@
 " General Settings
 " ----------------------------
 if has('termguicolors')
-    set termguicolors
+  set termguicolors
 endif
 
 if exists('&pumblend')
-    set pumblend=5
+  set pumblend=5
 endif
 
 if has('conceal')
-    set conceallevel=3
-    set concealcursor=niv
+  set conceallevel=3
+  set concealcursor=niv
 endif
 
 if has('nvim')
-    set shada='300,<50,@100,s10,h
+  set shada='300,<50,@100,s10,h
 endif
 
 if has('mac')
-    let g:clipboard = {
-      \ 'name': 'macOS-clipboard',
-      \ 'copy': {
-      \    '+': 'pbcopy',
-      \    '*': 'pbcopy',
-      \  },
-      \ 'paste': {
-      \    '+': 'pbpaste',
-      \    '*': 'pbpaste',
-      \ },
-      \ 'cache_enabled': 0,
-      \ }
+  let g:clipboard = {
+    \ 'name': 'macOS-clipboard',
+    \ 'copy': {
+    \    '+': 'pbcopy',
+    \    '*': 'pbcopy',
+    \  },
+    \ 'paste': {
+    \    '+': 'pbpaste',
+    \    '*': 'pbpaste',
+    \ },
+    \ 'cache_enabled': 0,
+    \ }
 endif
 
 if has('clipboard')
-    set clipboard=unnamed
+  set clipboard=unnamed
 endif
 
 
@@ -128,8 +128,8 @@ set matchtime=1
 set cpoptions-=m
 
 if executable('rg')
-    set grepprg=rg\ --vimgrep\ $*
-    set grepformat=%f:%l:%c:%m
+  set grepprg=rg\ --vimgrep\ $*
+  set grepformat=%f:%l:%c:%m
 endif
 
 " Wildmenu
@@ -238,9 +238,9 @@ tnoremap <Esc> <C-\><C-n>
 tnoremap <expr> <C-R> '<C-\><C-N>"'.nr2char(getchar()).'pi'
 
 augroup TermSet
-    autocmd!
-    autocmd TermOpen * setlocal nonumber norelativenumber
-    autocmd TermOpen * startinsert
+  autocmd!
+  autocmd TermOpen * setlocal nonumber norelativenumber
+  autocmd TermOpen * startinsert
 augroup END
 
 
@@ -282,10 +282,10 @@ vnoremap <expr> <leader>cN "y/\\V\<C-r>=escape(@\", '/')\<CR>\<CR>" . "``cgN"
 " Append modeline to EOF
 nnoremap <silent> <Leader>ll :call <SID>append_modeline()<CR>
 function! s:append_modeline()
-    let l:modeline = printf(' vim: set ts=%d sw=%d tw=%d %set :',
-      \ &tabstop, &shiftwidth, &textwidth, &expandtab ? '' : 'no')
-    let l:modeline = substitute(&commentstring, '%s', l:modeline, '')
-    call append(line('$'), l:modeline)
+  let l:modeline = printf(' vim: set ts=%d sw=%d tw=%d %set :',
+    \ &tabstop, &shiftwidth, &textwidth, &expandtab ? '' : 'no')
+  let l:modeline = substitute(&commentstring, '%s', l:modeline, '')
+  call append(line('$'), l:modeline)
 endfunction
 
 " nnoremap <leader>yr

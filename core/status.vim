@@ -66,7 +66,7 @@ nmap <Leader>8 <Plug>lightline#bufferline#go(8)
 nmap <Leader>9 <Plug>lightline#bufferline#go(9)
 
 function! s:lightline_is_lean() abort
-  return &filetype =~? '\v^defx|startify|vim-plug|help|fugitive|GV|git|mundo(diff)?$'
+  return &filetype =~? '\v^man|startify|vim-plug|help|fugitive|GV|git|mundo(diff)?$'
 endfunction
 
 function! s:lightline_is_terminal() abort

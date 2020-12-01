@@ -164,7 +164,7 @@ let g:indentLine_setColors  =  1
 let g:indentline_char='¦'
 let g:indentLine_color_gui = '#544B64'
 let g:indentLine_fileTypeExclude = [
-  \'defx', 'fzf', 'vista_kind', 'yaml', 'json', 'help','startify']
+  \'man', 'floaterm', 'yaml', 'json', 'help','startify']
 let g:indentLine_bufTypeExclude = ['help', 'terminal','startify']
 let g:indentLine_faster = 1
 
