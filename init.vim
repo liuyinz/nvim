@@ -56,6 +56,7 @@ endif
 call plug#begin($DATA_PATH . '/plugs')
 
 " Basic
+Plug 'dstein64/vim-startuptime'
 Plug 'joshdick/onedark.vim'
 Plug 'junegunn/vim-plug'
 Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
