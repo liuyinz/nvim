@@ -1,29 +1,25 @@
 let g:lightline = {
   \ 'colorscheme': 'one',
   \ 'active': {
-  \ 'left':  [ [ 'mode' ],
+  \ 'left':  [ [ 'mode', 'paste' ],
   \            [ 'gitbranch' ],
-  \            [ 'asyncrun_status' ]],
-  \ 'right': [ [ 'lineinfo' ],
-  \            [ 'filesize' ],
+  \            [ 'filepath', 'readonly' ],
+  \            [ 'asyncrun_status' ] ],
+  \ 'right': [ [ 'filesize', 'lineinfo' ],
   \            [ 'filetype' ],
-  \            [ 'fileformat' ],
-  \            [ 'fileencoding' ],
-  \            [ 'readonly' ] ]
+  \            [ 'fileencoding', 'fileformat' ] ],
   \ },
   \ 'inactive': {
-  \ 'left':  [ [ 'mode' ],
-  \            [ 'gitbranch' ]],
-  \ 'right': [ [ 'lineinfo' ],
-  \            [ 'filesize' ],
+  \ 'left':  [ [ 'mode', 'paste' ],
+  \            [ 'gitbranch' ],
+  \            [ 'filepath', 'readonly' ] ],
+  \ 'right': [ [ 'filesize', 'lineinfo' ],
   \            [ 'filetype' ],
-  \            [ 'fileformat' ],
-  \            [ 'fileencoding' ],
-  \            [ 'readonly' ]]
+  \            [ 'fileencoding', 'fileformat' ] ],
   \ },
   \ 'tabline':{
   \ 'left': [['buffers']],
-  \ 'right': [['filepath']],
+  \ 'right': [['tabindex']],
   \ },
   \ 'component': {
   \ },
@@ -36,6 +32,7 @@ let g:lightline = {
   \   'readonly': 'ReadOnly',
   \   'filesize': 'FileSize',
   \   'filepath': 'FilePath',
+  \   'tabindex': 'TabIndex',
   \ },
   \ 'component_expand': {
   \   'buffers': 'lightline#bufferline#buffers',
@@ -44,7 +41,8 @@ let g:lightline = {
   \ 'component_type': {'buffers': 'tabsel'},
   \ 'separator': { 'left': "\ue0b8", 'right': "\ue0be"},
   \ 'subseparator': { 'left': "\ue0b9", 'right': "\ue0b9"},
-  \ 'tabline_separator': { 'left': "", 'right': "" }
+  \ 'tabline_separator': { 'left': "", 'right': "" },
+  \ 'tabline_subseparator': { 'left': "", 'right': "" }
   \ }
 
 let g:lightline#bufferline#filename_modifier = ':t'
@@ -132,71 +130,12 @@ endfunction
 
 " FilePath
 function! FilePath()
-  let prepath = pathshorten(expand('%:p:~:h:h')) . "/" . expand('%:p:h:t')
-  return s:lightline_is_terminal() || expand('%:t') ==# '' ? '' : prepath
+  let l:prepath = pathshorten(expand('%:p:~:h:h')) . "/" . expand('%:p:h:t')
+  return s:lightline_is_lean() || expand('%:t') ==# '' ? '' : l:prepath
 endfunction
 
-" " GitInfo
-" function! GitInfo() abort
-"   let gitbranch=get(g:, 'coc_git_status', '')
-"   let gitcount=get(b:, 'coc_git_status', '')
-"   let gitinfo = []
-"   if empty(gitbranch)
-"     let gitbranch=""
-"   endif
-"   if empty(gitcount)
-"     let gitcount=""
-"   endif
-"   call add(gitinfo,gitbranch)
-"   call add(gitinfo,gitcount)
-"   return s:lightline_is_lean() ? '' : trim(join(gitinfo,''))
-" endfunction
-
-" " CocDiagnostic
-" function! CocDiagnostic() abort
-"   let info = get(b:, 'coc_diagnostic_info', {})
-"   if empty(info) | return '' | endif
-"   let msgs = []
-"   if get(info, 'error', 0)
-"     call add(msgs, 'E' . info['error'])
-"   endif
-"   if get(info, 'warning', 0)
-"     call add(msgs, 'W' . info['warning'])
-"   endif
-"   return join(msgs, ':')
-" endfunction
-
-" function! CocFixes() abort
-"   let b:coc_line_fixes = get(get(b:, 'coc_quickfixes', {}), line('.'), 0)
-"   return b:coc_line_fixes > 0 ? printf('%d ', b:coc_line_fixes) : ''
-" endfunction
-
-" " Diagnostic's feedback
-" function! CocUpdateQuickFixes(error, actions) abort
-"   let coc_quickfixes = {}
-"   try
-"     for action in a:actions
-"       if action.kind ==? 'quickfix'
-"         for change in action.edit.documentChanges
-"           for edit in change.edits
-"             let start_line = edit.range.start.line + 1
-"             let end_line = edit.range.end.line + 1
-"             let coc_quickfixes[start_line] = get(coc_quickfixes, start_line, 0) + 1
-"             if start_line != end_line
-"               let coc_quickfixes[end_line] = get(coc_quickfixes, end_line, 0) + 1
-"             endif
-"           endfor
-"         endfor
-"       endif
-"     endfor
-"   catch
-"   endtry
-"   if coc_quickfixes != get(b:, 'coc_quickfixes', {})
-"     let b:coc_quickfixes = coc_quickfixes
-"     call lightline#update()
-"   endif
-" endfunction
-
-" autocmd  MyAutoCmd User CocStatusChange,CocDiagnosticChange,CocGitStatusChange
-"   \   call lightline#update()
-"   \|  call CocActionAsync('quickfixes', function('CocUpdateQuickFixes'))
+" TabIndex
+function! TabIndex()
+  let l:index = tabpagenr() . "/" . tabpagenr('$')
+  return tabpagenr('$') < 2 ? '' : l:index
+endfunction
