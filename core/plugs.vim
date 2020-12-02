@@ -452,7 +452,6 @@ xmap A  <Plug>(niceblock-A)
 
 " Language
 " ---------------
-
 let g:mta_use_matchparen_group = 0
 let g:mta_set_default_matchtag_color = 0
 
@@ -476,6 +475,8 @@ let g:ultisnips_javascript = {
 " -----------------------------
 let g:user_emmet_leader_key='<C-Z>'
 let g:user_emmet_install_global = 0
+" let g:user_emmet_settings = webapi#json#decode(join(readfile(expand('~/.snippets_custom.json')), "\n"))
+
 autocmd FileType html,css EmmetInstall
 
 " Polyglot
