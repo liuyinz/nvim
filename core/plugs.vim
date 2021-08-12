@@ -1,8 +1,9 @@
 " theme
 " -----------------------------
-let g:onedark_hide_endofbuffer=1
-let g:onedark_terminal_italics=1
-colorscheme onedark
+" let g:onedark_hide_endofbuffer=1
+" let g:onedark_terminal_italics=1
+" colorscheme onedark
+colorscheme citylights
 autocmd ColorScheme * source $VIM_PATH/core/ui.vim
 
 " Floaterm

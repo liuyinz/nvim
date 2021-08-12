@@ -57,6 +57,7 @@ call plug#begin($DATA_PATH . '/plugs')
 
 " Basic
 Plug 'dstein64/vim-startuptime'
+Plug 'saltdotac/citylights.vim'
 Plug 'joshdick/onedark.vim'
 Plug 'junegunn/vim-plug'
 Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
