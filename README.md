@@ -22,27 +22,6 @@
 | `Ctrl` + `w` | I,C  | delete the whole word   |
 | `Ctrl` + `u` | I,C  | delete to the beginning |
 
-- Buffer
-
-| Keys | Mode  | Description                  |
-| ---- | ----- | ---------------------------- |
-| `j`  | N,V   | gj                           |
-| `k`  | N,V   | gk                           |
-| `ml` | N,X,O | easymotion-move-line         |
-| `mw` | N,X,O | easymotion-move-word-begin   |
-| `mn` | N,X,O | easymotion-move-match-select |
-
-- Window
-
-| Keys       | Mode | Description      |
-| ---------- | ---- | ---------------- |
-| `,`        | N    | ChooseWin        |
-| `,` + `,`  | N    | prev window      |
-| `,` + `g`  | N    | swap window      |
-| `,` + `G`  | N    | swap&stay window |
-| `,` + `gg` | N    | reswap           |
-| `,` + `k`  | N    | tab close        |
-
 ### Window & Tab
 
 | Keys             | Mode | Description      |
@@ -87,58 +66,6 @@
 | `<Leader>` + `cn` | N,V  | change word repeatable |
 | `<Leader>` + `cN` | N,V  | change word repeatable |
 | `<Leader>` + `t`  | N    | open Goyo              |
-
-### CoC
-
-| Keys                   | Mode | Description              |
-| ---------------------- | ---- | ------------------------ |
-| `<localleader>` + `cd` | N    | CocList Diagnostics      |
-| `<localleader>` + `km` | N    | CocList maps             |
-| `<localleader>` + `vc` | N    | CocList vimcommands      |
-| `<localleader>` + `qf` | N    | CocList quickfix         |
-| `<localleader>` + `cj` | N    | Cocnext                  |
-| `<localleader>` + `ck` | N    | CocPrev                  |
-| `Tab`                  | S    | Jump to next snippets    |
-| `Shift` + `Tab`        | S    | Jump to prev snippets    |
-| `Ctrl` + `j`           | I    | completion down          |
-| `Ctrl` + `k`           | I    | completion up            |
-| `Ctrl` + `m`           | I,S  | Confirm                  |
-| `[` + `d`              | N    | coc-diagnostic-prechunk  |
-| `]` + `d`              | N    | coc-diagnostic-nextchunk |
-| `[` + `g`              | N    | coc-git-prechunk         |
-| `]` + `g`              | N    | coc-git-nextchunk        |
-| `gd`                   | N    | jump to definition       |
-| `gy`                   | N    | coc-type-definition      |
-| `gi`                   | N    | coc-implementation       |
-| `gr`                   | N    | coc-references           |
-| `gD`                   | N    | coc-declaration          |
-| `gl`                   | N    | coc-openlink             |
-| `gn`                   | N    | coc-rename               |
-| `gs`                   | N    | coc-git-chunkinfo        |
-| `gc`                   | N    | coc-git-commit           |
-| `gm`                   | N    | coc-codeaction           |
-
-### Git
-
-| Keys                    | Description     |
-| ----------------------- | --------------- |
-| `<localleader>` + `ga`  | Git add         |
-| `<localleader>` + `gb`  | Git browse      |
-| `<localleader>` + `gbl` | Git blame       |
-| `<localleader>` + `gc`  | Git commits     |
-| `<localleader>` + `gd`  | Git diff-staged |
-| `<localleader>` + `gmt` | Git mergetool   |
-| `<localleader>` + `gf`  | Git fetch       |
-| `<localleader>` + `gl`  | GV log-all      |
-| `<localleader>` + `glb` | GV log-buffer   |
-| `<localleader>` + `gm`  | Git merge       |
-| `<localleader>` + `gs`  | Git status      |
-| `<localleader>` + `gw`  | save & Git add  |
-| `<localleader>` + `gp`  | Git push        |
-| `<localleader>` + `gpl` | Git pull        |
-| `<localleader>` + `grb` | Git rebase      |
-| `<localleader>` + `grm` | Git remove      |
-| `<localleader>` + `grn` | Git rename      |
 
 ### Abolish
 
@@ -237,53 +164,6 @@
 | `>`  | V    | indent                 |
 | `<`  | V    | de-indent              |
 
-### Bookmark
-
-| Keys  | Mode | Description        |
-| ----- | ---- | ------------------ |
-| `ma`  | N    | show Bookmark      |
-| `mm`  | N    | Toggle Bookmark    |
-| `mi`  | N    | Annotate Bookmark  |
-| `mj`  | N    | Next Bookmark      |
-| `mk`  | N    | prev Bookmark      |
-| `mc`  | N    | Clear Bookmark     |
-| `mcc` | N    | clear all Bookmark |
-
-### Function
-
-| Keys         | Mode | Description          |
-| ------------ | ---- | -------------------- |
-| `Ctrl` + `p` | C    | command history up   |
-| `Ctrl` + `n` | C    | command history down |
-| `ga`         | N,V  | EasyAlign            |
-| `gb`         | N,V  | Open Browser         |
-| `gf`         | N,V  | Open Filepath        |
-| `gF`         | N,V  | Open Filepath:line   |
-| `ss`         | X    | substitute           |
-| `st`         | X    | subvert              |
-| `gz`         | N,V  | Dash search cword    |
-| `gzz`        | N    | Dash search cword g  |
-
-## LeaderF
-
-| Keys         | Description                            |
-| ------------ | -------------------------------------- |
-| <C-C>, <ESC> | quit from LeaderF                      |
-| <C-R>        | switch fuzzy and regex                 |
-| <C-F>        | switch : full path and name only       |
-| <Tab>        | switch to normal mode                  |
-| <C-V>        | paste from clipboard                   |
-| <C-U>        | clear the prompt                       |
-| <C-J>, <C-K> | navigate the result list               |
-| <CR>,<C-M>   | open the file under cursor or selected |
-| <C-L>        | open in vertical split window          |
-| <C-X>        | open in horizontal split window        |
-| <C-T>        | open in new tabpage                    |
-| <C-S>        | select multiple files                  |
-| <C-A>        | select all files                       |
-| <C-Q>        | clear all selections                   |
-| <C-P>        | preview the result                     |
-
 ## Ranger
 
 | Keys      | Mode | Description                      |
@@ -344,41 +224,6 @@
 | `m<any>`  | N    | set_bookmark %any                |
 | `um<any>` | N    | unset_bookmark %any              |
 
-### language
-
-- Markdown
-
-| Keys                   | Mode | Description          |
-| ---------------------- | ---- | -------------------- |
-| `<localleader>` + `mb` | N    | Open url undercursor |
-| `<localleader>` + `me` | N    | Edit url undercursor |
-| `<localleader>` + `md` | N    | Header decrease      |
-| `<localleader>` + `mi` | N    | Header increase      |
-| `<localleader>` + `mf` | N    | Table format         |
-| `<localleader>` + `mt` | N    | Toc                  |
-| `<localleader>` + `mp` | N    | Preview markdown     |
-| `<localleader>` + `ms` | N    | Setex to atx         |
-
-- Python
-
-| Keys                   | Mode | Description   |
-| ---------------------- | ---- | ------------- |
-| `<localleader>` + `ds` | N    | Add docstring |
-| `<localleader>` + `zb` | N    | Add shebang   |
-
-### TextObj
-
-| Keys  | Mode   | Description                             |
-| ----- | ------ | --------------------------------------- |
-| `aF`  | Python | textobject                              |
-| `iF`  | Python | textobject                              |
-| `sa`  | N      | operatore-surround prefix               |
-| `sd`  | N      | operatore-surround prefix               |
-| `sr`  | N      | operatore-surround prefix               |
-| `saa` | N      | operatore-surround textobj-multiblock-i |
-| `sdd` | N      | operatore-surround textobj-multiblock-a |
-| `srr` | N      | operatore-surround textobj-multiblock-a |
-
 ### Surround
 
     * = ( ) { } [ ] < > b B r a  " ' ` t
@@ -422,47 +267,3 @@
 | `<Left>`  | stick_to_left    | { 'stick_to_left': 1, 'left_margin': 0 }       |
 | `<Right>` | stick_to_left    | { 'stick_to_left': 0, 'left_margin': 1 }       |
 | `<Down>`  | \*\_margin       | { 'left_margin': 0, 'right_margin': 0 }        |
-
-### Far
-
-    x, v_x   Exclude item under the cursor.
-    i, v_i   Include item under the cursor.
-    t, v_t   Toggle item exclusion under the cursor.
-    X        Exclude all items.
-    I        Include all items.
-    T        Toggle exclusion for all items.
-    <CR>     Jump to the source code of the item under the cursor.
-    p        Open preview window (if not) and scroll to the item under the cursor.
-    P        Close preview window.
-    CTRL-K   Scroll preview window up (if open).
-    CTRL-J   Scroll preview window down (if open).
-    zo       Expand node under the cursor.
-    zc       Collapse node under the cursor.
-    za       Toggle node expanding under the cursor.
-    zr       Expand all nodes.
-    zm       Collapse all nodes.
-    zA       Toggle exclusion for all nodes.
-
-## Tmux
-
-| Keys             | Description             |
-| ---------------- | ----------------------- |
-| `Ctrl` + `space` | PREFIX                  |
-| `Ctrl` + `e`     | edit conf               |
-| `Ctrl` + `r`     | reload conf             |
-| `Ctrl` + `s`     | toggle statusbar        |
-| `Space`          | change Window           |
-| `,`              | split window vertical   |
-| `.`              | split window horizontal |
-| `i`              | select-pane left        |
-| `j`              | select-pane down        |
-| `k`              | select-pane up          |
-| `l`              | select-pane right       |
-| `[`              | swap-pane -D            |
-| `]`              | swap-pane -dD           |
-| `x`              | kill-pane               |
-| `X`              | kill-pane -all          |
-| `c`              | new-window              |
-| `q`              | kill-window             |
-| `r`              | rename-window           |
-| `Q`              | kill-session            |
